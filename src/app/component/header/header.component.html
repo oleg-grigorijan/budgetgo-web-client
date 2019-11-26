@@ -1,0 +1,8 @@
+<header class="navbar navbar-expand navbar-light">
+    <div class="navbar-brand">Budget<span class="text-primary">GO</span></div>
+    <ul class="navbar-nav mr-auto">
+        <li *ngIf="this.authenticationService.isAuthenticated" class="nav-item">
+            <button (click)="onSignOutClick()" class="btn nav-link">Sign out</button>
+        </li>
+    </ul>
+</header>
