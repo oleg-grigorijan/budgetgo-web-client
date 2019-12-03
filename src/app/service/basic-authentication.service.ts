@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {Subject} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class BasicAuthenticationService {
@@ -13,6 +14,12 @@ export class BasicAuthenticationService {
     get isAuthenticated(): boolean {
         return this._isAuthenticated;
     }
+
+    private onSignInSubject = new Subject<void>();
+    readonly onSignIn = this.onSignInSubject.asObservable();
+
+    private onSignOutSubject = new Subject<void>();
+    readonly onSignOut = this.onSignOutSubject.asObservable();
 
     private _token: string;
     get token(): string {
@@ -36,6 +43,9 @@ export class BasicAuthenticationService {
                 if (error instanceof HttpErrorResponse && error.status === 401) {
                     callback();
                 }
+            },
+            () => {
+                this.onSignInSubject.next();
             }
         );
     }
@@ -50,6 +60,6 @@ export class BasicAuthenticationService {
         this._isAuthenticated = false;
         this._token = null;
         localStorage.removeItem(this.localStorageKey);
+        this.onSignOutSubject.next();
     }
-
 }
