@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {UserDetailsService} from '../../service/user-details.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserDetails} from '../../entity/user-details';
+import {CurrenciesService} from '../../service/currencies.service';
 
 @Component({
     selector: 'app-user-details-edit-form',
@@ -15,7 +16,11 @@ export class UserDetailsEditFormComponent implements OnInit {
     private isLoading = false;
     private success = '';
 
-    constructor(private readonly formBuilder: FormBuilder, private readonly userDetailsService: UserDetailsService) {
+    constructor(
+        private readonly formBuilder: FormBuilder,
+        private readonly userDetailsService: UserDetailsService,
+        private readonly currenciesService: CurrenciesService
+    ) {
     }
 
     ngOnInit() {
@@ -24,10 +29,12 @@ export class UserDetailsEditFormComponent implements OnInit {
             email: ['', [Validators.required, Validators.email, Validators.maxLength(255)]],
             isEmailPublic: [''],
             name: ['', [Validators.required, Validators.maxLength(255)]],
-            surname: ['', [Validators.required, Validators.maxLength(255)]]
+            surname: ['', [Validators.required, Validators.maxLength(255)]],
+            mainCurrencyId: ['', [Validators.required]]
         });
 
         this.form.patchValue(this.userDetails);
+        this.form.controls.mainCurrencyId.patchValue(this.userDetails.mainCurrency.id);
 
         this.form.valueChanges.subscribe(() => {
             this.success = '';
