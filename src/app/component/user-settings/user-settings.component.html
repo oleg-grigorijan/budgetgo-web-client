@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4>Account Settings</h4>
+            <div *ngIf="(userDetailsService.userDetails$ | async) as userDetails">
+                <app-user-details-edit-form [userDetails]="userDetails"></app-user-details-edit-form>
+            </div>
+        </div>
+    </div>
+</div>
