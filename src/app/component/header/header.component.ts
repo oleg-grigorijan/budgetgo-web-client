@@ -10,9 +10,9 @@ import {UserDetailsService} from '../../service/user-details.service';
 export class HeaderComponent implements OnInit {
 
     constructor(
-        private router: Router,
-        private authenticationService: BasicAuthenticationService,
-        private userDetailsService: UserDetailsService
+        private readonly router: Router,
+        private readonly authenticationService: BasicAuthenticationService,
+        private readonly userDetailsService: UserDetailsService
     ) {
     }
 

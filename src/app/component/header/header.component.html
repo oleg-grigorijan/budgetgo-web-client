@@ -4,7 +4,9 @@
         <ul class="navbar-nav ml-auto">
             <li *ngIf="this.authenticationService.isAuthenticated" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true">
-                    {{this.userDetailsService.userDetails?.name}} {{this.userDetailsService.userDetails?.surname}}
+                    <span *ngIf="userDetailsService.userDetails$ | async as userDetails">
+                        {{userDetails.name}} {{userDetails.surname}}
+                    </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarUser">
                     <a (click)="onSignOutClick()" class="dropdown-item text-danger" role="button">Sign out</a>

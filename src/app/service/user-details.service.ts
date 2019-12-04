@@ -3,42 +3,42 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {UserDetails} from '../entity/user-details';
 import {BasicAuthenticationService} from './basic-authentication.service';
+import {ReplaySubject, Subject} from 'rxjs';
+import {tap} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class UserDetailsService {
 
-    private apiUrl = environment.apiBaseUrl + '/me';
+    private readonly apiUrl = environment.apiBaseUrl + '/me';
 
-    private _userDetails: UserDetails | null;
-    get userDetails(): UserDetails | null {
-        return this._userDetails;
-    }
-
-    private _isLoading = false;
-    get isLoading(): boolean {
-        return this._isLoading;
-    }
+    private readonly userDetailsSubject: Subject<UserDetails> = new ReplaySubject<UserDetails>(1);
+    readonly userDetails$ = this.userDetailsSubject.asObservable();
 
     constructor(private http: HttpClient, private authenticationService: BasicAuthenticationService) {
-        if (authenticationService.isAuthenticated) {
-            this.fetch();
-        }
-        authenticationService.onSignIn.subscribe(() => {
-            this.fetch();
-        });
-        authenticationService.onSignOut.subscribe(() => {
-            this._userDetails = null;
+        authenticationService.authentication$.subscribe(isAuthenticated => {
+            if (isAuthenticated) {
+                this.fetch();
+            } else {
+                this.userDetailsSubject.next(null);
+            }
         });
     }
 
-    fetch() {
-        this._isLoading = true;
+    private fetch(): void {
         this.http.get<UserDetails>(this.apiUrl).subscribe((userDetails) => {
-                this._userDetails = userDetails;
-                this._isLoading = false;
-            },
-            () => {
-                this._isLoading = false;
-            });
+            this.userDetailsSubject.next(userDetails);
+        });
+    }
+
+    patch(patches): Promise<UserDetails> {
+        return this.http.patch<UserDetails>(this.apiUrl, patches).pipe(tap((patchedUserDetails) => {
+            if (patches.login) {
+                this.authenticationService.updateLogin(patches.login);
+            }
+            if (patches.password) {
+                this.authenticationService.updatePassword(patches.password);
+            }
+            this.userDetailsSubject.next(patchedUserDetails);
+        })).toPromise();
     }
 }
