@@ -10,6 +10,9 @@ import {BasicAuthenticationInterceptor} from './interseptor/basic-authentication
 import {WelcomeComponent} from './component/welcome/welcome.component';
 import {HomeComponent} from './component/home/home.component';
 import {HeaderComponent} from './component/header/header.component';
+import { UserDetailsEditFormComponent } from './component/user-details-edit-form/user-details-edit-form.component';
+import { UserSettingsComponent } from './component/user-settings/user-settings.component';
+import { UserPasswordEditFormComponent } from './component/user-password-edit-form/user-password-edit-form.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +20,10 @@ import {HeaderComponent} from './component/header/header.component';
         LoginFormComponent,
         WelcomeComponent,
         HomeComponent,
-        HeaderComponent
+        HeaderComponent,
+        UserDetailsEditFormComponent,
+        UserSettingsComponent,
+        UserPasswordEditFormComponent
     ],
     imports: [
         BrowserModule,

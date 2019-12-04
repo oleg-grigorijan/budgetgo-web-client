@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {BasicAuthenticationService} from '../../service/basic-authentication.service';
 import {HomeComponent} from '../home/home.component';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
     selector: 'app-login',
@@ -16,10 +17,10 @@ export class LoginFormComponent implements OnInit {
     private error = '';
 
     constructor(
-        private route: ActivatedRoute,
-        private router: Router,
-        private formBuilder: FormBuilder,
-        private authenticationService: BasicAuthenticationService
+        private readonly route: ActivatedRoute,
+        private readonly router: Router,
+        private readonly formBuilder: FormBuilder,
+        private readonly authenticationService: BasicAuthenticationService
     ) {
     }
 
@@ -39,16 +40,15 @@ export class LoginFormComponent implements OnInit {
         }
 
         this.isLoading = true;
-        this.authenticationService.authenticate(this.form.controls.login.value, this.form.controls.password.value,
-            () => {
-                if (this.authenticationService.isAuthenticated) {
-                    const returnUrl = this.route.snapshot.queryParams.returnUrl || HomeComponent.PATH;
-                    this.router.navigate([returnUrl]);
-                } else {
-                    this.error = 'Invalid login or password';
-                }
-                this.isLoading = false;
+        this.authenticationService.authenticate(this.form.controls.login.value, this.form.controls.password.value).then(() => {
+            const returnUrl = this.route.snapshot.queryParams.returnUrl || HomeComponent.PATH;
+            this.router.navigate([returnUrl]);
+            this.isLoading = false;
+        }).catch(error => {
+            if (error instanceof HttpErrorResponse && error.status === 401) {
+                this.error = 'Invalid login or password';
             }
-        );
+            this.isLoading = false;
+        });
     }
 }

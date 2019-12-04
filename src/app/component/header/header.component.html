@@ -1,8 +1,18 @@
-<header class="navbar navbar-expand navbar-light">
-    <div class="navbar-brand">Budget<span class="text-primary">GO</span></div>
-    <ul class="navbar-nav mr-auto">
-        <li *ngIf="this.authenticationService.isAuthenticated" class="nav-item">
-            <button (click)="onSignOutClick()" class="btn nav-link">Sign out</button>
-        </li>
-    </ul>
+<header>
+    <nav class="navbar navbar-expand navbar-light">
+        <div class="navbar-brand">Budget<span class="text-primary">GO</span></div>
+        <ul class="navbar-nav ml-auto">
+            <li *ngIf="this.authenticationService.isAuthenticated" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true">
+                    <span *ngIf="userDetailsService.userDetails$ | async as userDetails">
+                        {{userDetails.name}} {{userDetails.surname}}
+                    </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarUser">
+                    <a routerLink="/settings" class="dropdown-item">Account settings</a>
+                    <a (click)="onSignOutClick()" class="dropdown-item text-danger" role="button">Sign out</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
 </header>
