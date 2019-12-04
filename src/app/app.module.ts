@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {LoginFormComponent} from './component/login/login-form.component';
+import {LoginFormComponent} from './component/login-form/login-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BasicAuthenticationInterceptor} from './interseptor/basic-authentication.interceptor';
