@@ -1,0 +1,30 @@
+<div class="card" [class.border-danger]="storage.settings.isIncludedInUserStatistics && storage.balance < 0">
+    <div class="card-body" [class.text-secondary]="!storage.settings.isIncludedInUserStatistics">
+        <h5 class="card-title mb-1 ">{{storage.name}}</h5>
+        <p class="card-text text-muted mb-3" id="description">{{storage.description}}<br *ngIf="!storage.description"></p>
+        <h4 class="card-title mb-0" [class.text-danger]="storage.settings.isIncludedInUserStatistics && storage.balance < 0">
+            <span class="badge" [ngClass]="{
+                'badge-secondary': !storage.settings.isIncludedInUserStatistics,
+                'badge-danger': storage.settings.isIncludedInUserStatistics && storage.balance < 0,
+                'badge-dark': storage.settings.isIncludedInUserStatistics && storage.balance >= 0
+            }">
+                {{storage.currency.isoCode}}
+            </span>
+            {{storage.balance | money}}
+        </h4>
+        <a routerLink="/storages/{{storage.id}}" class="card-link stretched-link"></a>
+    </div>
+    <div *ngIf="storage.settings.isInvitation" class="card-footer bg-transparent pb-3">
+        <p class="card-text mb-2">User @{{storage.settings.inviter.login}} invites you to this storage</p>
+        <button (click)="onAcceptInvitationClick()"
+                [disabled]="this.isAcceptInvitationLoading || this.isDeclineInvitationLoading" class="btn btn-outline-success mr-2">
+            <span *ngIf="isAcceptInvitationLoading" class="spinner-border spinner-border-sm mr-1"></span>
+            Accept
+        </button>
+        <button (click)="onDeclineInvitationClick()"
+                [disabled]="this.isAcceptInvitationLoading || this.isDeclineInvitationLoading" class="btn btn-outline-danger">
+            <span *ngIf="isDeclineInvitationLoading" class="spinner-border spinner-border-sm mr-1"></span>
+            Decline
+        </button>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+.card .card-footer {
+    z-index: 1;
+}
+
+#description {
+    overflow: hidden;
+    white-space: nowrap;
+}
