@@ -59,8 +59,10 @@ export class StorageCreationFormComponent implements OnInit {
         if (this.form.invalid) {
             return;
         }
+        this.isLoading = true;
         this.storagesService.create(this.form.value).then(() => {
             this.returning.emit(true);
+            this.isLoading = false;
         });
     }
 

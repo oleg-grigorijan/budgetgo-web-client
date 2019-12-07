@@ -40,14 +40,13 @@
                 <span class="input-group-text" id="currencyIsoCode">{{selectedCurrency.isoCode}}</span>
             </div>
             <input currencyMask formControlName="initialBalanceFloat" type="text" placeholder="0.00" class="form-control"
-                   aria-describedby="currencyIsoCode"
-                   id="initialBalance">
+                   aria-describedby="currencyIsoCode" id="initialBalance">
         </div>
     </div>
     <button [disabled]="isLoading" class="btn btn-primary" type="submit">
         <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
         Create
     </button>
-    <button (click)="onCancelClick()" class="btn btn-link mr-2">Cancel</button>
+    <button (click)="onCancelClick()" [disabled]="isLoading" class="btn btn-link mr-2">Cancel</button>
 
 </form>
