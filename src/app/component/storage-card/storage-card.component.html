@@ -12,7 +12,7 @@
             </span>
             {{storage.balance | money}}
         </h4>
-        <a routerLink="/storages/{{storage.id}}" class="card-link stretched-link"></a>
+        <a [routerLink]="['/storages', storage.id]" class="card-link stretched-link"></a>
     </div>
     <div *ngIf="storage.settings.isInvitation" class="card-footer bg-transparent pb-3">
         <p class="card-text mb-2">User @{{storage.settings.inviter.login}} invites you to this storage</p>

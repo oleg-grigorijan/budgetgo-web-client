@@ -2,8 +2,8 @@
     <h4 class="mb-3">Storages</h4>
     <div class="row">
         <ng-container *ngFor="let storage of (storagesService.storages$ | async)">
-            <app-storage-card [storage]="storage" class="col-sm-6 col-lg-4 col-xl-3 mb-3"></app-storage-card>
+            <app-storage-card [storage]="storage" class="col-sm-6 col-lg-4 mb-3"></app-storage-card>
         </ng-container>
-        <app-storage-creation-card class="col-sm-6 col-lg-4 col-xl-3 mb-3"></app-storage-creation-card>
+        <app-storage-creation-card class="col-sm-6 col-lg-4 mb-3"></app-storage-creation-card>
     </div>
 </div>

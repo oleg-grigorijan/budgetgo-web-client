@@ -18,6 +18,8 @@ import {StorageCreationFormComponent} from './component/storage-creation-form/st
 import {StorageCardComponent} from './component/storage-card/storage-card.component';
 import {StorageCreationCardComponent} from './component/storage-creation-card/storage-creation-card.component';
 import {NgxCurrencyModule} from 'ngx-currency';
+import { StorageDetailsComponent } from './component/storage-details/storage-details.component';
+import { StorageViewComponent } from './component/storage-view/storage-view.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +34,9 @@ import {NgxCurrencyModule} from 'ngx-currency';
         MoneyPipe,
         StorageCreationFormComponent,
         StorageCardComponent,
-        StorageCreationCardComponent
+        StorageCreationCardComponent,
+        StorageDetailsComponent,
+        StorageViewComponent
     ],
     imports: [
         BrowserModule,
