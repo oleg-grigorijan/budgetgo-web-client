@@ -17,6 +17,7 @@ import {MoneyPipe} from './pipe/money.pipe';
 import {StorageCreationFormComponent} from './component/storage-creation-form/storage-creation-form.component';
 import {StorageCardComponent} from './component/storage-card/storage-card.component';
 import {StorageCreationCardComponent} from './component/storage-creation-card/storage-creation-card.component';
+import {NgxCurrencyModule} from 'ngx-currency';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,18 @@ import {StorageCreationCardComponent} from './component/storage-creation-card/st
         BrowserModule,
         AppRoutingModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        NgxCurrencyModule.forRoot({
+            align: 'left',
+            allowNegative: false,
+            allowZero: true,
+            decimal: '.',
+            precision: 2,
+            prefix: '',
+            suffix: '',
+            thousands: ' ',
+            nullable: false
+        })
     ],
     providers: [
         {

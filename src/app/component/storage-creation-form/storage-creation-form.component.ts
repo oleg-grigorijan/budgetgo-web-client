@@ -37,10 +37,15 @@ export class StorageCreationFormComponent implements OnInit {
             description: ['', [Validators.maxLength(255)]],
             currencyId: [this.mainCurrency.id, [Validators.required]],
             initialBalance: [''],
+            initialBalanceFloat: ['']
+        });
+
+        this.form.controls.initialBalanceFloat.valueChanges.subscribe(value => {
+            this.form.controls.initialBalance.setValue(value * 100);
         });
 
         this.selectedCurrency = this.mainCurrency;
-        this.form.controls.currencyId.valueChanges.subscribe((value: number) => {
+        this.form.controls.currencyId.valueChanges.subscribe(value => {
             if (value === this.mainCurrency.id) {
                 this.selectedCurrency = this.mainCurrency;
             } else {
