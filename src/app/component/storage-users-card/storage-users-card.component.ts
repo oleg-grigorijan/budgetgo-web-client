@@ -7,6 +7,7 @@ import {UsersService} from '../../service/users.service';
 import {User} from '../../entity/user';
 import {HttpErrorResponse} from '@angular/common/http';
 import {UserStorageRole} from '../../entity/user-storage-role';
+import {UserDetailsService} from '../../service/user-details.service';
 
 @Component({
     selector: 'app-storage-users-card',
@@ -32,7 +33,8 @@ export class StorageUsersCardComponent implements OnInit {
     constructor(
         private readonly storageUsersService: StorageUsersService,
         private readonly authoritiesService: UserStorageRoleAuthoritiesService,
-        private readonly usersService: UsersService
+        private readonly usersService: UsersService,
+        private readonly userDetailsService: UserDetailsService
     ) {
     }
 

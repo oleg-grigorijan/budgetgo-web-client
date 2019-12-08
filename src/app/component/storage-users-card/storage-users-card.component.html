@@ -57,41 +57,44 @@
             </div>
         </div>
 
-        <ng-container *ngIf="storageUsers && isCardExpanded">
-            <div *ngFor="let storageUser of storageUsers" class="list-group-item">
-                <div class="mb-0">
-                    <h6 class="mb-1">@{{storageUser.user.login}}</h6>
-                    <div class="text-muted small">
-                        {{storageUser.user.name}} {{storageUser.user.surname}}
-                        <ng-container *ngIf="storageUser.user.isEmailPublic">
-                            - {{storageUser.user.email}}
-                        </ng-container>
-                    </div>
-                </div>
-                <div *ngIf="authoritiesService.canBeModifiedBy(storageUser.userRole, storage.settings.userRole); else cantModify" class="d-flex">
-                    <div class="dropdown mr-3">
-                        <a class="dropdown-toggle" id="roleDropdownButton" role="button" data-toggle="dropdown" aria-haspopup="true">
-                            {{storageUser.userRole | titlecase}}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="roleDropdownButton">
-                            <h6 class="dropdown-header">Change role</h6>
-                            <a (click)="onChangeUserRoleClick(storageUser, 'VIEWER')" class="dropdown-item">
-                                <ng-container *ngTemplateOutlet="viewerRoleDescription"></ng-container>
-                            </a>
-                            <a (click)="onChangeUserRoleClick(storageUser, 'EDITOR')" class="dropdown-item">
-                                <ng-container *ngTemplateOutlet="editorRoleDescription"></ng-container>
-                            </a>
-                            <a (click)="onChangeUserRoleClick(storageUser, 'ADMIN')" class="dropdown-item">
-                                <ng-container *ngTemplateOutlet="adminRoleDescription"></ng-container>
-                            </a>
+        <ng-container *ngIf="userDetailsService.userDetails$ | async as userDetails">
+            <ng-container *ngIf="storageUsers && isCardExpanded">
+                <div *ngFor="let storageUser of storageUsers" class="list-group-item">
+                    <div class="mb-0">
+                        <h6 class="mb-1">@{{storageUser.user.login}}</h6>
+                        <div class="text-muted small">
+                            {{storageUser.user.name}} {{storageUser.user.surname}}
+                            <ng-container *ngIf="storageUser.user.isEmailPublic">
+                                - {{storageUser.user.email}}
+                            </ng-container>
                         </div>
                     </div>
-                    <a (click)="onRemoveUserClick(storageUser)" class="text-danger">Remove</a>
+                    <div *ngIf="storageUser.user.id !== userDetails.id
+                         && authoritiesService.canBeModifiedBy(storageUser.userRole, storage.settings.userRole); else cantModify" class="d-flex">
+                        <div class="dropdown mr-3">
+                            <a class="dropdown-toggle" id="roleDropdownButton" role="button" data-toggle="dropdown" aria-haspopup="true">
+                                {{storageUser.userRole | titlecase}}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="roleDropdownButton">
+                                <h6 class="dropdown-header">Change role</h6>
+                                <a (click)="onChangeUserRoleClick(storageUser, 'VIEWER')" class="dropdown-item">
+                                    <ng-container *ngTemplateOutlet="viewerRoleDescription"></ng-container>
+                                </a>
+                                <a (click)="onChangeUserRoleClick(storageUser, 'EDITOR')" class="dropdown-item">
+                                    <ng-container *ngTemplateOutlet="editorRoleDescription"></ng-container>
+                                </a>
+                                <a (click)="onChangeUserRoleClick(storageUser, 'ADMIN')" class="dropdown-item">
+                                    <ng-container *ngTemplateOutlet="adminRoleDescription"></ng-container>
+                                </a>
+                            </div>
+                        </div>
+                        <a (click)="onRemoveUserClick(storageUser)" class="text-danger">Remove</a>
+                    </div>
+                    <ng-template #cantModify>
+                        {{storageUser.userRole | titlecase}}
+                    </ng-template>
                 </div>
-                <ng-template #cantModify>
-                    {{storageUser.userRole | titlecase}}
-                </ng-template>
-            </div>
+            </ng-container>
         </ng-container>
     </div>
 </div>
