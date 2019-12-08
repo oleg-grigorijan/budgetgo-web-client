@@ -21,6 +21,8 @@ import {NgxCurrencyModule} from 'ngx-currency';
 import { StorageDetailsComponent } from './component/storage-details/storage-details.component';
 import { StorageViewComponent } from './component/storage-view/storage-view.component';
 import { StorageUsersCardComponent } from './component/storage-users-card/storage-users-card.component';
+import { IsInvitationFilterPipe } from './pipe/is-invitation-filter.pipe';
+import { IsIncludedInUserStatisticsSortPipe } from './pipe/is-included-in-user-statistics-sort.pipe';
 
 @NgModule({
     declarations: [
@@ -39,6 +41,8 @@ import { StorageUsersCardComponent } from './component/storage-users-card/storag
         StorageDetailsComponent,
         StorageViewComponent,
         StorageUsersCardComponent,
+        IsInvitationFilterPipe,
+        IsIncludedInUserStatisticsSortPipe,
     ],
     imports: [
         BrowserModule,
