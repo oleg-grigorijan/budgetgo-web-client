@@ -36,8 +36,8 @@ export class StorageCreationFormComponent implements OnInit {
             name: ['', [Validators.required, Validators.maxLength(255)]],
             description: ['', [Validators.maxLength(255)]],
             currencyId: [this.mainCurrency.id, [Validators.required]],
-            initialBalance: [''],
-            initialBalanceFloat: ['']
+            initialBalance: [0],
+            initialBalanceFloat: [null]
         });
 
         this.form.controls.initialBalanceFloat.valueChanges.subscribe(value => {

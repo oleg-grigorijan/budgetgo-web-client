@@ -4,7 +4,7 @@ import {UserDetailsService} from '../../service/user-details.service';
 @Component({
     selector: 'app-storage-creation-card',
     templateUrl: './storage-creation-card.component.html',
-    styleUrls: ['./storage-creation-card.component.css']
+    styleUrls: []
 })
 export class StorageCreationCardComponent implements OnInit {
 

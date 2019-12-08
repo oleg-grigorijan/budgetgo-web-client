@@ -39,8 +39,8 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="currencyIsoCode">{{selectedCurrency.isoCode}}</span>
             </div>
-            <input currencyMask formControlName="initialBalanceFloat" type="text" placeholder="0.00" class="form-control"
-                   aria-describedby="currencyIsoCode" id="initialBalance">
+            <input currencyMask [options]="{allowNegative: true}" formControlName="initialBalanceFloat" type="text" placeholder="0.00"
+                   class="form-control" aria-describedby="currencyIsoCode" id="initialBalance">
         </div>
     </div>
     <button [disabled]="isLoading" class="btn btn-primary" type="submit">
