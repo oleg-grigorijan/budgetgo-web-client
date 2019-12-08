@@ -1,41 +1,36 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Storage} from '../../entity/storage';
 import {StoragesService} from '../../service/storages.service';
-import {Router} from '@angular/router';
-import {HomeComponent} from '../home/home.component';
+import {UserStorageRoleAuthoritiesService} from '../../service/user-storage-role-authorities.service';
 
 @Component({
-    selector: 'app-storage-details',
-    templateUrl: './storage-details.component.html',
+    selector: 'app-storage-settings-card',
+    templateUrl: './storage-settings-card.component.html',
     styleUrls: []
 })
-export class StorageDetailsComponent implements OnInit {
+export class StorageSettingsCardComponent implements OnInit {
 
     @Input() storage: Storage;
+    @Output() unsubscribeClick = new EventEmitter<void>();
 
-    private isFollowingExpanded = false;
-    private isAcceptInvitationLoading = false;
+    private isCardExpanded = false;
     private isUnsubscribeLoading = false;
     private isIncludedInUserStatisticsLoading = false;
 
-    constructor(private readonly router: Router, private readonly storagesService: StoragesService) {
+    constructor(
+        private readonly storagesService: StoragesService,
+        private readonly authoritiesService: UserStorageRoleAuthoritiesService
+    ) {
     }
 
     ngOnInit() {
-    }
-
-    onAcceptInvitationClick() {
-        this.isAcceptInvitationLoading = true;
-        this.storagesService.patchSettings(this.storage.id, {isInvitation: false, isIncludedInUserStatistics: true}).then(() => {
-            this.isAcceptInvitationLoading = false;
-        });
     }
 
     onUnsubscribeClick() {
         this.isUnsubscribeLoading = true;
         this.storagesService.delete(this.storage.id).then(() => {
             this.isUnsubscribeLoading = false;
-            this.router.navigate([HomeComponent.PATH]);
+            this.unsubscribeClick.emit();
         });
     }
 
@@ -48,6 +43,6 @@ export class StorageDetailsComponent implements OnInit {
     }
 
     toggleFollowingExpanded() {
-        this.isFollowingExpanded = !this.isFollowingExpanded;
+        this.isCardExpanded = !this.isCardExpanded;
     }
 }

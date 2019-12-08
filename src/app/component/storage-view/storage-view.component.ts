@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Storage} from '../../entity/storage';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {StoragesService} from '../../service/storages.service';
 import {Subscription} from 'rxjs';
+import {HomeComponent} from '../home/home.component';
 
 @Component({
     selector: 'app-storage-view',
@@ -16,7 +17,11 @@ export class StorageViewComponent implements OnInit, OnDestroy {
     private storage: Storage;
     private subscription: Subscription;
 
-    constructor(private readonly route: ActivatedRoute, private readonly storagesService: StoragesService) {
+    constructor(
+        private readonly router: Router,
+        private readonly route: ActivatedRoute,
+        private readonly storagesService: StoragesService
+    ) {
     }
 
     ngOnInit() {
@@ -32,5 +37,9 @@ export class StorageViewComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.subscription.unsubscribe();
+    }
+
+    onUnsubscription() {
+        this.router.navigate([HomeComponent.PATH]);
     }
 }

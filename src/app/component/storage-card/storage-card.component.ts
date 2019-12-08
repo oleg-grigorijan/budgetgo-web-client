@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Storage} from '../../entity/storage';
 import {StoragesService} from '../../service/storages.service';
 
@@ -10,6 +10,7 @@ import {StoragesService} from '../../service/storages.service';
 export class StorageCardComponent implements OnInit {
 
     @Input() storage: Storage;
+    @Output() declineInvitationClick = new EventEmitter<void>();
 
     private isAcceptInvitationLoading = false;
     private isDeclineInvitationLoading = false;
@@ -31,6 +32,7 @@ export class StorageCardComponent implements OnInit {
         this.isDeclineInvitationLoading = true;
         this.storagesService.delete(this.storage.id).then(() => {
             this.isDeclineInvitationLoading = false;
+            this.declineInvitationClick.emit();
         });
     }
 }

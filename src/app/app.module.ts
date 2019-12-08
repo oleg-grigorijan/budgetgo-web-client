@@ -18,11 +18,12 @@ import {StorageCreationFormComponent} from './component/storage-creation-form/st
 import {StorageCardComponent} from './component/storage-card/storage-card.component';
 import {StorageCreationCardComponent} from './component/storage-creation-card/storage-creation-card.component';
 import {NgxCurrencyModule} from 'ngx-currency';
-import { StorageDetailsComponent } from './component/storage-details/storage-details.component';
 import { StorageViewComponent } from './component/storage-view/storage-view.component';
 import { StorageUsersCardComponent } from './component/storage-users-card/storage-users-card.component';
 import { IsInvitationFilterPipe } from './pipe/is-invitation-filter.pipe';
 import { IsIncludedInUserStatisticsSortPipe } from './pipe/is-included-in-user-statistics-sort.pipe';
+import { StorageEditFormComponent } from './component/storage-edit-form/storage-edit-form.component';
+import { StorageSettingsCardComponent } from './component/storage-settings-card/storage-settings-card.component';
 
 @NgModule({
     declarations: [
@@ -38,11 +39,12 @@ import { IsIncludedInUserStatisticsSortPipe } from './pipe/is-included-in-user-s
         StorageCreationFormComponent,
         StorageCardComponent,
         StorageCreationCardComponent,
-        StorageDetailsComponent,
         StorageViewComponent,
         StorageUsersCardComponent,
         IsInvitationFilterPipe,
         IsIncludedInUserStatisticsSortPipe,
+        StorageEditFormComponent,
+        StorageSettingsCardComponent,
     ],
     imports: [
         BrowserModule,
