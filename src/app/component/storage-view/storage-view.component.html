@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-lg-4">
+            <h4 class="mb-3">Storage</h4>
+            <ng-container *ngIf="storage">
+                <div class="mb-3">
+                    <app-storage-card (declineInvitationClick)="onUnsubscription()" [storage]="storage"></app-storage-card>
+                </div>
+                <div class="mb-3">
+                    <app-storage-settings-card (unsubscribeClick)="onUnsubscription()" [storage]="storage"></app-storage-settings-card>
+                </div>
+                <div class="mb-3">
+                    <app-storage-users-card [storage]="storage"></app-storage-users-card>
+                </div>
+            </ng-container>
+        </div>
+        <div class="col-md-6 col-lg-8">
+            <h4 class="mb-3">Operations</h4>
+        </div>
+    </div>
+
+</div>

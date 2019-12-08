@@ -4,12 +4,14 @@ import {WelcomeComponent} from './component/welcome/welcome.component';
 import {HomeComponent} from './component/home/home.component';
 import {AuthenticationGuard} from './guard/authentication.guard';
 import {UserSettingsComponent} from './component/user-settings/user-settings.component';
+import {StorageViewComponent} from './component/storage-view/storage-view.component';
 
 
 const routes: Routes = [
     {path: WelcomeComponent.PATH, component: WelcomeComponent},
     {path: HomeComponent.PATH, component: HomeComponent, canActivate: [AuthenticationGuard]},
     {path: UserSettingsComponent.PATH, component: UserSettingsComponent, canActivate: [AuthenticationGuard]},
+    {path: StorageViewComponent.PATH, component: StorageViewComponent, canActivate: [AuthenticationGuard]},
 ];
 
 @NgModule({

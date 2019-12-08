@@ -1,0 +1,52 @@
+<form [formGroup]="form" (ngSubmit)="onCreateClick()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input formControlName="name" type="text" class="form-control"
+               [ngClass]="{ 'is-invalid': wasSubmitted && form.controls.name.errors}" id="name"/>
+        <div *ngIf="wasSubmitted && form.controls.name.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.name.errors.required">Required</div>
+            <div *ngIf="form.controls.name.errors.maxlength">Max length is 255</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': wasSubmitted && form.controls.description.errors }"
+                  id="description" rows="3"></textarea>
+        <div *ngIf="wasSubmitted && form.controls.description.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.description.errors.maxlength">Max length is 255</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="currency">Currency</label>
+        <select formControlName="currencyId" class="custom-select" id="currency" aria-describedby="currencyHelpBlock">
+            <ng-container *ngIf="currencies; else loadingCurrencies">
+                <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.name}}</option>
+            </ng-container>
+            <ng-template #loadingCurrencies>
+                <option [value]="mainCurrency.id">{{mainCurrency.name}}</option>
+            </ng-template>
+        </select>
+        <small id="currencyHelpBlock" class="form-text text-muted">
+            Сan not be changed in the future
+        </small>
+        <div *ngIf="form.controls.currencyId.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.currencyId.errors.required">Required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="initialBalance">Initial balance</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="currencyIsoCode">{{selectedCurrency.isoCode}}</span>
+            </div>
+            <input currencyMask [options]="{allowNegative: true}" formControlName="initialBalanceFloat" type="text" placeholder="0.00"
+                   class="form-control" aria-describedby="currencyIsoCode" id="initialBalance">
+        </div>
+    </div>
+    <button [disabled]="isLoading" class="btn btn-primary" type="submit">
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
+        Create
+    </button>
+    <button (click)="onCancelClick()" [disabled]="isLoading" class="btn btn-link mr-2">Cancel</button>
+
+</form>

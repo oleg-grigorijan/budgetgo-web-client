@@ -1,0 +1,13 @@
+<div *ngIf="(userDetailsService.userDetails$ | async) as userDetails" class="card" [class.text-secondary]="!creatingStorage">
+    <div class="card-body">
+        <h5 class="card-title mb-1">New storage</h5>
+        <ng-container *ngIf="!creatingStorage; else storageCreation">
+            <p class="card-text">Storage is a place for all your incomes and outcomes</p>
+            <button (click)="onCreateStorageClick()" class="btn btn-outline-secondary stretched-link">Create</button>
+        </ng-container>
+        <ng-template #storageCreation>
+            <app-storage-creation-form (returning)="onStorageCreationReturn()"
+                                       [mainCurrency]="userDetails.mainCurrency"></app-storage-creation-form>
+        </ng-template>
+    </div>
+</div>
