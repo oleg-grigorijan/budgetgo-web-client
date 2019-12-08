@@ -1,9 +1,8 @@
 import {User} from './user';
 import {UserStorageRole} from './user-storage-role';
 
-export class StorageSettings {
+export class StorageUser {
+    user: User;
     userRole: UserStorageRole;
-    isIncludedInUserStatistics: boolean;
     inviter: User;
-    isInvitation: boolean;
 }
