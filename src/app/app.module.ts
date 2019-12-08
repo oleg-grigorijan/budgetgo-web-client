@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginFormComponent} from './component/login-form/login-form.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BasicAuthenticationInterceptor} from './interseptor/basic-authentication.interceptor';
 import {WelcomeComponent} from './component/welcome/welcome.component';
@@ -20,6 +20,7 @@ import {StorageCreationCardComponent} from './component/storage-creation-card/st
 import {NgxCurrencyModule} from 'ngx-currency';
 import { StorageDetailsComponent } from './component/storage-details/storage-details.component';
 import { StorageViewComponent } from './component/storage-view/storage-view.component';
+import { StorageUsersCardComponent } from './component/storage-users-card/storage-users-card.component';
 
 @NgModule({
     declarations: [
@@ -36,7 +37,8 @@ import { StorageViewComponent } from './component/storage-view/storage-view.comp
         StorageCardComponent,
         StorageCreationCardComponent,
         StorageDetailsComponent,
-        StorageViewComponent
+        StorageViewComponent,
+        StorageUsersCardComponent,
     ],
     imports: [
         BrowserModule,
@@ -53,7 +55,8 @@ import { StorageViewComponent } from './component/storage-view/storage-view.comp
             suffix: '',
             thousands: ' ',
             nullable: false
-        })
+        }),
+        FormsModule
     ],
     providers: [
         {
