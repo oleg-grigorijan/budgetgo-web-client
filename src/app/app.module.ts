@@ -24,6 +24,9 @@ import { IsInvitationFilterPipe } from './pipe/is-invitation-filter.pipe';
 import { IsIncludedInUserStatisticsSortPipe } from './pipe/is-included-in-user-statistics-sort.pipe';
 import { StorageEditFormComponent } from './component/storage-edit-form/storage-edit-form.component';
 import { StorageSettingsCardComponent } from './component/storage-settings-card/storage-settings-card.component';
+import { UserCategoryCreationFormComponent } from './component/user-category-creation-form/user-category-creation-form.component';
+import { UserCategoriesCardComponent } from './component/user-categories-card/user-categories-card.component';
+import { UserCategoriesSettingsComponent } from './component/user-categories-settings/user-categories-settings.component';
 
 @NgModule({
     declarations: [
@@ -45,6 +48,9 @@ import { StorageSettingsCardComponent } from './component/storage-settings-card/
         IsIncludedInUserStatisticsSortPipe,
         StorageEditFormComponent,
         StorageSettingsCardComponent,
+        UserCategoryCreationFormComponent,
+        UserCategoriesCardComponent,
+        UserCategoriesSettingsComponent,
     ],
     imports: [
         BrowserModule,
