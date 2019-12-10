@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="list-group list-group-flush">
+        <div class="list-group-item">
+            <h6 class="card-title">New category</h6>
+            <app-user-category-creation-form></app-user-category-creation-form>
+        </div>
+        <div *ngIf="warning" class="list-group-item warning">
+            {{warning}}
+        </div>
+        <ng-container *ngIf="userCategoriesService.userCategories$ | async as userCategories">
+            <div *ngFor="let userCategory of userCategories; let i = index" class="list-group-item">
+                <h6 class="mb-1">{{userCategory.category.name}}</h6>
+                <div class="d-flex">
+                    <div class="custom-control custom-checkbox mr-3">
+                        <input (change)="toggleIsUsedForIncomes(userCategory)" [checked]="userCategory.isUsedForIncomes" type="checkbox"
+                               class="custom-control-input" id="for-incomes-{{i}}">
+                        <label class="custom-control-label" for="for-incomes-{{i}}">For incomes</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input (change)="toggleIsUsedForOutcomes(userCategory)" [checked]="userCategory.isUsedForOutcomes" type="checkbox"
+                               class="custom-control-input" id="for-outcomes-{{i}}">
+                        <label class="custom-control-label" for="for-outcomes-{{i}}">For outcomes</label>
+                    </div>
+                </div>
+                <a (click)="onRemoveUserCategoryClick(userCategory)" class="text-danger">Remove</a>
+            </div>
+        </ng-container>
+    </div>
+</div>

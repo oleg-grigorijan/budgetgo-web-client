@@ -1,0 +1,24 @@
+<div class="d-flex mb-2">
+    <div class="custom-control custom-checkbox mr-3">
+        <input [(ngModel)]="isUsedForIncomes" type="checkbox"
+               class="custom-control-input" id="for-incomes">
+        <label class="custom-control-label" for="for-incomes">For incomes</label>
+    </div>
+    <div class="custom-control custom-checkbox">
+        <input [(ngModel)]="isUsedForOutcomes" type="checkbox"
+               class="custom-control-input" id="for-outcomes">
+        <label class="custom-control-label" for="for-outcomes">For outcomes</label>
+    </div>
+</div>
+<div class="input-group">
+    <input type="text" (keyup.enter)="onCreateClick()" [(ngModel)]="categoryName" #name="ngModel" class="form-control"
+           placeholder="Name" maxlength="255" required>
+    <div class="input-group-append">
+        <button (click)="onCreateClick()" [disabled]="isLoading || name.invalid" class="btn btn-outline-primary"
+                type="button">
+            <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
+            Create
+        </button>
+    </div>
+</div>
+<div *ngIf="error" class="alert alert-danger mt-2 mb-1">{{error}}</div>
