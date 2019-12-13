@@ -70,7 +70,6 @@ export class StoragesService {
         return this.http.patch<StorageSettings>(this.apiUrl + '/' + id + '/settings', patches).pipe(tap(settings => {
             this.storages = this.storages.map(s => {
                 if (s.id === id) {
-                    console.log(s);
                     const storage = Object.assign({}, s);
                     storage.settings = settings;
                     return storage;
@@ -79,7 +78,6 @@ export class StoragesService {
                 }
             }).sort(this.invitationsFirst);
             this.storagesSubject.next(this.storages);
-            console.log(this.storages);
         })).toPromise();
     }
 

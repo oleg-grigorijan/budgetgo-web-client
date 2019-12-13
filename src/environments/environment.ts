@@ -4,7 +4,13 @@
 
 export const environment = {
     production: false,
-    apiBaseUrl: 'http://localhost:8080/api'
+    mediaBreakpoints: {
+        small: 576,
+        medium: 768,
+        large: 992,
+        extraLarge: 1200
+    },
+    apiBaseUrl: 'http://192.168.100.16:8080/api'
 };
 
 /*
