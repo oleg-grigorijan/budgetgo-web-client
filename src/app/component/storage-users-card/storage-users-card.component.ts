@@ -20,8 +20,6 @@ export class StorageUsersCardComponent implements OnInit {
 
     private storageUsers: StorageUser[];
 
-    private isCardExpanded = false;
-
     private invitationLogin: string;
     private isInvitationUserSearching = false;
     private invitationSearchError = '';
@@ -62,10 +60,6 @@ export class StorageUsersCardComponent implements OnInit {
                 return su.user.id !== storageUser.user.id;
             });
         });
-    }
-
-    toggleUsersExpanded() {
-        this.isCardExpanded = !this.isCardExpanded;
     }
 
     onInvitationUserSearchClick() {

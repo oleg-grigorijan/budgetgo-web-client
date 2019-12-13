@@ -1,4 +1,4 @@
-<div class="card" [class.border-danger]="storage.settings.isIncludedInUserStatistics && storage.balance < 0">
+<div class="card card-action" [class.border-danger]="storage.settings.isIncludedInUserStatistics && storage.balance < 0">
     <div class="card-body" [class.text-secondary]="!storage.settings.isIncludedInUserStatistics">
         <h5 class="card-title mb-1 ">{{storage.name}}</h5>
         <p class="card-text text-muted mb-3" id="description">{{storage.description}}<br *ngIf="!storage.description"></p>

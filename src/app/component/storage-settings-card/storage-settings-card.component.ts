@@ -13,7 +13,6 @@ export class StorageSettingsCardComponent implements OnInit {
     @Input() storage: Storage;
     @Output() unsubscribeClick = new EventEmitter<void>();
 
-    private isCardExpanded = false;
     private isUnsubscribeLoading = false;
     private isIncludedInUserStatisticsLoading = false;
 
@@ -40,9 +39,5 @@ export class StorageSettingsCardComponent implements OnInit {
         this.storagesService.patchSettings(this.storage.id, patches).then(() => {
             this.isIncludedInUserStatisticsLoading = false;
         });
-    }
-
-    toggleFollowingExpanded() {
-        this.isCardExpanded = !this.isCardExpanded;
     }
 }
