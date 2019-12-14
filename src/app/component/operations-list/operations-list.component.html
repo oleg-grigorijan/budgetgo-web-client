@@ -1,0 +1,61 @@
+<div *ngIf="operations.length > 0; else noOperationsCard" class="card accordion" id="operations-list-accordion">
+    <div class="list-group list-group-flush">
+        <div class="list-group-item">
+            <div class="row ">
+                <h6 class="col mb-0">Money</h6>
+                <h6 class="col mb-0">Category</h6>
+                <h6 class="col mb-0">Date</h6>
+            </div>
+        </div>
+        <ng-container *ngFor="let operation of operations | operationsDateSort; let i = index">
+            <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#operation-details-{{i}}" role="button"
+               aria-expanded="false">
+                <div class="row">
+                    <h6 class="col mb-0" [class.text-danger]="operation.moneyDelta < 0">
+                        {{operation.moneyDelta | money}}
+                    </h6>
+                    <div class="col">
+                        {{operation.category.name}}
+                    </div>
+                    <div class="col">
+                        {{operation.date | date:'shortDate'}}
+                    </div>
+                </div>
+            </a>
+            <div class="collapse" id="operation-details-{{i}}" data-parent="#operations-list-accordion">
+                <div class="list-group-item text-muted">
+                    <div *ngIf="operation === operationForEdit; else operationDetails" class="py-2">
+                        <app-operation-edit-form (saveReturning)="onEditFormSave($event)" (cancelReturning)="onEditFormCancel()"
+                                                 [operation]="operation" [userCategories]="userCategories"></app-operation-edit-form>
+                    </div>
+                    <ng-template #operationDetails>
+                        <div *ngIf="operation.description" class="mb-1">
+                            <h6 class="mb-0">Description:</h6>
+                            {{operation.description}}
+                        </div>
+                        <div class="row">
+                            <div class="col-lg mb-1">
+                                <h6 class="mb-0">Created</h6>
+                                {{operation.dateCreated | date:'shortDate'}} - @{{operation.creator.login}}
+                            </div>
+                            <div class="col-lg mb-1">
+                                <h6 class="mb-0">Last modified</h6>
+                                {{operation.dateModified | date:'shortDate'}} - @{{operation.lastEditor.login}}
+                            </div>
+                        </div>
+                        <a *ngIf="userCategories" (click)="onEditClick(operation)" class="text-primary mr-3">Edit</a>
+                        <a (click)="onRemoveClick(operation)" class="text-danger">Remove</a>
+                    </ng-template>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<ng-template #noOperationsCard>
+    <div class="card">
+        <div class="card-body">
+            No operations
+        </div>
+    </div>
+</ng-template>

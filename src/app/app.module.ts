@@ -27,6 +27,10 @@ import { StorageSettingsCardComponent } from './component/storage-settings-card/
 import { UserCategoryCreationFormComponent } from './component/user-category-creation-form/user-category-creation-form.component';
 import { UserCategoriesCardComponent } from './component/user-categories-card/user-categories-card.component';
 import { UserCategoriesSettingsComponent } from './component/user-categories-settings/user-categories-settings.component';
+import { OperationCreationFormComponent } from './component/operation-creation-form/operation-creation-form.component';
+import { OperationsListComponent } from './component/operations-list/operations-list.component';
+import { OperationsDateSortPipe } from './pipe/operations-date-sort.pipe';
+import { OperationEditFormComponent } from './component/operation-edit-form/operation-edit-form.component';
 
 @NgModule({
     declarations: [
@@ -51,6 +55,10 @@ import { UserCategoriesSettingsComponent } from './component/user-categories-set
         UserCategoryCreationFormComponent,
         UserCategoriesCardComponent,
         UserCategoriesSettingsComponent,
+        OperationCreationFormComponent,
+        OperationsListComponent,
+        OperationsDateSortPipe,
+        OperationEditFormComponent,
     ],
     imports: [
         BrowserModule,

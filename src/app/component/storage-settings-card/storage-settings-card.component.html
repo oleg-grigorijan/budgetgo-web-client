@@ -1,14 +1,18 @@
 <div *ngIf="!storage.settings.isInvitation" class="card">
     <div class="list-group list-group-flush">
-        <div (click)="toggleFollowingExpanded()" class="list-group-item list-group-item-action dropdown-toggle">Settings</div>
-        <ng-container *ngIf="isCardExpanded">
+        <a class="list-group-item list-group-item-action dropdown-toggle" data-toggle="collapse" href="#storage-settings-content" role="button"
+           aria-expanded="false" aria-controls="storage-settings-content">
+            Settings
+        </a>
+        <div class="collapse" id="storage-settings-content">
             <div *ngIf="authoritiesService.canModifyStorage(storage.settings.userRole)" class="list-group-item">
                 <app-storage-edit-from [storage]="storage"></app-storage-edit-from>
             </div>
             <div class="list-group-item">
                 <div class="custom-control custom-checkbox mb-3">
                     <input (change)="toggleIncludedInUserStatistics()" [disabled]="isIncludedInUserStatisticsLoading" type="checkbox"
-                           class="custom-control-input" id="is-included-in-user-statistics" [checked]="storage.settings.isIncludedInUserStatistics">
+                           class="custom-control-input" id="is-included-in-user-statistics"
+                           [checked]="storage.settings.isIncludedInUserStatistics">
                     <label class="custom-control-label" for="is-included-in-user-statistics">
                         <span *ngIf="isIncludedInUserStatisticsLoading" class="spinner-border spinner-border-sm mr-1"></span>
                         Include storage in my statistics
@@ -19,6 +23,6 @@
                     Unsubscribe
                 </button>
             </div>
-        </ng-container>
+        </div>
     </div>
 </div>
