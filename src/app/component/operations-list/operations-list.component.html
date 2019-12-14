@@ -24,22 +24,28 @@
             </a>
             <div class="collapse" id="operation-details-{{i}}" data-parent="#operations-list-accordion">
                 <div class="list-group-item text-muted">
-                    <div *ngIf="operation.description" class="mb-1">
-                        <h6 class="mb-0">Description:</h6>
-                        {{operation.description}}
+                    <div *ngIf="operation === operationForEdit; else operationDetails" class="py-2">
+                        <app-operation-edit-form (saveReturning)="onEditFormSave($event)" (cancelReturning)="onEditFormCancel()"
+                                                 [operation]="operation" [userCategories]="userCategories"></app-operation-edit-form>
                     </div>
-                    <div class="row">
-                        <div class="col-lg mb-1">
-                            <h6 class="mb-0">Created</h6>
-                            {{operation.dateCreated | date:'shortDate'}} - @{{operation.creator.login}}
+                    <ng-template #operationDetails>
+                        <div *ngIf="operation.description" class="mb-1">
+                            <h6 class="mb-0">Description:</h6>
+                            {{operation.description}}
                         </div>
-                        <div class="col-lg mb-1">
-                            <h6 class="mb-0">Last modified</h6>
-                            {{operation.dateModified | date:'shortDate'}} - @{{operation.lastEditor.login}}
+                        <div class="row">
+                            <div class="col-lg mb-1">
+                                <h6 class="mb-0">Created</h6>
+                                {{operation.dateCreated | date:'shortDate'}} - @{{operation.creator.login}}
+                            </div>
+                            <div class="col-lg mb-1">
+                                <h6 class="mb-0">Last modified</h6>
+                                {{operation.dateModified | date:'shortDate'}} - @{{operation.lastEditor.login}}
+                            </div>
                         </div>
-                    </div>
-<!--                    <a class="text-primary mr-3">Edit</a>-->
-                    <a (click)="onRemoveClick(operation)" class="text-danger">Remove</a>
+                        <a *ngIf="userCategories" (click)="onEditClick(operation)" class="text-primary mr-3">Edit</a>
+                        <a (click)="onRemoveClick(operation)" class="text-danger">Remove</a>
+                    </ng-template>
                 </div>
             </div>
         </ng-container>

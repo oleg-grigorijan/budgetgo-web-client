@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="onSaveClick()">
+    <div class="mb-2">
+        <div class="btn-group btn-group-toggle">
+            <label class="btn btn-outline-dark" [class.active]="form.controls.type.value === operationType.INCOME">
+                <input formControlName="type" [value]="operationType.INCOME" type="radio">
+                Income
+            </label>
+            <label class="btn btn-outline-dark" [class.active]="form.controls.type.value === operationType.OUTCOME">
+                <input formControlName="type" [value]="operationType.OUTCOME" type="radio">
+                Outcome
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="money-amount">Money amount</label>
+        <input formControlName="moneyAmountFloat" currencyMask class="form-control" id="money-amount" type="text" placeholder="0.00"
+               autocomplete="off" aria-describedby="currency-iso-code">
+    </div>
+    <div class="form-group">
+        <label for="category">Category</label>
+        <select formControlName="categoryId" class="custom-select" id="category">
+            <option *ngFor="let userCategory of userCategoriesOptions" [value]="userCategory.category.id">
+                {{userCategory.category.name}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea formControlName="description" class="form-control" [class.is-invalid]="form.controls.description.errors"
+                  id="description" rows="2"></textarea>
+        <div *ngIf="form.controls.description.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.description.errors.maxlength">Max length is 255</div>
+        </div>
+    </div>
+    <button [disabled]="form.invalid || isLoading" class="btn btn-outline-primary" type="submit">
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
+        Save
+    </button>
+    <button (click)="onCancelClick()" [disabled]="isLoading" class="btn btn-link mr-2">Cancel</button>
+</form>
