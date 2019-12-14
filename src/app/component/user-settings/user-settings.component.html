@@ -1,6 +1,6 @@
 <div class="container">
     <h4 class="mb-3">Account Settings</h4>
-    <div class="card">
+    <div class="card mb-3">
         <div class="card-body">
             <div *ngIf="(userDetailsService.userDetails$ | async) as userDetails">
                 <app-user-details-edit-form [userDetails]="userDetails"></app-user-details-edit-form>

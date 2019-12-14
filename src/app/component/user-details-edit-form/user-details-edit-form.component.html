@@ -2,7 +2,7 @@
     <div class="form-group">
         <label for="login">Login</label>
         <input type="text" formControlName="login" class="form-control"
-               [class.is-invalid]="form.controls.login.errors" id="login"/>
+               [class.is-invalid]="form.controls.login.errors" id="login" autocomplete="username"/>
         <div *ngIf="form.controls.login.errors" class="invalid-feedback">
             <div *ngIf="form.controls.login.errors.required">Required</div>
             <div *ngIf="form.controls.login.errors.pattern">Can contain only Latin letters, numbers, underscores, hyphens and periods</div>
@@ -63,7 +63,7 @@
         </div>
     </div>
     <div *ngIf="success" class="alert alert-success">{{success}}</div>
-    <button [disabled]="isLoading || this.form.invalid" class="btn btn-primary">
+    <button [disabled]="isLoading || this.form.invalid" class="btn btn-outline-primary">
         <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
         Save
     </button>
