@@ -3,6 +3,7 @@ import {User} from './user';
 
 export class Operation {
     id: number;
+    storageId: number;
     moneyDelta: number;
     category: Category;
     date: string;

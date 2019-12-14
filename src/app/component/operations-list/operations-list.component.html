@@ -1,5 +1,5 @@
-<div class="card">
-    <div *ngIf="operations.length > 0; else noOperations" class="list-group list-group-flush">
+<div *ngIf="operations.length > 0; else noOperationsCard" class="card accordion" id="operations-list-accordion">
+    <div class="list-group list-group-flush">
         <div class="list-group-item">
             <div class="row ">
                 <h6 class="col mb-0">Money</h6>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </a>
-            <div class="collapse" id="operation-details-{{i}}">
+            <div class="collapse" id="operation-details-{{i}}" data-parent="#operations-list-accordion">
                 <div class="list-group-item text-muted">
                     <div *ngIf="operation.description" class="mb-1">
                         <h6 class="mb-0">Description:</h6>
@@ -44,10 +44,12 @@
             </div>
         </ng-container>
     </div>
+</div>
 
-    <ng-template #noOperations>
+<ng-template #noOperationsCard>
+    <div class="card">
         <div class="card-body">
             No operations
         </div>
-    </ng-template>
-</div>
+    </div>
+</ng-template>

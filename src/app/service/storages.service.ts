@@ -6,6 +6,7 @@ import {ReplaySubject, Subject} from 'rxjs';
 import {Storage} from '../entity/storage';
 import {tap} from 'rxjs/operators';
 import {StorageSettings} from '../entity/storage-settings';
+import {OperationsService} from './operations.service';
 
 @Injectable({providedIn: 'root'})
 export class StoragesService {
@@ -16,17 +17,11 @@ export class StoragesService {
     private storagesSubject: Subject<Storage[]> = new ReplaySubject<Storage[]>(1);
     storages$ = this.storagesSubject.asObservable();
 
-    private invitationsFirst = (s1, s2): number => {
-        if (s1.settings.isInvitation === s2.settings.isInvitation) {
-            return 0;
-        } else if (s1.settings.isInvitation && !s2.settings.isInvitation) {
-            return -1;
-        } else {
-            return 1;
-        }
-    }
-
-    constructor(private readonly http: HttpClient, private readonly authenticationService: BasicAuthenticationService) {
+    constructor(
+        private readonly http: HttpClient,
+        private readonly authenticationService: BasicAuthenticationService,
+        private readonly operationsService: OperationsService
+    ) {
         authenticationService.authentication$.subscribe(isAuthenticated => {
             if (isAuthenticated) {
                 this.fetch();
@@ -35,11 +30,32 @@ export class StoragesService {
                 this.storagesSubject.next(this.storages);
             }
         });
+
+        operationsService.operationCreation$.subscribe(operation => {
+            const storage = this.storages.find(s => s.id === operation.storageId);
+            storage.balance = storage.balance + operation.moneyDelta;
+            this.storagesSubject.next(this.storages);
+        });
+        operationsService.operationPatch$.subscribe(next => {
+            if (next.operation.storageId !== next.patchedOperation.storageId) {
+                throw new Error('Storage was changed while patching operation');
+            }
+            if (next.operation.moneyDelta !== next.patchedOperation.moneyDelta) {
+                const storage = this.storages.find(s => s.id === next.operation.storageId);
+                storage.balance = storage.balance - next.operation.moneyDelta + next.patchedOperation.moneyDelta;
+                this.storagesSubject.next(this.storages);
+            }
+        });
+        operationsService.operationDelete$.subscribe(operation => {
+            const storage = this.storages.find(s => s.id === operation.storageId);
+            storage.balance = storage.balance - operation.moneyDelta;
+            this.storagesSubject.next(this.storages);
+        });
     }
 
     private fetch(): void {
         this.http.get<Storage[]>(this.apiUrl).subscribe(storages => {
-            this.storages = storages.sort(this.invitationsFirst);
+            this.storages = storages;
             this.storagesSubject.next(storages);
         });
     }
@@ -47,7 +63,6 @@ export class StoragesService {
     create(source): Promise<Storage> {
         return this.http.post<Storage>(this.apiUrl, source).pipe(tap(storage => {
                 this.storages.push(storage);
-                this.storages = this.storages.sort(this.invitationsFirst);
                 this.storagesSubject.next(this.storages);
             }
         )).toPromise();
@@ -70,13 +85,10 @@ export class StoragesService {
         return this.http.patch<StorageSettings>(this.apiUrl + '/' + id + '/settings', patches).pipe(tap(settings => {
             this.storages = this.storages.map(s => {
                 if (s.id === id) {
-                    const storage = Object.assign({}, s);
-                    storage.settings = settings;
-                    return storage;
-                } else {
-                    return s;
+                    s.settings = settings;
                 }
-            }).sort(this.invitationsFirst);
+                return s;
+            });
             this.storagesSubject.next(this.storages);
         })).toPromise();
     }

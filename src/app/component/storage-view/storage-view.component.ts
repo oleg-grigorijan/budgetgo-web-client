@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Storage} from '../../entity/storage';
 import {ActivatedRoute, Router} from '@angular/router';
 import {StoragesService} from '../../service/storages.service';
-import {Subject, Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
 import {HomeComponent} from '../home/home.component';
 import {UserCategoriesService} from '../../service/user-categories.service';
 import {UserCategory} from '../../entity/user-category';
@@ -19,9 +19,6 @@ import {environment} from '../../../environments/environment';
 export class StorageViewComponent implements OnInit, OnDestroy {
 
     static readonly PATH = 'storages/:id';
-
-    private operationCreationSubject = new Subject<Operation>();
-    private operationCreation$ = this.operationCreationSubject.asObservable();
 
     private storage: Storage;
     private userCategories: UserCategory[];
@@ -58,6 +55,12 @@ export class StorageViewComponent implements OnInit, OnDestroy {
         this.subscriptions.push(this.userCategoriesService.userCategories$.subscribe(userCategories => {
             this.userCategories = userCategories;
         }));
+
+        this.subscriptions.push(this.operationsService.operationCreation$.subscribe(operation => {
+            if (this.storage && operation.storageId === this.storage.id) {
+                this.operations.push(operation);
+            }
+        }));
     }
 
     ngOnDestroy(): void {
@@ -66,9 +69,5 @@ export class StorageViewComponent implements OnInit, OnDestroy {
 
     onUnsubscription() {
         this.router.navigate([HomeComponent.PATH]);
-    }
-
-    onOperationCreation(operation: Operation) {
-        this.operationCreationSubject.next(operation);
     }
 }

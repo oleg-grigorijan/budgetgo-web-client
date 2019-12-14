@@ -16,7 +16,7 @@
                         </a>
                         <div class="collapse" [class.show]="expandNewOperationByDefault" id="new-operation-content">
                             <app-operation-creation-form *ngIf="userCategories" [singleStorageMode]="true" [storage]="storage"
-                                                         [userCategories]="userCategories" (operationCreation)="onOperationCreation($event)"
+                                                         [userCategories]="userCategories"
                                                          class="list-group-item py-3">
                             </app-operation-creation-form>
                         </div>
@@ -32,12 +32,10 @@
                 </div>
             </ng-container>
         </div>
-
         <div class="col-md-6 col-lg-8">
             <h4 class="mb-3">Operations</h4>
             <div *ngIf="storage && operations; else loadingCard" class="mb-3">
-                <app-storage-operations-list [storage]="storage" [operations]="operations"
-                                             [operationCreation]="operationCreation$"></app-storage-operations-list>
+                <app-operations-list [operations]="operations"></app-operations-list>
             </div>
         </div>
     </div>

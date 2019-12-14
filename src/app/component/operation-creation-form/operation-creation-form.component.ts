@@ -1,9 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {OperationsService} from '../../service/operations.service';
 import {Storage} from '../../entity/storage';
 import {UserCategory} from '../../entity/user-category';
-import {Operation} from '../../entity/operation';
 
 @Component({
     selector: 'app-operation-creation-form',
@@ -19,11 +18,9 @@ export class OperationCreationFormComponent implements OnInit {
     @Input() storages: Storage[];
     @Input() userCategories: UserCategory[];
 
-    @Output() operationCreation = new EventEmitter<Operation>();
+    private form: FormGroup;
 
     private userCategoriesOptions: UserCategory[];
-
-    private form: FormGroup;
 
     private wasSubmitted = false;
     private isLoading = false;
@@ -85,8 +82,7 @@ export class OperationCreationFormComponent implements OnInit {
         }
         this.form.controls.moneyDelta.patchValue(sign * this.form.controls.moneyAmountFloat.value * 100);
 
-        this.operationsService.create(this.storage.id, this.form.value).subscribe(operation => {
-            this.operationCreation.emit(operation);
+        this.operationsService.create(this.storage.id, this.form.value).subscribe(() => {
             this.success = 'Created';
             this.isLoading = false;
         });
@@ -94,5 +90,5 @@ export class OperationCreationFormComponent implements OnInit {
 }
 
 enum OperationType {
-    INCOME, OUTCOME
+    INCOME = 'INCOME', OUTCOME = 'OUTCOME'
 }
