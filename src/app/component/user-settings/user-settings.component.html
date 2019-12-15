@@ -1,10 +1,17 @@
 <div class="container">
     <h4 class="mb-3">Account Settings</h4>
-    <div class="card mb-3">
+    <div *ngIf="(userDetailsService.userDetails$ | async) as userDetails; else loadingCard" class="card mb-3">
         <div class="card-body">
-            <div *ngIf="(userDetailsService.userDetails$ | async) as userDetails">
-                <app-user-details-edit-form [userDetails]="userDetails"></app-user-details-edit-form>
-            </div>
+            <app-user-details-edit-form [userDetails]="userDetails"></app-user-details-edit-form>
         </div>
     </div>
 </div>
+
+<ng-template #loadingCard>
+    <div class="card mb-3">
+        <div class="card-body">
+            <span class="spinner-border spinner-border-sm mr-1"></span>
+            Loading
+        </div>
+    </div>
+</ng-template>

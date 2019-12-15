@@ -14,9 +14,7 @@
     <div *ngIf="!singleStorageMode" class="form-group">
         <label for="storage">Storage</label>
         <select formControlName="storageId" class="custom-select" id="storage">
-            <option *ngFor="let storage of storages" [value]="storage.id">
-                {{storage.name}}
-            </option>
+            <option *ngFor="let storage of storages" [value]="storage.id">{{storage.name}}</option>
         </select>
     </div>
     <div class="form-group">
@@ -40,9 +38,10 @@
     <div class="form-group">
         <label for="description">Description</label>
         <textarea formControlName="description" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.description.errors"
-                  id="description" rows="2"></textarea>
+                  id="description" rows="2">
+        </textarea>
         <div *ngIf="wasSubmitted && form.controls.description.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.description.errors.maxlength">Max length is 255</div>
+            <div *ngIf="form.controls.description.errors.maxlength">Max length is {{form.controls.description.errors.maxlength.requiredLength}}</div>
         </div>
     </div>
     <div *ngIf="success" class="alert alert-success">{{success}}</div>

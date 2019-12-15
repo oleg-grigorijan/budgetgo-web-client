@@ -27,9 +27,10 @@
     <div class="form-group">
         <label for="description">Description</label>
         <textarea formControlName="description" class="form-control" [class.is-invalid]="form.controls.description.errors"
-                  id="description" rows="2"></textarea>
+                  id="description" rows="2">
+        </textarea>
         <div *ngIf="form.controls.description.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.description.errors.maxlength">Max length is 255</div>
+            <div *ngIf="form.controls.description.errors.maxlength">Max length is {{form.controls.description.errors.maxlength.requiredLength}}</div>
         </div>
     </div>
     <button [disabled]="form.invalid || isLoading" class="btn btn-outline-primary" type="submit">

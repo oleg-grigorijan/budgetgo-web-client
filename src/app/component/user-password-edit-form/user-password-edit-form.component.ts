@@ -9,6 +9,8 @@ import {UserDetailsService} from '../../service/user-details.service';
 export class UserPasswordEditFormComponent implements OnInit {
 
     private form: FormGroup;
+
+    private wasSubmitted = false;
     private isLoading = false;
     private success = '';
 
@@ -26,6 +28,12 @@ export class UserPasswordEditFormComponent implements OnInit {
 
     onSaveClick() {
         this.success = '';
+        this.wasSubmitted = true;
+
+        if (this.form.invalid) {
+            return;
+        }
+
         this.isLoading = true;
         this.userDetailsService.patch(this.form.value).subscribe(() => {
             this.success = 'Changes saved';

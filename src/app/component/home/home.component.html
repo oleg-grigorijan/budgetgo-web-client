@@ -1,5 +1,5 @@
 <div class="container">
-    <ng-container *ngIf="storagesService.storages$ | async as storages">
+    <ng-container *ngIf="storagesService.storages$ | async as storages; else storagesLoading">
         <ng-container *ngIf="storages | isInvitationFilter:true as invitations">
             <ng-container *ngIf="invitations.length > 0">
                 <h4 class="mb-3">Invitations</h4>
@@ -19,3 +19,13 @@
         </div>
     </ng-container>
 </div>
+
+<ng-template #storagesLoading>
+    <h4 class="mb-3">Storages</h4>
+    <div class="card mb-3">
+        <div class="card-body">
+            <span class="spinner-border spinner-border-sm mr-1"></span>
+            Loading
+        </div>
+    </div>
+</ng-template>
