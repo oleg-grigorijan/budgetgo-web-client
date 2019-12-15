@@ -65,21 +65,22 @@ export class StorageUsersCardComponent implements OnInit {
     onInvitationUserSearchClick() {
         this.invitationSearchError = '';
         this.isInvitationUserSearching = true;
-        this.usersService.getByLogin(this.invitationLogin).then(invitationUser => {
-            if (this.storageUsers.find(su => su.user.id === invitationUser.id)) {
-                this.invitationUser = null;
-                this.invitationSearchError = 'User is already here';
-            } else {
-                this.invitationUser = invitationUser;
-            }
-            this.isInvitationUserSearching = false;
-        }).catch(error => {
-            if (error instanceof HttpErrorResponse && error.status === 404) {
-                this.invitationSearchError = 'User not found';
-            }
+        if (this.storageUsers.find(su => su.user.login === this.invitationLogin)) {
             this.invitationUser = null;
+            this.invitationSearchError = 'User is already here';
             this.isInvitationUserSearching = false;
-        });
+        } else {
+            this.usersService.getByLogin(this.invitationLogin).then(invitationUser => {
+                this.invitationUser = invitationUser;
+                this.isInvitationUserSearching = false;
+            }).catch(error => {
+                if (error instanceof HttpErrorResponse && error.status === 404) {
+                    this.invitationSearchError = 'User not found';
+                }
+                this.invitationUser = null;
+                this.isInvitationUserSearching = false;
+            });
+        }
     }
 
     onChangeUserInvitationRoleClick(newRole: string) {

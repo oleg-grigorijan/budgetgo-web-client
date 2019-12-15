@@ -12,10 +12,10 @@
                         <a class="list-group-item list-group-item-action dropdown-toggle" data-toggle="collapse" href="#new-operation-content"
                            role="button" aria-expanded="false" aria-controls="new-operation-content">
                             New operation
-                            <span *ngIf="!userCategories" class="spinner-border spinner-border-sm mx-1"></span>
+                            <span *ngIf="!userCategories || !operations" class="spinner-border spinner-border-sm mx-1"></span>
                         </a>
                         <div class="collapse" [class.show]="expandNewOperationByDefault" id="new-operation-content">
-                            <app-operation-creation-form *ngIf="userCategories" [singleStorageMode]="true" [storage]="storage"
+                            <app-operation-creation-form *ngIf="userCategories && operations" [singleStorageMode]="true" [storage]="storage"
                                                          [userCategories]="userCategories"
                                                          class="list-group-item py-3">
                             </app-operation-creation-form>
