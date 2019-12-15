@@ -32,6 +32,7 @@ import { OperationsListComponent } from './component/operations-list/operations-
 import { OperationsDateSortPipe } from './pipe/operations-date-sort.pipe';
 import { OperationEditFormComponent } from './component/operation-edit-form/operation-edit-form.component';
 import { UserCategoriesNameSortPipe } from './pipe/user-categories-name-sort.pipe';
+import { BalanceCardComponent } from './component/balance-card/balance-card.component';
 
 @NgModule({
     declarations: [
@@ -61,6 +62,7 @@ import { UserCategoriesNameSortPipe } from './pipe/user-categories-name-sort.pip
         OperationsDateSortPipe,
         OperationEditFormComponent,
         UserCategoriesNameSortPipe,
+        BalanceCardComponent,
     ],
     imports: [
         BrowserModule,
