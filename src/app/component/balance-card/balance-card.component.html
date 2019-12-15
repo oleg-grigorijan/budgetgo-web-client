@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="list-group list-group-flush">
+        <div *ngIf="mainBalance" class="list-group-item py-3" [class.text-danger]="mainBalance.money < 0">
+            <h4 class="mb-0">
+                <span class="badge badge-dark mr-1" [ngClass]="{'badge-danger': mainBalance.money < 0, 'badge-dark': mainBalance.money >= 0}">
+                    {{mainBalance.currency.isoCode}}
+                </span>
+                {{mainBalance.money | money}}
+            </h4>
+        </div>
+        <ng-container *ngFor="let balance of balances">
+            <div *ngIf="balance.currency.id !== mainCurrency.id" class="list-group-item"
+                 [class.text-danger]="balance.money < 0">
+                <h5 class="mb-0">
+                    <span class="badge badge-dark mr-1" [ngClass]="{'badge-danger': balance.money < 0, 'badge-dark': balance.money >= 0}">
+                        {{balance.currency.isoCode}}
+                    </span>
+                    {{balance.money | money}}
+                </h5>
+            </div>
+        </ng-container>
+    </div>
+    <div *ngIf="balances.length === 0" class="card-body">You have no storages with activated statistics</div>
+</div>
