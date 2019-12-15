@@ -3,7 +3,7 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {UserDetails} from '../entity/user-details';
 import {BasicAuthenticationService} from './basic-authentication.service';
-import {ReplaySubject, Subject} from 'rxjs';
+import {Observable, ReplaySubject, Subject} from 'rxjs';
 import {tap} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
@@ -30,7 +30,7 @@ export class UserDetailsService {
         });
     }
 
-    patch(patches): Promise<UserDetails> {
+    patch(patches): Observable<UserDetails> {
         return this.http.patch<UserDetails>(this.apiUrl, patches).pipe(tap((patchedUserDetails) => {
             if (patches.login) {
                 this.authenticationService.updateLogin(patches.login);
@@ -39,6 +39,6 @@ export class UserDetailsService {
                 this.authenticationService.updatePassword(patches.password);
             }
             this.userDetailsSubject.next(patchedUserDetails);
-        })).toPromise();
+        }));
     }
 }

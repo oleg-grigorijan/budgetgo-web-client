@@ -27,7 +27,7 @@ export class UserPasswordEditFormComponent implements OnInit {
     onSaveClick() {
         this.success = '';
         this.isLoading = true;
-        this.userDetailsService.patch(this.form.value).then(() => {
+        this.userDetailsService.patch(this.form.value).subscribe(() => {
             this.success = 'Changes saved';
             this.isLoading = false;
         });

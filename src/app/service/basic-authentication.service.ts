@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {ReplaySubject, Subject} from 'rxjs';
+import {Observable, ReplaySubject, Subject} from 'rxjs';
 import {tap} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
@@ -42,7 +42,7 @@ export class BasicAuthenticationService {
         localStorage.setItem(this.localStorageKey, this._token);
     }
 
-    authenticate(login: string, password: string): Promise<void> {
+    authenticate(login: string, password: string): Observable<void> {
         const body = new HttpParams().set('username', login).set('password', password);
         return this.http.post<void>(this.apiUrl, body, this.options).pipe(tap(() => {
             this.login = login;
@@ -50,7 +50,7 @@ export class BasicAuthenticationService {
             this.updateToken();
             this._isAuthenticated = true;
             this.authenticationSubject.next(true);
-        })).toPromise();
+        }));
     }
 
     updateLogin(login: string) {

@@ -49,7 +49,7 @@ export class StorageCreationFormComponent implements OnInit {
             if (value === this.mainCurrency.id) {
                 this.selectedCurrency = this.mainCurrency;
             } else {
-                this.selectedCurrency = this.currencies.find(c => c.id == value);
+                this.selectedCurrency = this.currencies.find(c => c.id === Number(value));
             }
         });
     }
@@ -60,7 +60,7 @@ export class StorageCreationFormComponent implements OnInit {
             return;
         }
         this.isLoading = true;
-        this.storagesService.create(this.form.value).then(() => {
+        this.storagesService.create(this.form.value).subscribe(() => {
             this.returning.emit(true);
             this.isLoading = false;
         });

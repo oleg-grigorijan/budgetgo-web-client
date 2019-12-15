@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BasicAuthenticationService} from './basic-authentication.service';
 import {environment} from '../../environments/environment';
-import {ReplaySubject, Subject} from 'rxjs';
+import {Observable, ReplaySubject, Subject} from 'rxjs';
 import {Storage} from '../entity/storage';
 import {tap} from 'rxjs/operators';
 import {StorageSettings} from '../entity/storage-settings';
@@ -60,15 +60,15 @@ export class StoragesService {
         });
     }
 
-    create(source): Promise<Storage> {
+    create(source): Observable<Storage> {
         return this.http.post<Storage>(this.apiUrl, source).pipe(tap(storage => {
                 this.storages.push(storage);
                 this.storagesSubject.next(this.storages);
             }
-        )).toPromise();
+        ));
     }
 
-    patch(id: number, patches): Promise<Storage> {
+    patch(id: number, patches): Observable<Storage> {
         return this.http.patch<Storage>(this.apiUrl + '/' + id, patches).pipe(tap(storage => {
             this.storages = this.storages.map(s => {
                 if (s.id === id) {
@@ -78,10 +78,10 @@ export class StoragesService {
                 }
             });
             this.storagesSubject.next(this.storages);
-        })).toPromise();
+        }));
     }
 
-    patchSettings(id: number, patches): Promise<StorageSettings> {
+    patchSettings(id: number, patches): Observable<StorageSettings> {
         return this.http.patch<StorageSettings>(this.apiUrl + '/' + id + '/settings', patches).pipe(tap(settings => {
             this.storages = this.storages.map(s => {
                 if (s.id === id) {
@@ -90,13 +90,13 @@ export class StoragesService {
                 return s;
             });
             this.storagesSubject.next(this.storages);
-        })).toPromise();
+        }));
     }
 
-    delete(id: number): Promise<void> {
+    delete(id: number): Observable<void> {
         return this.http.delete<void>(this.apiUrl + '/' + id + '/settings').pipe(tap(() => {
             this.storages = this.storages.filter(s => s.id !== id);
             this.storagesSubject.next(this.storages);
-        })).toPromise();
+        }));
     }
 }

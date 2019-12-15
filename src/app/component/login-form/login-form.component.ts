@@ -40,11 +40,11 @@ export class LoginFormComponent implements OnInit {
         }
 
         this.isLoading = true;
-        this.authenticationService.authenticate(this.form.controls.login.value, this.form.controls.password.value).then(() => {
+        this.authenticationService.authenticate(this.form.controls.login.value, this.form.controls.password.value).subscribe(() => {
             const returnUrl = this.route.snapshot.queryParams.returnUrl || HomeComponent.PATH;
             this.router.navigate([returnUrl]);
             this.isLoading = false;
-        }).catch(error => {
+        }, error => {
             if (error instanceof HttpErrorResponse && error.status === 401) {
                 this.error = 'Invalid login or password';
             }

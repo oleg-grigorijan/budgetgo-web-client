@@ -36,7 +36,7 @@ export class StorageEditFormComponent implements OnInit {
 
     private onSaveClick() {
         this.isLoading = true;
-        this.storagesService.patch(this.storage.id, this.form.value).then(() => {
+        this.storagesService.patch(this.storage.id, this.form.value).subscribe(() => {
             this.success = 'Changes saved';
             this.isLoading = false;
         });

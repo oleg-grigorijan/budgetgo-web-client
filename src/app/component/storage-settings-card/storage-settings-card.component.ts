@@ -27,7 +27,7 @@ export class StorageSettingsCardComponent implements OnInit {
 
     onUnsubscribeClick() {
         this.isUnsubscribeLoading = true;
-        this.storagesService.delete(this.storage.id).then(() => {
+        this.storagesService.delete(this.storage.id).subscribe(() => {
             this.isUnsubscribeLoading = false;
             this.unsubscribeClick.emit();
         });
@@ -36,7 +36,7 @@ export class StorageSettingsCardComponent implements OnInit {
     toggleIncludedInUserStatistics() {
         const patches = {isIncludedInUserStatistics: !this.storage.settings.isIncludedInUserStatistics};
         this.isIncludedInUserStatisticsLoading = true;
-        this.storagesService.patchSettings(this.storage.id, patches).then(() => {
+        this.storagesService.patchSettings(this.storage.id, patches).subscribe(() => {
             this.isIncludedInUserStatisticsLoading = false;
         });
     }

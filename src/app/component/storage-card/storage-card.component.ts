@@ -23,14 +23,14 @@ export class StorageCardComponent implements OnInit {
 
     onAcceptInvitationClick() {
         this.isAcceptInvitationLoading = true;
-        this.storagesService.patchSettings(this.storage.id, {isInvitation: false, isIncludedInUserStatistics: true}).then(() => {
+        this.storagesService.patchSettings(this.storage.id, {isInvitation: false, isIncludedInUserStatistics: true}).subscribe(() => {
             this.isAcceptInvitationLoading = false;
         });
     }
 
     onDeclineInvitationClick() {
         this.isDeclineInvitationLoading = true;
-        this.storagesService.delete(this.storage.id).then(() => {
+        this.storagesService.delete(this.storage.id).subscribe(() => {
             this.isDeclineInvitationLoading = false;
             this.declineInvitationClick.emit();
         });

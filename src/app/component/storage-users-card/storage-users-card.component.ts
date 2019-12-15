@@ -37,13 +37,13 @@ export class StorageUsersCardComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.storageUsersService.getByStorageId(this.storage.id).then(users => {
+        this.storageUsersService.getByStorageId(this.storage.id).subscribe(users => {
             this.storageUsers = users;
         });
     }
 
     onChangeUserRoleClick(storageUser: StorageUser, newRole: string) {
-        this.storageUsersService.patch(this.storage.id, storageUser.user.id, {userRole: newRole}).then(patchedStorageUser => {
+        this.storageUsersService.patch(this.storage.id, storageUser.user.id, {userRole: newRole}).subscribe(patchedStorageUser => {
             this.storageUsers = this.storageUsers.map(su => {
                 if (su.user.id === patchedStorageUser.user.id) {
                     return patchedStorageUser;
@@ -55,7 +55,7 @@ export class StorageUsersCardComponent implements OnInit {
     }
 
     onRemoveUserClick(storageUser: StorageUser) {
-        this.storageUsersService.delete(this.storage.id, storageUser.user.id).then(() => {
+        this.storageUsersService.delete(this.storage.id, storageUser.user.id).subscribe(() => {
             this.storageUsers = this.storageUsers.filter(su => {
                 return su.user.id !== storageUser.user.id;
             });
@@ -70,10 +70,10 @@ export class StorageUsersCardComponent implements OnInit {
             this.invitationSearchError = 'User is already here';
             this.isInvitationUserSearching = false;
         } else {
-            this.usersService.getByLogin(this.invitationLogin).then(invitationUser => {
+            this.usersService.getByLogin(this.invitationLogin).subscribe(invitationUser => {
                 this.invitationUser = invitationUser;
                 this.isInvitationUserSearching = false;
-            }).catch(error => {
+            }, error => {
                 if (error instanceof HttpErrorResponse && error.status === 404) {
                     this.invitationSearchError = 'User not found';
                 }
@@ -90,7 +90,7 @@ export class StorageUsersCardComponent implements OnInit {
     onInviteClick() {
         this.isInviteLoading = true;
         const source = {userId: this.invitationUser.id, userRole: this.invitationUserRole};
-        this.storageUsersService.create(this.storage.id, source).then(storageUser => {
+        this.storageUsersService.create(this.storage.id, source).subscribe(storageUser => {
             this.storageUsers.push(storageUser);
             this.invitationUser = null;
             this.invitationUserRole = UserStorageRole.VIEWER;
