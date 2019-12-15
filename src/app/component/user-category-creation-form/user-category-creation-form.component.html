@@ -1,24 +1,30 @@
-<div class="d-flex mb-2">
-    <div class="custom-control custom-checkbox mr-3">
-        <input [(ngModel)]="isUsedForIncomes" type="checkbox"
-               class="custom-control-input" id="for-incomes">
-        <label class="custom-control-label" for="for-incomes">For incomes</label>
+<form [formGroup]="form" (ngSubmit)="onCreateClick()">
+    <div class="mb-2 d-flex">
+        <div class="custom-control custom-checkbox mr-3">
+            <input formControlName="isUsedForIncomes" class="custom-control-input" id="for-incomes" type="checkbox">
+            <label class="custom-control-label" for="for-incomes">For incomes</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input formControlName="isUsedForOutcomes" class="custom-control-input" id="for-outcomes" type="checkbox">
+            <label class="custom-control-label" for="for-outcomes">For outcomes</label>
+        </div>
     </div>
-    <div class="custom-control custom-checkbox">
-        <input [(ngModel)]="isUsedForOutcomes" type="checkbox"
-               class="custom-control-input" id="for-outcomes">
-        <label class="custom-control-label" for="for-outcomes">For outcomes</label>
+    <div class="mb-2">
+        <div class="input-group">
+            <input formControlName="categoryName" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.categoryName.errors"
+                   type="text" placeholder="Name">
+            <div class="input-group-append">
+                <button [disabled]="isLoading || (wasSubmitted && form.invalid)" class="btn btn-outline-primary" type="submit">
+                    <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Create
+                </button>
+            </div>
+        </div>
+        <div *ngIf="wasSubmitted && form.controls.categoryName.errors" class="text-danger small">
+            <div *ngIf="form.controls.categoryName.errors.required">Required</div>
+            <div *ngIf="form.controls.categoryName.errors.maxlength">Max length is {{form.controls.categoryName.errors.maxlength.requiredLength}}</div>
+            <div *ngIf="form.controls.categoryName.errors.nonUniqueName">Category with such a name already exists</div>
+        </div>
     </div>
-</div>
-<div class="input-group">
-    <input type="text" (keyup.enter)="onCreateClick()" [(ngModel)]="categoryName" #name="ngModel" class="form-control"
-           placeholder="Name" maxlength="255" required>
-    <div class="input-group-append">
-        <button (click)="onCreateClick()" [disabled]="isLoading || name.invalid" class="btn btn-outline-primary"
-                type="button">
-            <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
-            Create
-        </button>
-    </div>
-</div>
-<div *ngIf="error" class="alert alert-danger mt-2 mb-1">{{error}}</div>
+    <div *ngIf="success" class="alert alert-success mt-2 mb-1">{{success}}</div>
+</form>

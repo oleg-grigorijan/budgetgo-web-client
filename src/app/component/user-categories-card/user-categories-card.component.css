@@ -2,3 +2,9 @@
     color: #856404;
     background-color: #fff3cd;
 }
+
+.badge-point {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+}

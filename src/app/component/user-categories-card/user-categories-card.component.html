@@ -1,29 +1,48 @@
-<div class="card">
+<div *ngIf="userCategoriesService.userCategories$ | async as userCategories; else loadingCard" class="card accordion"
+     id="user-categories-list-accordion">
     <div class="list-group list-group-flush">
-        <div class="list-group-item">
-            <h6 class="card-title">New category</h6>
+        <div class="list-group-item pt-3">
+            <h6 class="card-title mb-2">New category</h6>
             <app-user-category-creation-form></app-user-category-creation-form>
         </div>
         <div *ngIf="warning" class="list-group-item warning">
             {{warning}}
         </div>
-        <ng-container *ngIf="userCategoriesService.userCategories$ | async as userCategories">
-            <div *ngFor="let userCategory of userCategories; let i = index" class="list-group-item">
-                <h6 class="mb-1">{{userCategory.category.name}}</h6>
-                <div class="d-flex">
-                    <div class="custom-control custom-checkbox mr-3">
-                        <input (change)="toggleIsUsedForIncomes(userCategory)" [checked]="userCategory.isUsedForIncomes" type="checkbox"
-                               class="custom-control-input" id="for-incomes-{{i}}">
-                        <label class="custom-control-label" for="for-incomes-{{i}}">For incomes</label>
+        <ng-container *ngFor="let userCategory of userCategories | userCategoriesNameSort; let i = index" class="list-group-item">
+            <a class="list-group-item list-group-item-action d-flex align-items-center" data-toggle="collapse" href="#user-category-{{i}}"
+               role="button" aria-expanded="false">
+                <h6 class="mb-1 mr-2" [class.text-muted]="!userCategory.isUsedForIncomes && !userCategory.isUsedForOutcomes">
+                    {{userCategory.category.name}}
+                </h6>
+                <div *ngIf="userCategory.isUsedForIncomes" class="badge-point bg-success mr-1"></div>
+                <div *ngIf="userCategory.isUsedForOutcomes" class="badge-point bg-danger"></div>
+            </a>
+            <div class="collapse" [class.show]="userCategory.category.id === lastActiveCategoryId" id="user-category-{{i}}" data-parent="#user-categories-list-accordion">
+                <div class="list-group-item">
+                    <div class="d-flex">
+                        <div class="custom-control custom-checkbox mr-3">
+                            <input (change)="toggleIsUsedForIncomes(userCategory)" [checked]="userCategory.isUsedForIncomes" type="checkbox"
+                                   class="custom-control-input" id="for-incomes-{{i}}">
+                            <label class="custom-control-label" for="for-incomes-{{i}}">For incomes</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input (change)="toggleIsUsedForOutcomes(userCategory)" [checked]="userCategory.isUsedForOutcomes" type="checkbox"
+                                   class="custom-control-input" id="for-outcomes-{{i}}">
+                            <label class="custom-control-label" for="for-outcomes-{{i}}">For outcomes</label>
+                        </div>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                        <input (change)="toggleIsUsedForOutcomes(userCategory)" [checked]="userCategory.isUsedForOutcomes" type="checkbox"
-                               class="custom-control-input" id="for-outcomes-{{i}}">
-                        <label class="custom-control-label" for="for-outcomes-{{i}}">For outcomes</label>
-                    </div>
+                    <a (click)="onRemoveUserCategoryClick(userCategory)" class="text-danger">Remove</a>
                 </div>
-                <a (click)="onRemoveUserCategoryClick(userCategory)" class="text-danger">Remove</a>
             </div>
         </ng-container>
     </div>
 </div>
+
+<ng-template #loadingCard>
+    <div class="card">
+        <div class="card-body">
+            <span class="spinner-border spinner-border-sm mr-1"></span>
+            Loading
+        </div>
+    </div>
+</ng-template>

@@ -31,6 +31,7 @@ import { OperationCreationFormComponent } from './component/operation-creation-f
 import { OperationsListComponent } from './component/operations-list/operations-list.component';
 import { OperationsDateSortPipe } from './pipe/operations-date-sort.pipe';
 import { OperationEditFormComponent } from './component/operation-edit-form/operation-edit-form.component';
+import { UserCategoriesNameSortPipe } from './pipe/user-categories-name-sort.pipe';
 
 @NgModule({
     declarations: [
@@ -59,6 +60,7 @@ import { OperationEditFormComponent } from './component/operation-edit-form/oper
         OperationsListComponent,
         OperationsDateSortPipe,
         OperationEditFormComponent,
+        UserCategoriesNameSortPipe,
     ],
     imports: [
         BrowserModule,

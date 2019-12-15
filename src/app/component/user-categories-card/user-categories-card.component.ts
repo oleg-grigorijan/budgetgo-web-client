@@ -9,6 +9,7 @@ import {UserCategory} from '../../entity/user-category';
 })
 export class UserCategoriesCardComponent implements OnInit {
 
+    private lastActiveCategoryId = 0;
     private warning = '';
 
     constructor(private readonly userCategoriesService: UserCategoriesService) {
@@ -29,14 +30,17 @@ export class UserCategoriesCardComponent implements OnInit {
     }
 
     private onRemoveUserCategoryClick(userCategory: UserCategory) {
+        this.lastActiveCategoryId = 0;
         this.userCategoriesService.delete(userCategory.category.id).subscribe();
     }
 
     private toggleIsUsedForIncomes(userCategory: UserCategory) {
+        this.lastActiveCategoryId = userCategory.category.id;
         this.userCategoriesService.patch(userCategory.category.id, {isUsedForIncomes: !userCategory.isUsedForIncomes}).subscribe();
     }
 
     private toggleIsUsedForOutcomes(userCategory: UserCategory) {
+        this.lastActiveCategoryId = userCategory.category.id;
         this.userCategoriesService.patch(userCategory.category.id, {isUsedForOutcomes: !userCategory.isUsedForOutcomes}).subscribe();
     }
 }

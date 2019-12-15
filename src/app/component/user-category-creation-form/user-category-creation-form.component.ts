@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators} from '@angular/forms';
 import {UserCategoriesService} from '../../service/user-categories.service';
 import {UserCategory} from '../../entity/user-category';
 import {Subscription} from 'rxjs';
@@ -11,13 +11,14 @@ import {Subscription} from 'rxjs';
 })
 export class UserCategoryCreationFormComponent implements OnInit, OnDestroy {
 
-    private isLoading = false;
-    private categoryName = '';
-    private error = '';
+    private form: FormGroup;
+
     private userCategories: UserCategory[];
     private subscription: Subscription;
-    private isUsedForIncomes = true;
-    private isUsedForOutcomes = true;
+
+    private wasSubmitted = false;
+    private isLoading = false;
+    private success = '';
 
     constructor(private readonly formBuilder: FormBuilder, private readonly userCategoriesService: UserCategoriesService) {
     }
@@ -26,6 +27,16 @@ export class UserCategoryCreationFormComponent implements OnInit, OnDestroy {
         this.subscription = this.userCategoriesService.userCategories$.subscribe(userCategories => {
             this.userCategories = userCategories;
         });
+
+        this.form = this.formBuilder.group({
+            isUsedForIncomes: [true],
+            isUsedForOutcomes: [true],
+            categoryName: ['', [Validators.required, Validators.maxLength(255), this.uniqueNameValidator()]]
+        });
+
+        this.form.valueChanges.subscribe(() => {
+            this.success = '';
+        });
     }
 
     ngOnDestroy(): void {
@@ -33,15 +44,24 @@ export class UserCategoryCreationFormComponent implements OnInit, OnDestroy {
     }
 
     private onCreateClick() {
-        this.error = '';
-        if (this.userCategories.find(uc => uc.category.name === this.categoryName)) {
-            this.error = 'Category is already created';
+        this.wasSubmitted = true;
+        this.success = '';
+
+        if (this.form.invalid) {
             return;
         }
 
-        const source = {isUsedForIncomes: this.isUsedForIncomes, isUsedForOutcomes: this.isUsedForOutcomes};
-        this.userCategoriesService.createByCategoryName(this.categoryName, source).subscribe(() => {
-            this.categoryName = '';
+        this.userCategoriesService.createByCategoryName(this.form.controls.categoryName.value, this.form.value).subscribe(() => {
+            this.wasSubmitted = false;
+            this.form.controls.categoryName.patchValue('');
+            this.success = 'Created';
         });
+    }
+
+    private uniqueNameValidator(): ValidatorFn {
+        return (control: AbstractControl): {[key: string]: any} | null => {
+            const userCategory = this.userCategories.find(uc => uc.category.name === control.value);
+            return userCategory ? {nonUniqueName: {value: control.value}} : null;
+        };
     }
 }

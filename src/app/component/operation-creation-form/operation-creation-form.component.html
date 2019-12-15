@@ -32,7 +32,7 @@
     <div class="form-group">
         <label for="category">Category</label>
         <select formControlName="categoryId" class="custom-select" id="category">
-            <option *ngFor="let userCategory of userCategoriesOptions" [value]="userCategory.category.id">
+            <option *ngFor="let userCategory of userCategoriesOptions | userCategoriesNameSort" [value]="userCategory.category.id">
                 {{userCategory.category.name}}
             </option>
         </select>
