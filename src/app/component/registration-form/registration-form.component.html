@@ -1,0 +1,65 @@
+<form [formGroup]="form" (ngSubmit)="onSingUpClick()">
+    <div class="form-group">
+        <label for="registration-login">Login</label>
+        <input formControlName="login" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.login.errors" id="registration-login"
+               type="text" autocomplete="username"/>
+        <div *ngIf="wasSubmitted && form.controls.login.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.login.errors.required">Required</div>
+            <div *ngIf="form.controls.login.errors.pattern">Can contain only Latin letters, numbers, underscores, hyphens and periods</div>
+            <div *ngIf="form.controls.login.errors.maxlength">Max length is {{form.controls.login.errors.maxlength.requiredLength}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input formControlName="email" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.email.errors" id="email" type="text"/>
+        <div *ngIf="wasSubmitted && form.controls.email.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.email.errors.required">Required</div>
+            <div *ngIf="form.controls.email.errors.email">Invalid email</div>
+            <div *ngIf="form.controls.email.errors.maxlength">Max length is {{form.controls.email.errors.maxlength.requiredLength}}</div>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+            <input formControlName="isEmailPublic" class="custom-control-input" id="is-email-public" type="checkbox">
+            <label class="custom-control-label" for="is-email-public">Make email visible for everyone</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="registration-password">Password</label>
+        <input type="password" formControlName="password" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.password.errors"
+               id="registration-password" autocomplete="new-password"/>
+        <div *ngIf="wasSubmitted && form.controls.password.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.password.errors.required">Required</div>
+            <div *ngIf="form.controls.password.errors.minlength">Min length is {{form.controls.password.errors.minlength.requiredLength}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input formControlName="name" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.name.errors" id="name" type="text"/>
+        <div *ngIf="wasSubmitted && form.controls.name.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.name.errors.required">Required</div>
+            <div *ngIf="form.controls.name.errors.maxlength">Max length is {{form.controls.name.errors.maxlength.requiredLength}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="surname">Surname</label>
+        <input formControlName="surname" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.surname.errors" id="surname"
+               type="text"/>
+        <div *ngIf="wasSubmitted && form.controls.surname.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.surname.errors.required">Required</div>
+            <div *ngIf="form.controls.surname.errors.maxlength">Max length is {{form.controls.surname.errors.maxlength.requiredLength}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="main-currency">Main Currency</label>
+        <select formControlName="mainCurrencyId" class="custom-select" id="main-currency">
+            <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.name}}</option>
+        </select>
+        <div *ngIf="form.controls.mainCurrencyId.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.mainCurrencyId.errors.required">Required</div>
+        </div>
+    </div>
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    <button [disabled]="isLoading || (wasSubmitted && this.form.invalid)" class="btn btn-outline-primary" type="submit">
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
+        Sign up
+    </button>
+</form>
