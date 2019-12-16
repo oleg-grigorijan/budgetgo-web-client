@@ -1,27 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
 import {BasicAuthenticationService} from '../../service/basic-authentication.service';
-import {HomeComponent} from '../home/home.component';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
-    selector: 'app-login',
+    selector: 'app-login-form',
     templateUrl: './login-form.component.html'
 })
 export class LoginFormComponent implements OnInit {
+
+    @Output() successReturning = new EventEmitter<void>();
 
     private form: FormGroup;
     private isLoading = false;
     private wasSubmitted = false;
     private error = '';
 
-    constructor(
-        private readonly route: ActivatedRoute,
-        private readonly router: Router,
-        private readonly formBuilder: FormBuilder,
-        private readonly authenticationService: BasicAuthenticationService
-    ) {
+    constructor(private readonly formBuilder: FormBuilder, private readonly authenticationService: BasicAuthenticationService) {
     }
 
     ngOnInit() {
@@ -41,9 +36,8 @@ export class LoginFormComponent implements OnInit {
 
         this.isLoading = true;
         this.authenticationService.authenticate(this.form.controls.login.value, this.form.controls.password.value).subscribe(() => {
-            const returnUrl = this.route.snapshot.queryParams.returnUrl || HomeComponent.PATH;
-            this.router.navigate([returnUrl]);
             this.isLoading = false;
+            this.successReturning.emit();
         }, error => {
             if (error instanceof HttpErrorResponse && error.status === 401) {
                 this.error = 'Invalid login or password';
