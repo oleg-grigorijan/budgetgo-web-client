@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="onSaveClick()">
     <div class="form-group">
-        <label for="login">Login</label>
-        <input formControlName="login" class="form-control" [class.is-invalid]="form.controls.login.errors" id="login" type="text"
+        <label for="user-edit-login">Login</label>
+        <input formControlName="login" class="form-control" [class.is-invalid]="form.controls.login.errors" id="user-edit-login" type="text"
                autocomplete="username"/>
         <div *ngIf="form.controls.login.errors" class="invalid-feedback">
             <div *ngIf="form.controls.login.errors.required">Required</div>
@@ -10,42 +10,43 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="email">Email</label>
-        <input formControlName="email" class="form-control" [class.is-invalid]="form.controls.email.errors" id="email" type="text"/>
+        <label for="user-edit-email">Email</label>
+        <input formControlName="email" class="form-control" [class.is-invalid]="form.controls.email.errors" id="user-edit-email" type="text"/>
         <div *ngIf="form.controls.email.errors" class="invalid-feedback">
             <div *ngIf="form.controls.email.errors.required">Required</div>
             <div *ngIf="form.controls.email.errors.email">Invalid email</div>
             <div *ngIf="form.controls.email.errors.maxlength">Max length is {{form.controls.email.errors.maxlength.requiredLength}}</div>
         </div>
         <div class="custom-control custom-checkbox mt-1">
-            <input formControlName="isEmailPublic" class="custom-control-input" id="is-email-public" type="checkbox">
-            <label class="custom-control-label" for="is-email-public">Make email visible for everyone</label>
+            <input formControlName="isEmailPublic" class="custom-control-input" id="user-edit-is-email-public" type="checkbox">
+            <label class="custom-control-label" for="user-edit-is-email-public">Make email visible for everyone</label>
         </div>
     </div>
     <div class="form-group">
-        <label for="btn-password-modal">Password</label>
-        <button class="btn btn-light d-block" id="btn-password-modal" type="button" data-toggle="modal" data-target="#password-change-modal">Change
+        <label for="user-edit-btn-password">Password</label>
+        <button class="btn btn-light d-block" id="user-edit-btn-password" type="button" data-toggle="modal" data-target="#password-change-modal">
+            Change
         </button>
     </div>
     <div class="form-group">
-        <label for="name">Name</label>
-        <input formControlName="name" class="form-control" [class.is-invalid]="form.controls.name.errors" id="name" type="text"/>
+        <label for="user-edit-name">Name</label>
+        <input formControlName="name" class="form-control" [class.is-invalid]="form.controls.name.errors" id="user-edit-name" type="text"/>
         <div *ngIf="form.controls.name.errors" class="invalid-feedback">
             <div *ngIf="form.controls.name.errors.required">Required</div>
             <div *ngIf="form.controls.name.errors.maxlength">Max length is {{form.controls.name.errors.maxlength.requiredLength}}</div>
         </div>
     </div>
     <div class="form-group">
-        <label for="surname">Surname</label>
-        <input formControlName="surname" class="form-control" [class.is-invalid]="form.controls.surname.errors" id="surname" type="text"/>
+        <label for="user-edit-surname">Surname</label>
+        <input formControlName="surname" class="form-control" [class.is-invalid]="form.controls.surname.errors" id="user-edit-surname" type="text"/>
         <div *ngIf="form.controls.surname.errors" class="invalid-feedback">
             <div *ngIf="form.controls.surname.errors.required">Required</div>
             <div *ngIf="form.controls.surname.errors.maxlength">Max length is {{form.controls.surname.errors.maxlength.requiredLength}}</div>
         </div>
     </div>
     <div class="form-group">
-        <label for="main-currency">Main Currency</label>
-        <select formControlName="mainCurrencyId" class="custom-select" id="main-currency">
+        <label for="user-edit-main-currency">Main Currency</label>
+        <select formControlName="mainCurrencyId" class="custom-select" id="user-edit-main-currency">
             <ng-container *ngIf="(currenciesService.currencies$ | async) as currencies; else loadingCurrencies">
                 <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.name}}</option>
             </ng-container>

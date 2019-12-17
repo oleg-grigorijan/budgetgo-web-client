@@ -12,22 +12,22 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="money-amount">Money amount</label>
-        <input formControlName="moneyAmountFloat" currencyMask class="form-control" id="money-amount" type="text" placeholder="0.00"
+        <label for="operation-edit-money-amount">Money amount</label>
+        <input formControlName="moneyAmountFloat" currencyMask class="form-control" id="operation-edit-money-amount" type="text" placeholder="0.00"
                autocomplete="off" aria-describedby="currency-iso-code">
     </div>
     <div class="form-group">
-        <label for="category">Category</label>
-        <select formControlName="categoryId" class="custom-select" id="category">
+        <label for="operation-edit-category">Category</label>
+        <select formControlName="categoryId" class="custom-select" id="operation-edit-category">
             <option *ngFor="let userCategory of userCategoriesOptions | userCategoriesNameSort" [value]="userCategory.category.id">
                 {{userCategory.category.name}}
             </option>
         </select>
     </div>
     <div class="form-group">
-        <label for="description">Description</label>
+        <label for="operation-edit-description">Description</label>
         <textarea formControlName="description" class="form-control" [class.is-invalid]="form.controls.description.errors"
-                  id="description" rows="2">
+                  id="operation-edit-description" rows="2">
         </textarea>
         <div *ngIf="form.controls.description.errors" class="invalid-feedback">
             <div *ngIf="form.controls.description.errors.maxlength">Max length is {{form.controls.description.errors.maxlength.requiredLength}}</div>

@@ -5,7 +5,7 @@ import {StoragesService} from '../../service/storages.service';
 @Component({
     selector: 'app-storage-card',
     templateUrl: './storage-card.component.html',
-    styleUrls: ['./storage-card.component.css']
+    styleUrls: []
 })
 export class StorageCardComponent implements OnInit {
 

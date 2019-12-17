@@ -1,15 +1,16 @@
 <form [formGroup]="form" (ngSubmit)="onSaveClick()">
     <div class="form-group">
-        <label for="name">Name</label>
-        <input formControlName="name" class="form-control" [class.is-invalid]="form.controls.name.errors" id="name" type="text"/>
+        <label for="storage-edit-name">Name</label>
+        <input formControlName="name" class="form-control" [class.is-invalid]="form.controls.name.errors" id="storage-edit-name" type="text"/>
         <div *ngIf="form.controls.name.errors" class="invalid-feedback">
             <div *ngIf="form.controls.name.errors.required">Required</div>
             <div *ngIf="form.controls.name.errors.maxlength">Max length is {{form.controls.name.errors.maxlength.requiredLength}}</div>
         </div>
     </div>
     <div class="form-group">
-        <label for="description">Description</label>
-        <textarea formControlName="description" class="form-control" [class.is-invalid]="form.controls.description.errors" id="description" rows="2">
+        <label for="storage-edit-description">Description</label>
+        <textarea formControlName="description" class="form-control" [class.is-invalid]="form.controls.description.errors"
+                  id="storage-edit-description" rows="2">
         </textarea>
         <div *ngIf="form.controls.description.errors" class="invalid-feedback">
             <div *ngIf="form.controls.description.errors.maxlength">Max length is {{form.controls.description.errors.maxlength.requiredLength}}</div>

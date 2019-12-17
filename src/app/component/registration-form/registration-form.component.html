@@ -10,8 +10,9 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="email">Email</label>
-        <input formControlName="email" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.email.errors" id="email" type="text"/>
+        <label for="registration-email">Email</label>
+        <input formControlName="email" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.email.errors" id="registration-email"
+               type="text"/>
         <div *ngIf="wasSubmitted && form.controls.email.errors" class="invalid-feedback">
             <div *ngIf="form.controls.email.errors.required">Required</div>
             <div *ngIf="form.controls.email.errors.email">Invalid email</div>
@@ -32,25 +33,26 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="name">Name</label>
-        <input formControlName="name" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.name.errors" id="name" type="text"/>
+        <label for="registration-name">Name</label>
+        <input formControlName="name" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.name.errors" id="registration-name"
+               type="text"/>
         <div *ngIf="wasSubmitted && form.controls.name.errors" class="invalid-feedback">
             <div *ngIf="form.controls.name.errors.required">Required</div>
             <div *ngIf="form.controls.name.errors.maxlength">Max length is {{form.controls.name.errors.maxlength.requiredLength}}</div>
         </div>
     </div>
     <div class="form-group">
-        <label for="surname">Surname</label>
-        <input formControlName="surname" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.surname.errors" id="surname"
-               type="text"/>
+        <label for="registration-surname">Surname</label>
+        <input formControlName="surname" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.surname.errors"
+               id="registration-surname" type="text"/>
         <div *ngIf="wasSubmitted && form.controls.surname.errors" class="invalid-feedback">
             <div *ngIf="form.controls.surname.errors.required">Required</div>
             <div *ngIf="form.controls.surname.errors.maxlength">Max length is {{form.controls.surname.errors.maxlength.requiredLength}}</div>
         </div>
     </div>
     <div class="form-group">
-        <label for="main-currency">Main Currency</label>
-        <select formControlName="mainCurrencyId" class="custom-select" id="main-currency">
+        <label for="registration-main-currency">Main Currency</label>
+        <select formControlName="mainCurrencyId" class="custom-select" id="registration-main-currency">
             <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.name}}</option>
         </select>
         <div *ngIf="form.controls.mainCurrencyId.errors" class="invalid-feedback">
