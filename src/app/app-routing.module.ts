@@ -9,14 +9,17 @@ import {UserCategoriesSettingsViewComponent} from './component-view/user-categor
 import {NoCategoriesGuard} from './guard/no-categories.guard';
 import {NoStoragesGuard} from './guard/no-storages.guard';
 import {FirstStorageCreationViewComponent} from './component-view/first-storage-creation-view/first-storage-creation-view.component';
+import {NotFoundViewComponent} from './component-view/not-found-view/not-found-view.component';
 
 const routes: Routes = [
+    {path: NotFoundViewComponent.PATH, component: NotFoundViewComponent},
     {path: WelcomeViewComponent.PATH, component: WelcomeViewComponent},
-    {path: HomeViewComponent.PATH, component: HomeViewComponent, canActivate: [AuthenticationGuard, NoStoragesGuard, NoCategoriesGuard]},
-    {path: UserSettingsViewComponent.PATH, component: UserSettingsViewComponent, canActivate: [AuthenticationGuard]},
     {path: FirstStorageCreationViewComponent.PATH, component: FirstStorageCreationViewComponent, canActivate: [AuthenticationGuard]},
     {path: StorageViewComponent.PATH, component: StorageViewComponent, canActivate: [AuthenticationGuard, NoCategoriesGuard]},
-    {path: UserCategoriesSettingsViewComponent.PATH, component: UserCategoriesSettingsViewComponent, canActivate: [AuthenticationGuard]}
+    {path: UserSettingsViewComponent.PATH, component: UserSettingsViewComponent, canActivate: [AuthenticationGuard]},
+    {path: UserCategoriesSettingsViewComponent.PATH, component: UserCategoriesSettingsViewComponent, canActivate: [AuthenticationGuard]},
+    {path: HomeViewComponent.PATH, component: HomeViewComponent, canActivate: [AuthenticationGuard, NoStoragesGuard, NoCategoriesGuard]},
+    {path: '**', redirectTo: NotFoundViewComponent.PATH}
 ];
 
 @NgModule({

@@ -10,6 +10,7 @@ import {OperationsService} from '../../service/operations.service';
 import {Operation} from '../../entity/operation';
 import {environment} from '../../../environments/environment';
 import {HomeViewComponent} from '../home-view/home-view.component';
+import {NotFoundViewComponent} from '../not-found-view/not-found-view.component';
 
 @Component({
     selector: 'app-storage-view',
@@ -48,6 +49,8 @@ export class StorageViewComponent implements OnInit, OnDestroy {
                     this.operationsService.getByStorageId(this.storage.id).subscribe(operations => {
                         this.operations = operations;
                     });
+                } else {
+                    this.router.navigate([NotFoundViewComponent.PATH]);
                 }
             }
         }));

@@ -37,6 +37,7 @@ import { RegistrationFormComponent } from './component/registration-form/registr
 import { FirstStorageCreationViewComponent } from './component-view/first-storage-creation-view/first-storage-creation-view.component';
 import { StorageUserInvitationFormComponent } from './component/storage-user-invitation-form/storage-user-invitation-form.component';
 import { UserStorageRolesDropdownItemsComponent } from './component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component';
+import { NotFoundViewComponent } from './component-view/not-found-view/not-found-view.component';
 
 @NgModule({
     declarations: [
@@ -71,6 +72,7 @@ import { UserStorageRolesDropdownItemsComponent } from './component/user-storage
         FirstStorageCreationViewComponent,
         StorageUserInvitationFormComponent,
         UserStorageRolesDropdownItemsComponent,
+        NotFoundViewComponent,
     ],
     imports: [
         BrowserModule,
