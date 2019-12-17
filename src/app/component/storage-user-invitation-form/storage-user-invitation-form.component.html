@@ -1,0 +1,37 @@
+<div class="input-group mb-2">
+    <div class="input-group-prepend">
+        <span class="input-group-text">@</span>
+    </div>
+    <input type="text" (keyup.enter)="onInvitationUserSearchClick()" [(ngModel)]="userLogin" placeholder="Login"
+           class="form-control">
+    <div class="input-group-append">
+        <button (click)="onInvitationUserSearchClick()" [disabled]="isSearching" class="btn btn-outline-secondary"
+                type="button">
+            <span *ngIf="isSearching" class="spinner-border spinner-border-sm mr-1"></span>
+            Search
+        </button>
+    </div>
+</div>
+<div *ngIf="searchError" class="alert alert-danger mt-2 mb-1">{{searchError}}</div>
+<div *ngIf="invitationUser" class="mt-2 mb-1">
+    <h6 class="mb-1">@{{invitationUser.login}}</h6>
+    <div class="text-muted small mb-2">
+        {{invitationUser.name}} {{invitationUser.surname}}
+        <ng-container *ngIf="invitationUser.isEmailPublic">
+            - {{invitationUser.email}}
+        </ng-container>
+    </div>
+    <div class="dropdown d-inline mr-2">
+        <button [disabled]="isInviteLoading" class="btn btn-outline-dark dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true">
+            {{invitationUserRole | titlecase}}
+        </button>
+        <div class="dropdown-menu">
+            <h6 class="dropdown-header">Change role</h6>
+            <app-user-storage-roles-dropdown-items (roleSelect)="onUserRoleChange($event)"></app-user-storage-roles-dropdown-items>
+        </div>
+    </div>
+    <button (click)="onInviteClick()" [disabled]="isInviteLoading" class="btn btn-outline-primary">
+        <span *ngIf="isInviteLoading" class="spinner-border spinner-border-sm mr-1"></span>
+        Invite
+    </button>
+</div>

@@ -35,6 +35,8 @@ import { UserCategoriesNameSortPipe } from './pipe/user-categories-name-sort.pip
 import { BalanceCardComponent } from './component/balance-card/balance-card.component';
 import { RegistrationFormComponent } from './component/registration-form/registration-form.component';
 import { FirstStorageCreationViewComponent } from './componen/first-storage-creation-view/first-storage-creation-view.component';
+import { StorageUserInvitationFormComponent } from './component/storage-user-invitation-form/storage-user-invitation-form.component';
+import { UserStorageRolesDropdownItemsComponent } from './component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component';
 
 @NgModule({
     declarations: [
@@ -67,6 +69,8 @@ import { FirstStorageCreationViewComponent } from './componen/first-storage-crea
         BalanceCardComponent,
         RegistrationFormComponent,
         FirstStorageCreationViewComponent,
+        StorageUserInvitationFormComponent,
+        UserStorageRolesDropdownItemsComponent,
     ],
     imports: [
         BrowserModule,

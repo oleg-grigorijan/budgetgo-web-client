@@ -4,10 +4,8 @@ import {StorageUser} from '../../entity/storage-user';
 import {StorageUsersService} from '../../service/storage-users.service';
 import {UserStorageRoleAuthoritiesService} from '../../service/user-storage-role-authorities.service';
 import {UsersService} from '../../service/users.service';
-import {User} from '../../entity/user';
-import {HttpErrorResponse} from '@angular/common/http';
-import {UserStorageRole} from '../../entity/user-storage-role';
 import {UserDetailsService} from '../../service/user-details.service';
+import {UserStorageRole} from '../../entity/user-storage-role';
 
 @Component({
     selector: 'app-storage-users-card',
@@ -20,13 +18,7 @@ export class StorageUsersCardComponent implements OnInit {
 
     private storageUsers: StorageUser[];
 
-    private invitationLogin: string;
-    private isInvitationUserSearching = false;
-    private invitationSearchError = '';
 
-    private isInviteLoading = false;
-    private invitationUser: User;
-    private invitationUserRole = UserStorageRole.VIEWER;
 
     constructor(
         private readonly storageUsersService: StorageUsersService,
@@ -42,7 +34,7 @@ export class StorageUsersCardComponent implements OnInit {
         });
     }
 
-    onChangeUserRoleClick(storageUser: StorageUser, newRole: string) {
+    onUserRoleChange(storageUser: StorageUser, newRole: UserStorageRole) {
         this.storageUsersService.patch(this.storage.id, storageUser.user.id, {userRole: newRole}).subscribe(patchedStorageUser => {
             this.storageUsers = this.storageUsers.map(su => {
                 if (su.user.id === patchedStorageUser.user.id) {
@@ -59,43 +51,6 @@ export class StorageUsersCardComponent implements OnInit {
             this.storageUsers = this.storageUsers.filter(su => {
                 return su.user.id !== storageUser.user.id;
             });
-        });
-    }
-
-    onInvitationUserSearchClick() {
-        this.invitationSearchError = '';
-        this.isInvitationUserSearching = true;
-        if (this.storageUsers.find(su => su.user.login === this.invitationLogin)) {
-            this.invitationUser = null;
-            this.invitationSearchError = 'User is already here';
-            this.isInvitationUserSearching = false;
-        } else {
-            this.usersService.getByLogin(this.invitationLogin).subscribe(invitationUser => {
-                this.invitationUser = invitationUser;
-                this.isInvitationUserSearching = false;
-            }, error => {
-                if (error instanceof HttpErrorResponse && error.status === 404) {
-                    this.invitationSearchError = 'User not found';
-                }
-                this.invitationUser = null;
-                this.isInvitationUserSearching = false;
-            });
-        }
-    }
-
-    onChangeUserInvitationRoleClick(newRole: string) {
-        this.invitationUserRole = UserStorageRole[newRole];
-    }
-
-    onInviteClick() {
-        this.isInviteLoading = true;
-        const source = {userId: this.invitationUser.id, userRole: this.invitationUserRole};
-        this.storageUsersService.create(this.storage.id, source).subscribe(storageUser => {
-            this.storageUsers.push(storageUser);
-            this.invitationUser = null;
-            this.invitationUserRole = UserStorageRole.VIEWER;
-            this.invitationLogin = '';
-            this.isInviteLoading = false;
         });
     }
 }

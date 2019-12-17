@@ -9,56 +9,10 @@
         <div class="collapse" id="storage-users-content">
             <ng-container *ngIf="storageUsers">
                 <div *ngIf="authoritiesService.canSendInvitations(storage.settings.userRole)" class="list-group-item">
-                    <h6 class="card-title mb-2">Invite user</h6>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">@</span>
-                        </div>
-                        <input type="text" (keyup.enter)="onInvitationUserSearchClick()" [(ngModel)]="invitationLogin" placeholder="Login"
-                               class="form-control">
-                        <div class="input-group-append">
-                            <button (click)="onInvitationUserSearchClick()" [disabled]="isInvitationUserSearching" class="btn btn-outline-secondary"
-                                    type="button">
-                                <span *ngIf="isInvitationUserSearching" class="spinner-border spinner-border-sm mr-1"></span>
-                                Search
-                            </button>
-                        </div>
-                    </div>
-                    <div *ngIf="invitationSearchError" class="alert alert-danger mt-2 mb-1">{{invitationSearchError}}</div>
-                    <div *ngIf="invitationUser" class="mt-2 mb-1">
-                        <h6 class="mb-1">@{{invitationUser.login}}</h6>
-                        <div class="text-muted small mb-2">
-                            {{invitationUser.name}} {{invitationUser.surname}}
-                            <ng-container *ngIf="invitationUser.isEmailPublic">
-                                - {{invitationUser.email}}
-                            </ng-container>
-                        </div>
-                        <button [disabled]="isInviteLoading" class="btn btn-outline-dark mr-2">
-                            <a class="dropdown-toggle" id="invitationRoleDropdownButton" role="button" data-toggle="dropdown" aria-haspopup="true">
-                                {{invitationUserRole | titlecase}}
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="invitationRoleDropdownButton">
-                                <h6 class="dropdown-header">Change role</h6>
-                                <a (click)="onChangeUserInvitationRoleClick('VIEWER')" class="dropdown-item">
-                                    <ng-container *ngTemplateOutlet="viewerRoleDescription"></ng-container>
-                                </a>
-                                <a (click)="onChangeUserInvitationRoleClick('EDITOR')" class="dropdown-item">
-                                    <ng-container *ngTemplateOutlet="editorRoleDescription"></ng-container>
-                                </a>
-                                <a (click)="onChangeUserInvitationRoleClick('ADMIN')" class="dropdown-item">
-                                    <ng-container *ngTemplateOutlet="adminRoleDescription"></ng-container>
-                                </a>
-                            </div>
-                        </button>
-                        <button (click)="onInviteClick()" [disabled]="isInviteLoading" class="btn btn-outline-primary">
-                            <span *ngIf="isInviteLoading" class="spinner-border spinner-border-sm mr-1"></span>
-                            Invite
-                        </button>
-                    </div>
+                    <app-storage-user-invitation-form [storage]="storage" [storageUsers]="storageUsers"></app-storage-user-invitation-form>
                 </div>
-
                 <ng-container *ngIf="userDetailsService.userDetails$ | async as userDetails">
-                    <div *ngFor="let storageUser of storageUsers" class="list-group-item">
+                    <div *ngFor="let storageUser of storageUsers; let i = index" class="list-group-item">
                         <div class="mb-0">
                             <h6 class="mb-1">@{{storageUser.user.login}}</h6>
                             <div class="text-muted small">
@@ -71,20 +25,13 @@
                         <div *ngIf="storageUser.user.id !== userDetails.id
                              && authoritiesService.canBeModifiedBy(storageUser.userRole, storage.settings.userRole); else cantModify" class="d-flex">
                             <div class="dropdown mr-3">
-                                <a class="dropdown-toggle" id="roleDropdownButton" role="button" data-toggle="dropdown" aria-haspopup="true">
+                                <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true">
                                     {{storageUser.userRole | titlecase}}
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="roleDropdownButton">
+                                <div class="dropdown-menu">
                                     <h6 class="dropdown-header">Change role</h6>
-                                    <a (click)="onChangeUserRoleClick(storageUser, 'VIEWER')" class="dropdown-item">
-                                        <ng-container *ngTemplateOutlet="viewerRoleDescription"></ng-container>
-                                    </a>
-                                    <a (click)="onChangeUserRoleClick(storageUser, 'EDITOR')" class="dropdown-item">
-                                        <ng-container *ngTemplateOutlet="editorRoleDescription"></ng-container>
-                                    </a>
-                                    <a (click)="onChangeUserRoleClick(storageUser, 'ADMIN')" class="dropdown-item">
-                                        <ng-container *ngTemplateOutlet="adminRoleDescription"></ng-container>
-                                    </a>
+                                    <app-user-storage-roles-dropdown-items (roleSelect)="onUserRoleChange(storageUser, $event)">
+                                    </app-user-storage-roles-dropdown-items>
                                 </div>
                             </div>
                             <a (click)="onRemoveUserClick(storageUser)" class="text-danger">Remove</a>
@@ -98,29 +45,3 @@
         </div>
     </div>
 </div>
-
-<ng-template #viewerRoleDescription>
-    <h6 class="mb-0">Viewer</h6>
-    <ul class="text-muted small pl-4 mb-0">
-        <li>Viewing storage and operations</li>
-    </ul>
-</ng-template>
-
-<ng-template #editorRoleDescription>
-    <h6 class="mb-0">Editor</h6>
-    <ul class="text-muted small pl-4 mb-0">
-        <li>Viewer's authorities</li>
-        <li>Editing storage</li>
-        <li>Adding, editing and removing operations</li>
-    </ul>
-</ng-template>
-
-<ng-template #adminRoleDescription>
-    <h6 class="mb-0">Admin</h6>
-    <ul class="text-muted small pl-4 mb-0">
-        <li>Editor's authorities</li>
-        <li>Inviting and removing users</li>
-        <li>Editing user roles</li>
-        <li>Can't modify creator</li>
-    </ul>
-</ng-template>

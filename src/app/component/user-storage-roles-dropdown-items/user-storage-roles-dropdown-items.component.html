@@ -1,0 +1,23 @@
+<a (click)="roleSelect.emit(userStorageRole.VIEWER)" class="dropdown-item">
+    <h6 class="mb-0">Viewer</h6>
+    <ul class="text-muted small pl-4 mb-0">
+        <li>Viewing storage and operations</li>
+    </ul>
+</a>
+<a (click)="roleSelect.emit(userStorageRole.EDITOR)" class="dropdown-item">
+    <h6 class="mb-0">Editor</h6>
+    <ul class="text-muted small pl-4 mb-0">
+        <li>Viewer's authorities</li>
+        <li>Editing storage</li>
+        <li>Adding, editing and removing operations</li>
+    </ul>
+</a>
+<a (click)="roleSelect.emit(userStorageRole.ADMIN)" class="dropdown-item">
+    <h6 class="mb-0">Admin</h6>
+    <ul class="text-muted small pl-4 mb-0">
+        <li>Editor's authorities</li>
+        <li>Inviting and removing users</li>
+        <li>Editing user roles</li>
+        <li>Can't modify creator</li>
+    </ul>
+</a>
