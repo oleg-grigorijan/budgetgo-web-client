@@ -3,7 +3,7 @@ import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '
 import {Observable} from 'rxjs';
 import {UserCategoriesService} from '../service/user-categories.service';
 import {filter, map} from 'rxjs/operators';
-import {UserCategoriesSettingsComponent} from '../component/user-categories-settings/user-categories-settings.component';
+import {UserCategoriesSettingsViewComponent} from '../componen/user-categories-settings-view/user-categories-settings-view.component';
 
 @Injectable({providedIn: 'root'})
 export class NoCategoriesGuard implements CanActivate {
@@ -14,7 +14,7 @@ export class NoCategoriesGuard implements CanActivate {
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
         return this.userCategoriesService.userCategories$.pipe(filter(uc => uc !== null), map(userCategories => {
             if (!userCategories.find(uc => uc.isUsedForOutcomes) || !userCategories.find(uc => uc.isUsedForIncomes)) {
-                this.router.navigate([UserCategoriesSettingsComponent.PATH]);
+                this.router.navigate([UserCategoriesSettingsViewComponent.PATH]);
                 return false;
             }
             return true;

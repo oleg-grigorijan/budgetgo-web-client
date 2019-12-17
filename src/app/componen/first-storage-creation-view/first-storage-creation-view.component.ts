@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {UserDetailsService} from '../../service/user-details.service';
 import {StoragesService} from '../../service/storages.service';
 import {Router} from '@angular/router';
-import {HomeComponent} from '../home/home.component';
 import {filter} from 'rxjs/operators';
+import {HomeViewComponent} from '../home-view/home-view.component';
 
 @Component({
     selector: 'app-first-storage-creation-view',
@@ -26,7 +26,7 @@ export class FirstStorageCreationViewComponent implements OnInit {
     ngOnInit() {
         this.storagesService.storages$.pipe(filter(s => s !== null)).subscribe(storages => {
             if (storages.length > 0) {
-                this.router.navigate([HomeComponent.PATH]);
+                this.router.navigate([HomeViewComponent.PATH]);
             } else {
                 this.isReady = true;
             }

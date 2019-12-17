@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {BasicAuthenticationService} from '../../service/basic-authentication.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {HomeComponent} from '../home/home.component';
 import {CurrenciesService} from '../../service/currencies.service';
+import {HomeViewComponent} from '../home-view/home-view.component';
 
 @Component({
-    selector: 'app-welcome',
-    templateUrl: './welcome.component.html'
+    selector: 'app-welcome-view',
+    templateUrl: './welcome-view.component.html'
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeViewComponent implements OnInit {
 
     static readonly PATH = 'welcome';
 
@@ -27,7 +27,7 @@ export class WelcomeComponent implements OnInit {
     }
 
     onFormSuccessReturning() {
-        const returnUrl = this.route.snapshot.queryParams.returnUrl || HomeComponent.PATH;
+        const returnUrl = this.route.snapshot.queryParams.returnUrl || HomeViewComponent.PATH;
         this.router.navigate([returnUrl]);
     }
 }

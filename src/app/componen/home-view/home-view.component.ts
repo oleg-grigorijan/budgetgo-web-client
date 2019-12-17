@@ -8,11 +8,11 @@ import {BalanceService} from '../../service/balance.service';
 import {UserDetailsService} from '../../service/user-details.service';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css']
+    selector: 'app-home-view',
+    templateUrl: './home-view.component.html',
+    styleUrls: ['./home-view.component.css']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeViewComponent implements OnInit, OnDestroy {
 
     static readonly PATH = '';
 

@@ -4,7 +4,7 @@ import {BasicAuthenticationService} from '../service/basic-authentication.servic
 import {Injectable} from '@angular/core';
 import {tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {WelcomeComponent} from '../component/welcome/welcome.component';
+import {WelcomeViewComponent} from '../componen/welcome-view/welcome-view.component';
 
 @Injectable()
 export class BasicAuthenticationInterceptor implements HttpInterceptor {
@@ -24,7 +24,7 @@ export class BasicAuthenticationInterceptor implements HttpInterceptor {
             error => {
                 if (error instanceof HttpErrorResponse && error.status === 401) {
                     this.authenticationService.removeAuthentication();
-                    this.router.navigate([WelcomeComponent.PATH]);
+                    this.router.navigate([WelcomeViewComponent.PATH]);
                 }
             }
         ));

@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {UserDetailsService} from '../../service/user-details.service';
 
 @Component({
-    selector: 'app-user-settings',
-    templateUrl: './user-settings.component.html'
+    selector: 'app-user-settings-view',
+    templateUrl: './user-settings-view.component.html'
 })
-export class UserSettingsComponent implements OnInit {
+export class UserSettingsViewComponent implements OnInit {
 
     static readonly PATH = 'settings';
 

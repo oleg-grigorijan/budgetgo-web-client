@@ -3,13 +3,13 @@ import {Storage} from '../../entity/storage';
 import {ActivatedRoute, Router} from '@angular/router';
 import {StoragesService} from '../../service/storages.service';
 import {Subscription} from 'rxjs';
-import {HomeComponent} from '../home/home.component';
 import {UserCategoriesService} from '../../service/user-categories.service';
 import {UserCategory} from '../../entity/user-category';
 import {UserStorageRoleAuthoritiesService} from '../../service/user-storage-role-authorities.service';
 import {OperationsService} from '../../service/operations.service';
 import {Operation} from '../../entity/operation';
 import {environment} from '../../../environments/environment';
+import {HomeViewComponent} from '../home-view/home-view.component';
 
 @Component({
     selector: 'app-storage-view',
@@ -68,6 +68,6 @@ export class StorageViewComponent implements OnInit, OnDestroy {
     }
 
     onUnsubscription() {
-        this.router.navigate([HomeComponent.PATH]);
+        this.router.navigate([HomeViewComponent.PATH]);
     }
 }
