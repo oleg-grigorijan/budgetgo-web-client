@@ -34,6 +34,7 @@ import { OperationEditFormComponent } from './component/operation-edit-form/oper
 import { UserCategoriesNameSortPipe } from './pipe/user-categories-name-sort.pipe';
 import { BalanceCardComponent } from './component/balance-card/balance-card.component';
 import { RegistrationFormComponent } from './component/registration-form/registration-form.component';
+import { FirstStorageCreationViewComponent } from './component/first-storage-creation-view/first-storage-creation-view.component';
 
 @NgModule({
     declarations: [
@@ -65,6 +66,7 @@ import { RegistrationFormComponent } from './component/registration-form/registr
         UserCategoriesNameSortPipe,
         BalanceCardComponent,
         RegistrationFormComponent,
+        FirstStorageCreationViewComponent,
     ],
     imports: [
         BrowserModule,

@@ -17,7 +17,9 @@ export class UserCategoriesCardComponent implements OnInit {
 
     ngOnInit() {
         this.userCategoriesService.userCategories$.subscribe((userCategories) => {
-            if (userCategories.length === 0) {
+            if (!userCategories) {
+                this.warning = '';
+            } else if (userCategories.length === 0) {
                 this.warning = 'You have no categories. Create one!';
             } else if (userCategories.filter(uc => uc.isUsedForIncomes).length === 0) {
                 this.warning = 'You have no categories for incomes. Create one!';
