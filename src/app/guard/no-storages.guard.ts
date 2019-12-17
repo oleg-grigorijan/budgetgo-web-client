@@ -3,7 +3,7 @@ import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '
 import {Observable} from 'rxjs';
 import {StoragesService} from '../service/storages.service';
 import {filter, map} from 'rxjs/operators';
-import {FirstStorageCreationViewComponent} from '../componen/first-storage-creation-view/first-storage-creation-view.component';
+import {FirstStorageCreationViewComponent} from '../component-view/first-storage-creation-view/first-storage-creation-view.component';
 
 @Injectable({providedIn: 'root'})
 export class NoStoragesGuard implements CanActivate {

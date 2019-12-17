@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {BasicAuthenticationService} from '../service/basic-authentication.service';
-import {WelcomeViewComponent} from '../componen/welcome-view/welcome-view.component';
+import {WelcomeViewComponent} from '../component-view/welcome-view/welcome-view.component';
 
 @Injectable({providedIn: 'root'})
 export class AuthenticationGuard implements CanActivate {

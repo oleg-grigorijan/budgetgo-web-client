@@ -3,7 +3,7 @@ import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '
 import {Observable} from 'rxjs';
 import {UserCategoriesService} from '../service/user-categories.service';
 import {filter, map} from 'rxjs/operators';
-import {UserCategoriesSettingsViewComponent} from '../componen/user-categories-settings-view/user-categories-settings-view.component';
+import {UserCategoriesSettingsViewComponent} from '../component-view/user-categories-settings-view/user-categories-settings-view.component';
 
 @Injectable({providedIn: 'root'})
 export class NoCategoriesGuard implements CanActivate {

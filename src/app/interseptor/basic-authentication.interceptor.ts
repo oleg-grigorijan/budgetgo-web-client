@@ -4,7 +4,7 @@ import {BasicAuthenticationService} from '../service/basic-authentication.servic
 import {Injectable} from '@angular/core';
 import {tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {WelcomeViewComponent} from '../componen/welcome-view/welcome-view.component';
+import {WelcomeViewComponent} from '../component-view/welcome-view/welcome-view.component';
 
 @Injectable()
 export class BasicAuthenticationInterceptor implements HttpInterceptor {
