@@ -11,7 +11,7 @@ import {Operation} from '../../entity/operation';
 })
 export class OperationEditFormComponent implements OnInit {
 
-    private operationType = OperationType;
+    operationType = OperationType;
 
     @Input() operation: Operation;
     @Input() userCategories: UserCategory[];
@@ -19,11 +19,11 @@ export class OperationEditFormComponent implements OnInit {
     @Output() cancelReturning = new EventEmitter<void>();
     @Output() saveReturning = new EventEmitter<Operation>();
 
-    private form: FormGroup;
+    form: FormGroup;
 
-    private userCategoriesOptions: UserCategory[];
+    userCategoriesOptions: UserCategory[];
 
-    private isLoading = false;
+    isLoading = false;
 
     constructor(private readonly formBuilder: FormBuilder, private readonly operationsService: OperationsService) {
     }

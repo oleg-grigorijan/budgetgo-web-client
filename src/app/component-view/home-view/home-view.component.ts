@@ -18,14 +18,14 @@ export class HomeViewComponent implements OnInit, OnDestroy {
 
     private subscriptions: Subscription[] = [];
 
-    private storages: Storage[];
-    private userCategories: UserCategory[];
+    storages: Storage[];
+    userCategories: UserCategory[];
 
     constructor(
         private readonly storagesService: StoragesService,
         private readonly userCategoriesService: UserCategoriesService,
-        private readonly balanceService: BalanceService,
-        private readonly userDetailsService: UserDetailsService
+        readonly balanceService: BalanceService,
+        readonly userDetailsService: UserDetailsService
     ) {
     }
 

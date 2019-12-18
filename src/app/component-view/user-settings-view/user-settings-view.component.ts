@@ -9,7 +9,7 @@ export class UserSettingsViewComponent implements OnInit {
 
     static readonly PATH = 'settings';
 
-    constructor(private readonly userDetailsService: UserDetailsService) {
+    constructor(readonly userDetailsService: UserDetailsService) {
     }
 
     ngOnInit() {

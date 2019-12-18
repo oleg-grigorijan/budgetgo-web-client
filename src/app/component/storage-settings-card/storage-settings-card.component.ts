@@ -13,12 +13,12 @@ export class StorageSettingsCardComponent implements OnInit {
     @Input() storage: Storage;
     @Output() unsubscribeClick = new EventEmitter<void>();
 
-    private isUnsubscribeLoading = false;
-    private isIncludedInUserStatisticsLoading = false;
+    isUnsubscribeLoading = false;
+    isIncludedInUserStatisticsLoading = false;
 
     constructor(
         private readonly storagesService: StoragesService,
-        private readonly authoritiesService: UserStorageRoleAuthoritiesService
+        readonly authoritiesService: UserStorageRoleAuthoritiesService
     ) {
     }
 

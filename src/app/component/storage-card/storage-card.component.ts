@@ -5,15 +5,15 @@ import {StoragesService} from '../../service/storages.service';
 @Component({
     selector: 'app-storage-card',
     templateUrl: './storage-card.component.html',
-    styleUrls: []
+    styleUrls: ['./storage-card.component.css']
 })
 export class StorageCardComponent implements OnInit {
 
     @Input() storage: Storage;
     @Output() declineInvitationClick = new EventEmitter<void>();
 
-    private isAcceptInvitationLoading = false;
-    private isDeclineInvitationLoading = false;
+    isAcceptInvitationLoading = false;
+    isDeclineInvitationLoading = false;
 
     constructor(private storagesService: StoragesService) {
     }

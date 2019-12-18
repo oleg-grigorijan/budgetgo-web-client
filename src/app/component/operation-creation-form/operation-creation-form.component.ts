@@ -11,20 +11,20 @@ import {UserCategory} from '../../entity/user-category';
 })
 export class OperationCreationFormComponent implements OnInit {
 
-    private operationType = OperationType;
+    operationType = OperationType;
 
     @Input() singleStorageMode: boolean;
     @Input() storage: Storage;
     @Input() storages: Storage[];
     @Input() userCategories: UserCategory[];
 
-    private form: FormGroup;
+    form: FormGroup;
 
-    private userCategoriesOptions: UserCategory[];
+    userCategoriesOptions: UserCategory[];
 
-    private wasSubmitted = false;
-    private isLoading = false;
-    private success = '';
+    wasSubmitted = false;
+    isLoading = false;
+    success = '';
 
     constructor(private readonly formBuilder: FormBuilder, private readonly operationsService: OperationsService) {
     }

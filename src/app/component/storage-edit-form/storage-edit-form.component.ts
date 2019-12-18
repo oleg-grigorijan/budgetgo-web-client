@@ -12,9 +12,9 @@ export class StorageEditFormComponent implements OnInit {
 
     @Input() storage: Storage;
 
-    private form: FormGroup;
-    private isLoading = false;
-    private success = '';
+    form: FormGroup;
+    isLoading = false;
+    success = '';
 
     constructor(
         private readonly formBuilder: FormBuilder,
@@ -34,7 +34,7 @@ export class StorageEditFormComponent implements OnInit {
         });
     }
 
-    private onSaveClick() {
+    onSaveClick() {
         this.isLoading = true;
         this.storagesService.patch(this.storage.id, this.form.value).subscribe(() => {
             this.success = 'Changes saved';

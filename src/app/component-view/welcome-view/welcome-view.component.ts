@@ -16,7 +16,7 @@ export class WelcomeViewComponent implements OnInit {
         private readonly route: ActivatedRoute,
         private readonly router: Router,
         private readonly authenticationService: BasicAuthenticationService,
-        private readonly currenciesService: CurrenciesService
+        readonly currenciesService: CurrenciesService
     ) {
     }
 

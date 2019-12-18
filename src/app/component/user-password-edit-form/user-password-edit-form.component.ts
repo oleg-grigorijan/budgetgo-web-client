@@ -8,11 +8,11 @@ import {UserDetailsService} from '../../service/user-details.service';
 })
 export class UserPasswordEditFormComponent implements OnInit {
 
-    private form: FormGroup;
+    form: FormGroup;
 
-    private wasSubmitted = false;
-    private isLoading = false;
-    private success = '';
+    wasSubmitted = false;
+    isLoading = false;
+    success = '';
 
     constructor(private readonly formBuilder: FormBuilder, private readonly userDetailsService: UserDetailsService) {
     }

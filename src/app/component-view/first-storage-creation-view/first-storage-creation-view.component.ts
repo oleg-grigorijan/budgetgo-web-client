@@ -14,12 +14,12 @@ export class FirstStorageCreationViewComponent implements OnInit {
 
     static readonly PATH = 'storages/create-first';
 
-    private isReady = false;
+    isReady = false;
 
     constructor(
         private readonly router: Router,
         private readonly storagesService: StoragesService,
-        private readonly userDetailsService: UserDetailsService
+        readonly userDetailsService: UserDetailsService
     ) {
     }
 

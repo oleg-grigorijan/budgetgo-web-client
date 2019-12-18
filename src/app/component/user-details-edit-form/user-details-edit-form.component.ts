@@ -10,16 +10,16 @@ import {CurrenciesService} from '../../service/currencies.service';
 })
 export class UserDetailsEditFormComponent implements OnInit {
 
-    @Input() private userDetails: UserDetails;
+    @Input() userDetails: UserDetails;
 
-    private form: FormGroup;
-    private isLoading = false;
-    private success = '';
+    form: FormGroup;
+    isLoading = false;
+    success = '';
 
     constructor(
         private readonly formBuilder: FormBuilder,
         private readonly userDetailsService: UserDetailsService,
-        private readonly currenciesService: CurrenciesService
+        readonly currenciesService: CurrenciesService
     ) {
     }
 

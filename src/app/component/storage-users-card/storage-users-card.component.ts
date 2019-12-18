@@ -16,15 +16,13 @@ export class StorageUsersCardComponent implements OnInit {
 
     @Input() storage: Storage;
 
-    private storageUsers: StorageUser[];
-
-
+    storageUsers: StorageUser[];
 
     constructor(
         private readonly storageUsersService: StorageUsersService,
-        private readonly authoritiesService: UserStorageRoleAuthoritiesService,
+        readonly authoritiesService: UserStorageRoleAuthoritiesService,
         private readonly usersService: UsersService,
-        private readonly userDetailsService: UserDetailsService
+        readonly userDetailsService: UserDetailsService
     ) {
     }
 

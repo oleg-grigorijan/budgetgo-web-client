@@ -11,10 +11,10 @@ export class LoginFormComponent implements OnInit {
 
     @Output() successReturning = new EventEmitter<void>();
 
-    private form: FormGroup;
-    private isLoading = false;
-    private wasSubmitted = false;
-    private error = '';
+    form: FormGroup;
+    isLoading = false;
+    wasSubmitted = false;
+    error = '';
 
     constructor(private readonly formBuilder: FormBuilder, private readonly authenticationService: BasicAuthenticationService) {
     }

@@ -11,14 +11,14 @@ import {Subscription} from 'rxjs';
 })
 export class UserCategoryCreationFormComponent implements OnInit, OnDestroy {
 
-    private form: FormGroup;
+    form: FormGroup;
 
-    private userCategories: UserCategory[];
+    userCategories: UserCategory[];
     private subscription: Subscription;
 
-    private wasSubmitted = false;
-    private isLoading = false;
-    private success = '';
+    wasSubmitted = false;
+    isLoading = false;
+    success = '';
 
     constructor(private readonly formBuilder: FormBuilder, private readonly userCategoriesService: UserCategoriesService) {
     }
@@ -43,7 +43,7 @@ export class UserCategoryCreationFormComponent implements OnInit, OnDestroy {
         this.subscription.unsubscribe();
     }
 
-    private onCreateClick() {
+    onCreateClick() {
         this.wasSubmitted = true;
         this.success = '';
 
@@ -58,7 +58,7 @@ export class UserCategoryCreationFormComponent implements OnInit, OnDestroy {
         });
     }
 
-    private uniqueNameValidator(): ValidatorFn {
+    uniqueNameValidator(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} | null => {
             const userCategory = this.userCategories.find(uc => uc.category.name === control.value);
             return userCategory ? {nonUniqueName: {value: control.value}} : null;

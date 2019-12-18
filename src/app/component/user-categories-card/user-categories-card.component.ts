@@ -9,10 +9,10 @@ import {UserCategory} from '../../entity/user-category';
 })
 export class UserCategoriesCardComponent implements OnInit {
 
-    private lastActiveCategoryId = 0;
-    private warning = '';
+    lastActiveCategoryId = 0;
+    warning = '';
 
-    constructor(private readonly userCategoriesService: UserCategoriesService) {
+    constructor(readonly userCategoriesService: UserCategoriesService) {
     }
 
     ngOnInit() {
@@ -31,17 +31,17 @@ export class UserCategoriesCardComponent implements OnInit {
         });
     }
 
-    private onRemoveUserCategoryClick(userCategory: UserCategory) {
+    onRemoveUserCategoryClick(userCategory: UserCategory) {
         this.lastActiveCategoryId = 0;
         this.userCategoriesService.delete(userCategory.category.id).subscribe();
     }
 
-    private toggleIsUsedForIncomes(userCategory: UserCategory) {
+    toggleIsUsedForIncomes(userCategory: UserCategory) {
         this.lastActiveCategoryId = userCategory.category.id;
         this.userCategoriesService.patch(userCategory.category.id, {isUsedForIncomes: !userCategory.isUsedForIncomes}).subscribe();
     }
 
-    private toggleIsUsedForOutcomes(userCategory: UserCategory) {
+    toggleIsUsedForOutcomes(userCategory: UserCategory) {
         this.lastActiveCategoryId = userCategory.category.id;
         this.userCategoriesService.patch(userCategory.category.id, {isUsedForOutcomes: !userCategory.isUsedForOutcomes}).subscribe();
     }

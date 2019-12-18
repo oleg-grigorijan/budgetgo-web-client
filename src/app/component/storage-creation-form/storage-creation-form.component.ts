@@ -14,11 +14,11 @@ export class StorageCreationFormComponent implements OnInit {
     @Input() mainCurrency: Currency;
     @Output() returning = new EventEmitter<boolean>();
 
-    private form: FormGroup;
-    private isLoading = false;
-    private wasSubmitted = false;
-    private currencies: Currency[];
-    private selectedCurrency: Currency;
+    form: FormGroup;
+    isLoading = false;
+    wasSubmitted = false;
+    currencies: Currency[];
+    selectedCurrency: Currency;
 
     constructor(
         private readonly formBuilder: FormBuilder,
@@ -54,7 +54,7 @@ export class StorageCreationFormComponent implements OnInit {
         });
     }
 
-    private onCreateClick() {
+    onCreateClick() {
         this.wasSubmitted = true;
         if (this.form.invalid) {
             return;

@@ -17,11 +17,11 @@ export class RegistrationFormComponent implements OnInit {
 
     @Output() successReturning = new EventEmitter<void>();
 
-    private form: FormGroup;
+    form: FormGroup;
 
-    private wasSubmitted = false;
-    private isLoading = false;
-    private error = '';
+    wasSubmitted = false;
+    isLoading = false;
+    error = '';
 
     constructor(
         private readonly formBuilder: FormBuilder,

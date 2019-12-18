@@ -21,9 +21,9 @@ export class StorageViewComponent implements OnInit, OnDestroy {
 
     static readonly PATH = 'storages/:id';
 
-    private storage: Storage;
-    private userCategories: UserCategory[];
-    private operations: Operation[];
+    storage: Storage;
+    userCategories: UserCategory[];
+    operations: Operation[];
     private subscriptions: Subscription[] = [];
     expandNewOperationByDefault = window.innerWidth >= environment.mediaBreakpoints.medium;
 
@@ -33,7 +33,7 @@ export class StorageViewComponent implements OnInit, OnDestroy {
         private readonly storagesService: StoragesService,
         private readonly userCategoriesService: UserCategoriesService,
         private readonly operationsService: OperationsService,
-        private readonly authoritiesService: UserStorageRoleAuthoritiesService
+        readonly authoritiesService: UserStorageRoleAuthoritiesService
     ) {
     }
 

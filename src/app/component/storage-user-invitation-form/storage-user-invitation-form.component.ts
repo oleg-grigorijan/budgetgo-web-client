@@ -17,13 +17,13 @@ export class StorageUserInvitationFormComponent implements OnInit {
     @Input() storage: Storage;
     @Input() storageUsers: StorageUser[];
 
-    private userLogin: string;
-    private invitationUser: User;
-    private invitationUserRole = UserStorageRole.VIEWER;
+    userLogin: string;
+    invitationUser: User;
+    invitationUserRole = UserStorageRole.VIEWER;
 
-    private isSearching = false;
-    private isInviteLoading = false;
-    private searchError = '';
+    isSearching = false;
+    isInviteLoading = false;
+    searchError = '';
 
     constructor(private readonly usersService: UsersService, private readonly storageUsersService: StorageUsersService) {
     }

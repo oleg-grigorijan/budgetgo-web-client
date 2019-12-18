@@ -14,10 +14,10 @@ export class OperationsListComponent implements OnInit, OnDestroy {
 
     @Input() operations: Operation[];
 
-    private operationForEdit: Operation;
+    operationForEdit: Operation;
 
-    private userCategories: UserCategory[];
-    private subscription: Subscription;
+    userCategories: UserCategory[];
+    subscription: Subscription;
 
     constructor(private readonly operationsService: OperationsService, private readonly userCategoriesService: UserCategoriesService) {
     }

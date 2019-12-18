@@ -12,7 +12,7 @@ export class BalanceCardComponent implements OnInit {
     @Input() balances: Balance[];
     @Input() mainCurrency: Currency;
 
-    private mainBalance: Balance;
+    mainBalance: Balance;
 
     constructor() {
     }

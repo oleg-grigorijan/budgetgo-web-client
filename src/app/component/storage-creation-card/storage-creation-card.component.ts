@@ -8,9 +8,9 @@ import {UserDetailsService} from '../../service/user-details.service';
 })
 export class StorageCreationCardComponent implements OnInit {
 
-    private creatingStorage = false;
+    creatingStorage = false;
 
-    constructor(private readonly userDetailsService: UserDetailsService) {
+    constructor(readonly userDetailsService: UserDetailsService) {
     }
 
     ngOnInit() {

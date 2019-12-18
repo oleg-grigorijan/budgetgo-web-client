@@ -15,11 +15,3 @@ a, .btn, .list-group-item-action {
     text-decoration: none;
     background-color: #f8f9fa;
 }
-
-[class^="col-"]{
-    padding: 0 8px;
-}
-
-.container {
-    padding: 0 23px;
-}
