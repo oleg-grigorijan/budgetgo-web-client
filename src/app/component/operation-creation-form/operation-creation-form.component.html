@@ -3,22 +3,22 @@
         <div class="btn-group btn-group-toggle">
             <label class="btn btn-outline-dark" [class.active]="form.controls.type.value === operationType.INCOME">
                 <input formControlName="type" [value]="operationType.INCOME" type="radio">
-                Income
+                <ng-container i18n="@@income">Income</ng-container>
             </label>
             <label class="btn btn-outline-dark" [class.active]="form.controls.type.value === operationType.OUTCOME">
                 <input formControlName="type" [value]="operationType.OUTCOME" type="radio">
-                Outcome
+                <ng-container i18n="@@outcome">Outcome</ng-container>
             </label>
         </div>
     </div>
     <div *ngIf="!singleStorageMode" class="form-group">
-        <label for="operation-creation-storage">Storage</label>
+        <label for="operation-creation-storage" i18n="@@storage">Storage</label>
         <select formControlName="storageId" class="custom-select" id="operation-creation-storage">
             <option *ngFor="let storage of storages" [value]="storage.id">{{storage.name}}</option>
         </select>
     </div>
     <div class="form-group">
-        <label for="operation-creation-money-amount">Money amount</label>
+        <label for="operation-creation-money-amount" i18n="@@money-amount">Money amount</label>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="operation-creation-currency-iso-code">{{storage.currency.isoCode}}</span>
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="operation-creation-category">Category</label>
+        <label for="operation-creation-category" i18n="@@operation-category">Category</label>
         <select formControlName="categoryId" class="custom-select" id="operation-creation-category">
             <option *ngFor="let userCategory of userCategoriesOptions | userCategoriesNameSort" [value]="userCategory.category.id">
                 {{userCategory.category.name}}
@@ -36,17 +36,19 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="operation-creation-description">Description</label>
+        <label for="operation-creation-description" i18n="@@description">Description</label>
         <textarea formControlName="description" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.description.errors"
                   id="operation-creation-description" rows="2">
         </textarea>
         <div *ngIf="wasSubmitted && form.controls.description.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.description.errors.maxlength">Max length is {{form.controls.description.errors.maxlength.requiredLength}}</div>
+            <div *ngIf="form.controls.description.errors.maxlength">
+                <ng-container i18n="Input error@@max-length">Max length is</ng-container> {{form.controls.description.errors.maxlength.requiredLength}}
+            </div>
         </div>
     </div>
     <div *ngIf="success" class="alert alert-success">{{success}}</div>
     <button [disabled]="isLoading" class="btn btn-outline-primary" type="submit">
         <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
-        Create
+        <ng-container i18n="@@create">Create</ng-container>
     </button>
 </form>

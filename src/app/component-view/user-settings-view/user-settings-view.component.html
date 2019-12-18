@@ -1,5 +1,5 @@
 <div class="container">
-    <h4 class="mb-3">Account Settings</h4>
+    <h4 class="mb-3" i18n="@@account-settings">Account Settings</h4>
     <div *ngIf="(userDetailsService.userDetails$ | async) as userDetails; else loadingCard" class="card mb-3">
         <div class="card-body">
             <app-user-details-edit-form [userDetails]="userDetails"></app-user-details-edit-form>
@@ -11,7 +11,7 @@
     <div class="card mb-3">
         <div class="card-body">
             <span class="spinner-border spinner-border-sm mr-1"></span>
-            Loading
+            <ng-container i18n="@@loading">Loading</ng-container>
         </div>
     </div>
 </ng-template>

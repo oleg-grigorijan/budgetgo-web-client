@@ -2,7 +2,7 @@
      id="user-categories-list-accordion">
     <div class="list-group list-group-flush">
         <div class="list-group-item pt-3">
-            <h6 class="card-title mb-2">New category</h6>
+            <h6 class="card-title mb-2" i18n="@@new-operations-category">Тew category</h6>
             <app-user-category-creation-form></app-user-category-creation-form>
         </div>
         <div *ngIf="warning" class="list-group-item warning">
@@ -23,15 +23,15 @@
                         <div class="custom-control custom-checkbox mr-3">
                             <input (change)="toggleIsUsedForIncomes(userCategory)" [checked]="userCategory.isUsedForIncomes" type="checkbox"
                                    class="custom-control-input" id="for-incomes-{{i}}">
-                            <label class="custom-control-label" for="for-incomes-{{i}}">For incomes</label>
+                            <label class="custom-control-label" for="for-incomes-{{i}}" i18n="Operation category@@for-incomes">For incomes</label>
                         </div>
                         <div class="custom-control custom-checkbox">
                             <input (change)="toggleIsUsedForOutcomes(userCategory)" [checked]="userCategory.isUsedForOutcomes" type="checkbox"
                                    class="custom-control-input" id="for-outcomes-{{i}}">
-                            <label class="custom-control-label" for="for-outcomes-{{i}}">For outcomes</label>
+                            <label class="custom-control-label" for="for-outcomes-{{i}}" i18n="Operation category@@for-outcomes">For outcomes</label>
                         </div>
                     </div>
-                    <a (click)="onRemoveUserCategoryClick(userCategory)" class="text-danger">Remove</a>
+                    <a (click)="onRemoveUserCategoryClick(userCategory)" class="text-danger" i18n="@@remove">Remove</a>
                 </div>
             </div>
         </ng-container>
@@ -42,7 +42,7 @@
     <div class="card">
         <div class="card-body">
             <span class="spinner-border spinner-border-sm mr-1"></span>
-            Loading
+            <ng-container i18n="@@loading">Loading</ng-container>
         </div>
     </div>
 </ng-template>

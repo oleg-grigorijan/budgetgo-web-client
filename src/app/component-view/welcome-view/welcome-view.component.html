@@ -2,17 +2,19 @@
     <div class="row">
         <div class="col-md-5">
             <h2>
-                Welcome
-                <br>to Budget<span class="text-primary">GO</span>
+                <ng-container i18n="@@welcome">Welcome</ng-container>
+                <br>
+                <ng-container i18n="Welcome to BudgetGO">to</ng-container> Budget<span class="text-primary">GO</span>
             </h2>
-            <p class="text-secondary mb-3">
+            <p class="text-secondary mb-3" i18n="@@app-description">
                 Application for personal and shared budget control. Awesome place for your incomes and outcomes
             </p>
         </div>
         <div class="col-md-6  offset-md-1">
             <div class="card accordion mb-3" id="authentication-accordion">
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#sign-in" role="button" aria-expanded="false">
+                    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#sign-in" role="button" aria-expanded="false"
+                       i18n="@@authentication">
                         Authentication
                     </a>
                     <div class="collapse show" id="sign-in" data-parent="#authentication-accordion">
@@ -21,8 +23,8 @@
                         </div>
                     </div>
 
-                    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#sign-up" role="button" aria-expanded="false">
-                        First time here? <b>Registration</b>
+                    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#sign-up" role="button" aria-expanded="false" i18n>
+                        First time here? Registration
                     </a>
                     <div class="collapse" id="sign-up" data-parent="#authentication-accordion">
                         <div class="list-group-item">
@@ -31,7 +33,7 @@
                             </ng-container>
                             <ng-template #loading>
                                 <span class="spinner-border spinner-border-sm mr-1"></span>
-                                Loading
+                                <ng-container i18n="@@loading">Loading</ng-container>
                             </ng-template>
                         </div>
                     </div>

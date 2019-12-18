@@ -3,21 +3,21 @@
         <div class="btn-group btn-group-toggle">
             <label class="btn btn-outline-dark" [class.active]="form.controls.type.value === operationType.INCOME">
                 <input formControlName="type" [value]="operationType.INCOME" type="radio">
-                Income
+                <ng-container i18n="@@income">Income</ng-container>
             </label>
             <label class="btn btn-outline-dark" [class.active]="form.controls.type.value === operationType.OUTCOME">
                 <input formControlName="type" [value]="operationType.OUTCOME" type="radio">
-                Outcome
+                <ng-container i18n="@@outcome">Outcome</ng-container>
             </label>
         </div>
     </div>
     <div class="form-group">
-        <label for="operation-edit-money-amount">Money amount</label>
+        <label for="operation-edit-money-amount" i18n="@@money-amount">Money amount</label>
         <input formControlName="moneyAmountFloat" currencyMask class="form-control" id="operation-edit-money-amount" type="text" placeholder="0.00"
                autocomplete="off" aria-describedby="currency-iso-code">
     </div>
     <div class="form-group">
-        <label for="operation-edit-category">Category</label>
+        <label for="operation-edit-category" i18n="@@operation-category">Category</label>
         <select formControlName="categoryId" class="custom-select" id="operation-edit-category">
             <option *ngFor="let userCategory of userCategoriesOptions | userCategoriesNameSort" [value]="userCategory.category.id">
                 {{userCategory.category.name}}
@@ -25,17 +25,21 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="operation-edit-description">Description</label>
+        <label for="operation-edit-description" i18n="@@description">Description</label>
         <textarea formControlName="description" class="form-control" [class.is-invalid]="form.controls.description.errors"
                   id="operation-edit-description" rows="2">
         </textarea>
         <div *ngIf="form.controls.description.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.description.errors.maxlength">Max length is {{form.controls.description.errors.maxlength.requiredLength}}</div>
+            <div *ngIf="form.controls.description.errors.maxlength">
+                <ng-container i18n="Input error@@max-length">Max length is</ng-container> {{form.controls.description.errors.maxlength.requiredLength}}
+            </div>
         </div>
     </div>
     <button [disabled]="form.invalid || isLoading" class="btn btn-outline-primary" type="submit">
         <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
-        Save
+        <ng-container i18n="@@save">Save</ng-container>
     </button>
-    <button (click)="onCancelClick()" [disabled]="isLoading" class="btn btn-link mr-2">Cancel</button>
+    <button (click)="onCancelClick()" [disabled]="isLoading" class="btn btn-link mr-2">
+        <ng-container i18n="@@cancel">Cancel</ng-container>
+    </button>
 </form>

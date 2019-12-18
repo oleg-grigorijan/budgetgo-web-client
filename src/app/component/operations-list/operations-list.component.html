@@ -2,9 +2,9 @@
     <div class="list-group list-group-flush">
         <div class="list-group-item">
             <div class="row ">
-                <h6 class="col mb-0">Money</h6>
-                <h6 class="col mb-0">Category</h6>
-                <h6 class="col mb-0">Date</h6>
+                <h6 class="col mb-0" i18n="@@money">Money</h6>
+                <h6 class="col mb-0" i18n="@@operation-category">Category</h6>
+                <h6 class="col mb-0" i18n="@@date">Date</h6>
             </div>
         </div>
         <ng-container *ngFor="let operation of operations | operationsDateSort; let i = index">
@@ -30,21 +30,21 @@
                     </div>
                     <ng-template #operationDetails>
                         <div *ngIf="operation.description" class="mb-1">
-                            <h6 class="mb-0">Description:</h6>
+                            <h6 class="mb-0" i18n="@@description">Description:</h6>
                             {{operation.description}}
                         </div>
                         <div class="row">
                             <div class="col-lg mb-1">
-                                <h6 class="mb-0">Created</h6>
+                                <h6 class="mb-0" i18n="@@date-created">Created</h6>
                                 {{operation.dateCreated | date:'shortDate'}} - @{{operation.creator.login}}
                             </div>
                             <div class="col-lg mb-1">
-                                <h6 class="mb-0">Last modified</h6>
+                                <h6 class="mb-0" i18n="@@date-last-modified">Last modified</h6>
                                 {{operation.dateModified | date:'shortDate'}} - @{{operation.lastEditor.login}}
                             </div>
                         </div>
-                        <a *ngIf="userCategories" (click)="onEditClick(operation)" class="text-primary mr-3">Edit</a>
-                        <a (click)="onRemoveClick(operation)" class="text-danger">Remove</a>
+                        <a *ngIf="userCategories" (click)="onEditClick(operation)" class="text-primary mr-3" i18n="@@edit">Edit</a>
+                        <a (click)="onRemoveClick(operation)" class="text-danger" i18n="@@remove">Remove</a>
                     </ng-template>
                 </div>
             </div>
@@ -55,7 +55,7 @@
 <ng-template #noOperationsCard>
     <div class="card">
         <div class="card-body">
-            No operations
+            <ng-container i18n="@@no-operations">No operations</ng-container>
         </div>
     </div>
 </ng-template>

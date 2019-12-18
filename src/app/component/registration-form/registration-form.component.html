@@ -1,67 +1,79 @@
 <form [formGroup]="form" (ngSubmit)="onSingUpClick()">
     <div class="form-group">
-        <label for="registration-login">Login</label>
+        <label for="registration-login" i18n="@@login">Login</label>
         <input formControlName="login" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.login.errors" id="registration-login"
                type="text" autocomplete="username"/>
         <div *ngIf="wasSubmitted && form.controls.login.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.login.errors.required">Required</div>
-            <div *ngIf="form.controls.login.errors.pattern">Can contain only Latin letters, numbers, underscores, hyphens and periods</div>
-            <div *ngIf="form.controls.login.errors.maxlength">Max length is {{form.controls.login.errors.maxlength.requiredLength}}</div>
+            <div *ngIf="form.controls.login.errors.required" i18n="Input error@@required">Required</div>
+            <div *ngIf="form.controls.login.errors.pattern" i18n="Input error@@login-rule">
+                Can contain only Latin letters, numbers, underscores, hyphens and periods
+            </div>
+            <div *ngIf="form.controls.login.errors.maxlength">
+                <ng-container i18n="Input error@@max-length">Max length is</ng-container> {{form.controls.login.errors.maxlength.requiredLength}}
+            </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="registration-email">Email</label>
+        <label for="registration-email" i18n="@@email">Email</label>
         <input formControlName="email" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.email.errors" id="registration-email"
                type="text"/>
         <div *ngIf="wasSubmitted && form.controls.email.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.email.errors.required">Required</div>
-            <div *ngIf="form.controls.email.errors.email">Invalid email</div>
-            <div *ngIf="form.controls.email.errors.maxlength">Max length is {{form.controls.email.errors.maxlength.requiredLength}}</div>
+            <div *ngIf="form.controls.email.errors.required" i18n="Input error@@required">Required</div>
+            <div *ngIf="form.controls.email.errors.email" i18n="Input error@@invalid-email">Invalid email</div>
+            <div *ngIf="form.controls.email.errors.maxlength">
+                <ng-container i18n="Input error@@max-length">Max length is</ng-container> {{form.controls.email.errors.maxlength.requiredLength}}
+            </div>
         </div>
         <div class="custom-control custom-checkbox mt-1">
             <input formControlName="isEmailPublic" class="custom-control-input" id="is-email-public" type="checkbox">
-            <label class="custom-control-label" for="is-email-public">Make email visible for everyone</label>
+            <label class="custom-control-label" for="is-email-public" i18n="@@email-visible-for-everyone">Make email visible for everyone</label>
         </div>
     </div>
     <div class="form-group">
-        <label for="registration-password">Password</label>
+        <label for="registration-password" i18n="@@password">Password</label>
         <input type="password" formControlName="password" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.password.errors"
                id="registration-password" autocomplete="new-password"/>
         <div *ngIf="wasSubmitted && form.controls.password.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.password.errors.required">Required</div>
-            <div *ngIf="form.controls.password.errors.minlength">Min length is {{form.controls.password.errors.minlength.requiredLength}}</div>
+            <div *ngIf="form.controls.password.errors.required" i18n="Input error@@required">Required</div>
+            <div *ngIf="form.controls.password.errors.minlength">
+                <ng-container i18n="Input error@@min-length">Min length is</ng-container> {{form.controls.password.errors.minlength.requiredLength}}
+            </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="registration-name">Name</label>
+        <label for="registration-name" i18n="@@user-name">Name</label>
         <input formControlName="name" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.name.errors" id="registration-name"
                type="text"/>
         <div *ngIf="wasSubmitted && form.controls.name.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.name.errors.required">Required</div>
-            <div *ngIf="form.controls.name.errors.maxlength">Max length is {{form.controls.name.errors.maxlength.requiredLength}}</div>
+            <div *ngIf="form.controls.name.errors.required" i18n="Input error@@required">Required</div>
+            <div *ngIf="form.controls.name.errors.maxlength">
+                <ng-container i18n="Input error@@max-length">Max length is</ng-container> {{form.controls.name.errors.maxlength.requiredLength}}
+            </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="registration-surname">Surname</label>
+        <label for="registration-surname" i18n="@@surname">Surname</label>
         <input formControlName="surname" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.surname.errors"
                id="registration-surname" type="text"/>
         <div *ngIf="wasSubmitted && form.controls.surname.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.surname.errors.required">Required</div>
-            <div *ngIf="form.controls.surname.errors.maxlength">Max length is {{form.controls.surname.errors.maxlength.requiredLength}}</div>
+            <div *ngIf="form.controls.surname.errors.required" i18n="Input error@@required">Required</div>
+            <div *ngIf="form.controls.surname.errors.maxlength">
+                <ng-container i18n="Input error@@max-length">Max length is</ng-container> {{form.controls.surname.errors.maxlength.requiredLength}}
+            </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="registration-main-currency">Main Currency</label>
+        <label for="registration-main-currency" i18n="@@main-currency">Main Currency</label>
         <select formControlName="mainCurrencyId" class="custom-select" id="registration-main-currency">
             <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.name}}</option>
         </select>
         <div *ngIf="form.controls.mainCurrencyId.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.mainCurrencyId.errors.required">Required</div>
+            <div *ngIf="form.controls.mainCurrencyId.errors.required" i18n="Input error@@required">Required</div>
         </div>
     </div>
     <div *ngIf="error" class="alert alert-danger">{{error}}</div>
     <button [disabled]="isLoading || (wasSubmitted && this.form.invalid)" class="btn btn-outline-primary" type="submit">
         <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
-        Sign up
+        <ng-container i18n="@@sing-up">Sign up</ng-container>
     </button>
 </form>

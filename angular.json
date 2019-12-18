@@ -57,6 +57,14 @@
                                     "maximumError": "10kb"
                                 }
                             ]
+                        },
+                        "ru": {
+                            "aot": true,
+                            "outputPath": "dist/budgetgo-web-client-ru/",
+                            "i18nFile": "src/locale/messages.ru.xlf",
+                            "i18nFormat": "xlf",
+                            "i18nLocale": "ru",
+                            "i18nMissingTranslation": "error"
                         }
                     }
                 },
@@ -68,6 +76,9 @@
                     "configurations": {
                         "production": {
                             "browserTarget": "budgetgo-web-client:build:production"
+                        },
+                        "ru": {
+                            "browserTarget": "budgetgo-web-client:build:ru"
                         }
                     }
                 },

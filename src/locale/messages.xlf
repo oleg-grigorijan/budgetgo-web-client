@@ -1,0 +1,930 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="login" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/login-form/login-form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="required" datatype="html">
+        <source>Required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/login-form/login-form.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/login-form/login-form.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-password-edit-form/user-password-edit-form.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-form/storage-creation-form.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-form/storage-creation-form.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-edit-form/storage-edit-form.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-category-creation-form/user-category-creation-form.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+        <note priority="1" from="description">Input error</note>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/login-form/login-form.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sign-in" datatype="html">
+        <source>Sign in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/login-form/login-form.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="new-operation" datatype="html">
+        <source>New operation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/home-view/home-view.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/storage-view/storage-view.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="balance" datatype="html">
+        <source>Balance</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/home-view/home-view.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="invitations" datatype="html">
+        <source>Invitations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/home-view/home-view.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">Storages invitations</note>
+      </trans-unit>
+      <trans-unit id="storages" datatype="html">
+        <source>Storages</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/home-view/home-view.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loading" datatype="html">
+        <source>Loading</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/home-view/home-view.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/welcome-view/welcome-view.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/user-settings-view/user-settings-view.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/storage-view/storage-view.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/first-storage-creation-view/first-storage-creation-view.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="welcome" datatype="html">
+        <source>Welcome</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/welcome-view/welcome-view.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e04356b41e0d85f3e2f7ebc72a3f75c6e1147663" datatype="html">
+        <source>to</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/welcome-view/welcome-view.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Welcome to BudgetGO</note>
+      </trans-unit>
+      <trans-unit id="app-description" datatype="html">
+        <source>
+                Application for personal and shared budget control. Awesome place for your incomes and outcomes
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/welcome-view/welcome-view.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="authentication" datatype="html">
+        <source>
+                        Authentication
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/welcome-view/welcome-view.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="02fe4750321a2ad8fa0be7f252ad6fb1b2488151" datatype="html">
+        <source>
+                        First time here? Registration
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/welcome-view/welcome-view.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="account-settings" datatype="html">
+        <source>Account settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/header/header.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/user-settings-view/user-settings-view.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="operations-categories-settings" datatype="html">
+        <source>Categories settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/header/header.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/user-categories-settings-view/user-categories-settings-view.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sign-out" datatype="html">
+        <source>Sign out</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/header/header.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login-rule" datatype="html">
+        <source>
+                Can contain only Latin letters, numbers, underscores, hyphens and periods
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Input error</note>
+      </trans-unit>
+      <trans-unit id="max-length" datatype="html">
+        <source>Max length is</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-form/storage-creation-form.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-form/storage-creation-form.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-edit-form/storage-edit-form.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-edit-form/storage-edit-form.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-category-creation-form/user-category-creation-form.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-creation-form/operation-creation-form.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-edit-form/operation-edit-form.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <note priority="1" from="description">Input error</note>
+      </trans-unit>
+      <trans-unit id="invalid-email" datatype="html">
+        <source>Invalid email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="email-visible-for-everyone" datatype="html">
+        <source>
+                Make email visible for everyone
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="change" datatype="html">
+        <source>
+            Change
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user-name" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="surname" datatype="html">
+        <source>Surname</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="main-currency" datatype="html">
+        <source>Main Currency</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="save" datatype="html">
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-password-edit-form/user-password-edit-form.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-edit-form/storage-edit-form.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-edit-form/operation-edit-form.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="376165283ff69109e17fd1f6d1e3fecde06c8fbc" datatype="html">
+        <source>Password change</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+        <note priority="1" from="description">Password change modal window title</note>
+      </trans-unit>
+      <trans-unit id="new-password" datatype="html">
+        <source>New password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-password-edit-form/user-password-edit-form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="min-length" datatype="html">
+        <source>Min length is</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-password-edit-form/user-password-edit-form.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <note priority="1" from="description">Input error</note>
+      </trans-unit>
+      <trans-unit id="storage-name" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-form/storage-creation-form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-edit-form/storage-edit-form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="description" datatype="html">
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-form/storage-creation-form.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-edit-form/storage-edit-form.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-creation-form/operation-creation-form.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operations-list/operations-list.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-edit-form/operation-edit-form.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="currency" datatype="html">
+        <source>Currency</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-form/storage-creation-form.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="277617c448200a4c3629a2edb944548d2d560083" datatype="html">
+        <source>Сan not be changed in the future</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-form/storage-creation-form.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="initial-balance" datatype="html">
+        <source>Initial balance</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-form/storage-creation-form.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="create" datatype="html">
+        <source>Create</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-form/storage-creation-form.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-card/storage-creation-card.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-category-creation-form/user-category-creation-form.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-creation-form/operation-creation-form.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cancel" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-form/storage-creation-form.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-edit-form/operation-edit-form.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user" datatype="html">
+        <source>User</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-card/storage-card.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="51cd3b2c04996d1c7f4a5b2f164898735d6aad1c" datatype="html">
+        <source>invites you to this storage</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-card/storage-card.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">User @login invites you to this storage</note>
+      </trans-unit>
+      <trans-unit id="accept-invitation" datatype="html">
+        <source>Accept</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-card/storage-card.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="decline-invitation" datatype="html">
+        <source>Decline</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-card/storage-card.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="new-storage" datatype="html">
+        <source>New storage</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-card/storage-creation-card.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bd18ff902a74ffff9a76f8017b18f6bc5b4317d6" datatype="html">
+        <source>Storage is a place for all your incomes and outcomes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-creation-card/storage-creation-card.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="99668533d24cba96d38d62578259f21278fd6e27" datatype="html">
+        <source>Oops! Error</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/not-found-view/not-found-view.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Oops! Error 404</note>
+      </trans-unit>
+      <trans-unit id="addf86ac5056afc8df986c6fdec91e12b352486a" datatype="html">
+        <source>
+                How did you get here? It looks like you are lost
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/not-found-view/not-found-view.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Error 404</note>
+      </trans-unit>
+      <trans-unit id="main-page" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/not-found-view/not-found-view.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="storage" datatype="html">
+        <source>Storage</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/storage-view/storage-view.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-creation-form/operation-creation-form.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="operations" datatype="html">
+        <source>Operations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/storage-view/storage-view.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="users" datatype="html">
+        <source>Users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="change-user-role" datatype="html">
+        <source>Change role</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="remove" datatype="html">
+        <source>Remove</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operations-list/operations-list.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="settings" datatype="html">
+        <source>Settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-settings-card/storage-settings-card.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d74078b1c7cc284fbfd834bfe617b9f5c8846845" datatype="html">
+        <source>Include storage in my statistics</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-settings-card/storage-settings-card.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="unsubscribe" datatype="html">
+        <source>Unsubscribe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-settings-card/storage-settings-card.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="for-incomes" datatype="html">
+        <source>For incomes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-category-creation-form/user-category-creation-form.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">Operation category</note>
+      </trans-unit>
+      <trans-unit id="for-outcomes" datatype="html">
+        <source>For outcomes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-category-creation-form/user-category-creation-form.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Operation category</note>
+      </trans-unit>
+      <trans-unit id="operations-category-name" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-category-creation-form/user-category-creation-form.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="operations-category-already-exists" datatype="html">
+        <source>
+                Category with such a name already exists
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-category-creation-form/user-category-creation-form.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">Input conflict</note>
+      </trans-unit>
+      <trans-unit id="new-operations-category" datatype="html">
+        <source>Тew category</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="suggestions" datatype="html">
+        <source>Suggestions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/user-categories-settings-view/user-categories-settings-view.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="income" datatype="html">
+        <source>Income</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-creation-form/operation-creation-form.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-edit-form/operation-edit-form.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="outcome" datatype="html">
+        <source>Outcome</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-creation-form/operation-creation-form.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-edit-form/operation-edit-form.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="money-amount" datatype="html">
+        <source>Money amount</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-creation-form/operation-creation-form.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-edit-form/operation-edit-form.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="operation-category" datatype="html">
+        <source>Category</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-creation-form/operation-creation-form.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operations-list/operations-list.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-edit-form/operation-edit-form.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="money" datatype="html">
+        <source>Money</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operations-list/operations-list.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="date" datatype="html">
+        <source>Date</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operations-list/operations-list.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="date-created" datatype="html">
+        <source>Created</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operations-list/operations-list.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="date-last-modified" datatype="html">
+        <source>Last modified</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operations-list/operations-list.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="edit" datatype="html">
+        <source>Edit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operations-list/operations-list.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="no-operations" datatype="html">
+        <source>No operations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operations-list/operations-list.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fadb1f30cdcf2e0ca4e8fe3d88cedc72d437e48a" datatype="html">
+        <source>You have no storages with activated statistics</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/balance-card/balance-card.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="email" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sing-up" datatype="html">
+        <source>Sign up</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8081a203986cd7d2df6690c76d0168abad20c761" datatype="html">
+        <source>Create your first storage</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/first-storage-creation-view/first-storage-creation-view.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="search" datatype="html">
+        <source>Search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="invite" datatype="html">
+        <source>Invite</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="viewer" datatype="html">
+        <source>Viewer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="10c3ad7e2103bed0166a920a519b48673d07e079" datatype="html">
+        <source>Viewing storage and operations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editor" datatype="html">
+        <source>Editor</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="36bee3bca04aebdf5aa616dfe779bfdf587f0783" datatype="html">
+        <source>Viewer&apos;s authorities</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="31ebabdfb336dd0f6570a4c731f993de68239c24" datatype="html">
+        <source>Editing storage</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="33b376d91fc3eaa8bfd603db85225599274bd7b9" datatype="html">
+        <source>Adding, editing and removing operations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin" datatype="html">
+        <source>Admin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5b0e5511320752d91e8dd37bc3b8d504280a58de" datatype="html">
+        <source>Editor&apos;s authorities</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6760d0749cf357a71f305db7fa7137f869da31cc" datatype="html">
+        <source>Inviting and removing users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1a1afdc1f4f1d3bbfcb421a5bc1cc4843c2b0bd2" datatype="html">
+        <source>Editing user roles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7b3184f2f36d24bc133e192e8cc04435e78b3184" datatype="html">
+        <source>Can&apos;t modify creator</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -2,9 +2,9 @@
     <div class="list-group list-group-flush">
         <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#storage-users-content" role="button" aria-expanded="false"
            aria-controls="storage-users-content">
-            Users
+            <ng-container i18n="@@users">Users</ng-container>
             <span *ngIf="!storageUsers" class="spinner-border spinner-border-sm mr-1"></span>
-            <span *ngIf="storageUsers" class="badge badge-dark dropdown-toggle">{{storageUsers.length}}</span>
+            <span *ngIf="storageUsers" class="badge badge-dark dropdown-toggle ml-1">{{storageUsers.length}}</span>
         </a>
         <div class="collapse" id="storage-users-content">
             <ng-container *ngIf="storageUsers">
@@ -29,12 +29,12 @@
                                     {{storageUser.userRole | titlecase}}
                                 </a>
                                 <div class="dropdown-menu">
-                                    <h6 class="dropdown-header">Change role</h6>
+                                    <h6 class="dropdown-header" i18n="@@change-user-role">Change role</h6>
                                     <app-user-storage-roles-dropdown-items (roleSelect)="onUserRoleChange(storageUser, $event)">
                                     </app-user-storage-roles-dropdown-items>
                                 </div>
                             </div>
-                            <a (click)="onRemoveUserClick(storageUser)" class="text-danger">Remove</a>
+                            <a (click)="onRemoveUserClick(storageUser)" class="text-danger" i18n="@@remove">Remove</a>
                         </div>
                         <ng-template #cantModify>
                             {{storageUser.userRole | titlecase}}
