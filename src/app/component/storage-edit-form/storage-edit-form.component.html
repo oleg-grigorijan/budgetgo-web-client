@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <div *ngIf="success" class="alert alert-success">{{success}}</div>
+    <div *ngIf="isSuccess" class="alert alert-success" i18n="@@alert-changes-saved">Changes saved</div>
     <button [disabled]="form.invalid || isLoading" class="btn btn-outline-primary" type="submit">
         <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
         <ng-container i18n="@@save">Save</ng-container>

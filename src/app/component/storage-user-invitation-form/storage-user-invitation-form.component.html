@@ -12,7 +12,8 @@
         </button>
     </div>
 </div>
-<div *ngIf="searchError" class="alert alert-danger mt-2 mb-1">{{searchError}}</div>
+<div *ngIf="isUserAlreadyHereError" class="alert alert-danger mt-2 mb-1" i18n="@@user-already-here-error">User is already here</div>
+<div *ngIf="isUserNotFoundError" class="alert alert-danger mt-2 mb-1" i18n="@@user-not-found-error">User not found</div>
 <div *ngIf="invitationUser" class="mt-2 mb-1">
     <h6 class="mb-1">@{{invitationUser.login}}</h6>
     <div class="text-muted small mb-2">

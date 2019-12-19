@@ -25,7 +25,8 @@
                 <div class="row">
                     <h4 class="col-12 mb-3" i18n="Storages invitations@@invitations">Invitations</h4>
                     <ng-container *ngFor="let invitation of invitations">
-                        <app-storage-card [storage]="invitation" class="col-sm-6 col-lg-4 mb-3"></app-storage-card>
+                        <app-storage-card [storage]="invitation"
+                                          class="col-sm-6 col-lg-4 mb-3"></app-storage-card>
                     </ng-container>
                 </div>
             </ng-container>

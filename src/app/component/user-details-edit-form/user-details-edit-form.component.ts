@@ -14,7 +14,7 @@ export class UserDetailsEditFormComponent implements OnInit {
 
     form: FormGroup;
     isLoading = false;
-    success = '';
+    isSuccess = false;
 
     constructor(
         private readonly formBuilder: FormBuilder,
@@ -37,14 +37,14 @@ export class UserDetailsEditFormComponent implements OnInit {
         this.form.controls.mainCurrencyId.patchValue(this.userDetails.mainCurrency.id);
 
         this.form.valueChanges.subscribe(() => {
-            this.success = '';
+            this.isSuccess = false;
         });
     }
 
     onSaveClick() {
         this.isLoading = true;
         this.userDetailsService.patch(this.form.value).subscribe(() => {
-            this.success = 'Changes saved';
+            this.isSuccess = true;
             this.isLoading = false;
         });
     }

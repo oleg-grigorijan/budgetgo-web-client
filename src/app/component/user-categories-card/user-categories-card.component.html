@@ -5,8 +5,12 @@
             <h6 class="card-title mb-2" i18n="@@new-operations-category">Тew category</h6>
             <app-user-category-creation-form></app-user-category-creation-form>
         </div>
-        <div *ngIf="warning" class="list-group-item warning">
-            {{warning}}
+        <div *ngIf="isNoCategoriesFouOutcomesWarning || isNoCategoriesForIncomesWarning" class="list-group-item warning">
+            <ng-container *ngIf="isNoCategoriesFouOutcomesWarning" i18n>You have no categories for outcomes. Create one!</ng-container>
+            <ng-container *ngIf="isNoCategoriesForIncomesWarning" i18n>You have no categories for incomes. Create one!</ng-container>
+            <hr>
+            <ng-container i18n>You will be able to divide your incomes and outcomes into categories. It will help you keep track of
+                your money flow</ng-container>
         </div>
         <ng-container *ngFor="let userCategory of userCategories | userCategoriesNameSort; let i = index" class="list-group-item">
             <a class="list-group-item list-group-item-action d-flex align-items-center" data-toggle="collapse" href="#user-category-{{i}}"

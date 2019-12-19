@@ -10,23 +10,22 @@ import {UserCategory} from '../../entity/user-category';
 export class UserCategoriesCardComponent implements OnInit {
 
     lastActiveCategoryId = 0;
-    warning = '';
+    isNoCategoriesForIncomesWarning = false;
+    isNoCategoriesFouOutcomesWarning = false;
 
     constructor(readonly userCategoriesService: UserCategoriesService) {
     }
 
     ngOnInit() {
         this.userCategoriesService.userCategories$.subscribe((userCategories) => {
-            if (!userCategories) {
-                this.warning = '';
-            } else if (userCategories.length === 0) {
-                this.warning = 'You have no categories. Create one!';
-            } else if (userCategories.filter(uc => uc.isUsedForIncomes).length === 0) {
-                this.warning = 'You have no categories for incomes. Create one!';
-            } else if (userCategories.filter(uc => uc.isUsedForOutcomes).length === 0) {
-                this.warning = 'You have no categories for outcomes. Create one!';
-            } else {
-                this.warning = '';
+            this.isNoCategoriesForIncomesWarning = false;
+            this.isNoCategoriesFouOutcomesWarning = false;
+            if (userCategories) {
+                if (userCategories.filter(uc => uc.isUsedForIncomes).length === 0) {
+                    this.isNoCategoriesForIncomesWarning = true;
+                } else if (userCategories.filter(uc => uc.isUsedForOutcomes).length === 0) {
+                    this.isNoCategoriesFouOutcomesWarning = true;
+                }
             }
         });
     }

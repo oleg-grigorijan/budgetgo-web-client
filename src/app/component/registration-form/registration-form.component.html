@@ -71,7 +71,8 @@
             <div *ngIf="form.controls.mainCurrencyId.errors.required" i18n="Input error@@required">Required</div>
         </div>
     </div>
-    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    <div *ngIf="isLoginExistsError" class="alert alert-danger" i18n="@@login-exists-error">User with such a login already exists</div>
+    <div *ngIf="isEmailExistsError" class="alert alert-danger" i18n="@@email-exists-error">User with such an email already exists</div>
     <button [disabled]="isLoading || (wasSubmitted && this.form.invalid)" class="btn btn-outline-primary" type="submit">
         <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
         <ng-container i18n="@@sing-up">Sign up</ng-container>

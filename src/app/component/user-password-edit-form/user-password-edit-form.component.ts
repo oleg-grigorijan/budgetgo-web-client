@@ -12,7 +12,7 @@ export class UserPasswordEditFormComponent implements OnInit {
 
     wasSubmitted = false;
     isLoading = false;
-    success = '';
+    isSuccess = false;
 
     constructor(private readonly formBuilder: FormBuilder, private readonly userDetailsService: UserDetailsService) {
     }
@@ -22,21 +22,21 @@ export class UserPasswordEditFormComponent implements OnInit {
             password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(255)]]
         });
         this.form.valueChanges.subscribe(() => {
-            this.success = '';
+            this.isSuccess = false;
         });
     }
 
     onSaveClick() {
-        this.success = '';
         this.wasSubmitted = true;
+        this.isLoading = true;
 
         if (this.form.invalid) {
+            this.isLoading = false;
             return;
-        }
 
-        this.isLoading = true;
+        }
         this.userDetailsService.patch(this.form.value).subscribe(() => {
-            this.success = 'Changes saved';
+            this.isSuccess = true;
             this.isLoading = false;
         });
     }

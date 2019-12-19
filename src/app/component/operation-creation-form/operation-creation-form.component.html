@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-    <div *ngIf="success" class="alert alert-success">{{success}}</div>
+    <div *ngIf="isSuccess" class="alert alert-success" i18n="@@alert-created">Created</div>
     <button [disabled]="isLoading" class="btn btn-outline-primary" type="submit">
         <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
         <ng-container i18n="@@create">Create</ng-container>

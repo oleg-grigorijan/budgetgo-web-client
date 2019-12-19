@@ -111,6 +111,15 @@
           <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="c5fd859f93fafd57d725ff5aa41ba3a7954e8dac" datatype="html">
+        <source>Invalid login or password</source>
+        <target>Неверный логин или пароль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/login-form/login-form.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">Authentication error</note>
+      </trans-unit>
       <trans-unit id="sign-in" datatype="html">
         <source>Sign in</source>
         <target>Войти</target>
@@ -153,15 +162,19 @@
         <target>Хранилища</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component-view/home-view/home-view.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="loading" datatype="html">
         <source>Loading</source>
         <target>Загрузка</target>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/first-storage-creation-view/first-storage-creation-view.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/component-view/home-view/home-view.component.html</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">50</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component-view/welcome-view/welcome-view.component.html</context>
@@ -177,11 +190,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
-          <context context-type="linenumber">45</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/component-view/first-storage-creation-view/first-storage-creation-view.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome" datatype="html">
@@ -579,7 +588,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="remove" datatype="html">
@@ -591,7 +600,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">38</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/operations-list/operations-list.component.html</context>
@@ -669,7 +678,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="for-outcomes" datatype="html">
@@ -682,7 +691,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="operations-category-name" datatype="html">
@@ -706,12 +715,49 @@
         </context-group>
         <note priority="1" from="description">Input conflict</note>
       </trans-unit>
+      <trans-unit id="alert-created" datatype="html">
+        <source>Created</source>
+        <target>Создано</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-category-creation-form/user-category-creation-form.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/operation-creation-form/operation-creation-form.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="new-operations-category" datatype="html">
         <source>Тew category</source>
         <target>Новая категория</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
           <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d53e2a3d8d8ee3b5475a82006f0568fa414be194" datatype="html">
+        <source>You have no categories for outcomes. Create one!</source>
+        <target>У вас нет категорий для расходов. Создайте первую!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5e3b0261a0b032fdfb90901ed6e9a3e419a803c2" datatype="html">
+        <source>You have no categories for incomes. Create one!</source>
+        <target>У вас нет категорий для доходов. Создайте первую!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a89a43d360b9a9164e73d867d67f13b7a8ac433d" datatype="html">
+        <source>You will be able to divide your incomes and outcomes into categories. It will help you keep track of
+                your money flow</source>
+        <target>Вы сможете разделять ваши доходы и расходы по категориям. Это поможет вам контролировать поток денег</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="suggestions" datatype="html">
@@ -814,6 +860,22 @@
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="login-exists-error" datatype="html">
+        <source>User with such a login already exists</source>
+        <target>Пользователь с таким логином уже существует</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="email-exists-error" datatype="html">
+        <source>User with such an email already exists</source>
+        <target>Пользователь с таким email уже существует</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="invalid-email" datatype="html">
         <source>Invalid email</source>
         <target>Неверный email</target>
@@ -901,12 +963,28 @@
           <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="alert-changes-saved" datatype="html">
+        <source>Changes saved</source>
+        <target>Изменения сохранены</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-details-edit-form/user-details-edit-form.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-password-edit-form/user-password-edit-form.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-edit-form/storage-edit-form.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="sing-up" datatype="html">
         <source>Sign up</source>
         <target>Зарегистрироваться</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/registration-form/registration-form.component.html</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">78</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8081a203986cd7d2df6690c76d0168abad20c761" datatype="html">
@@ -925,12 +1003,28 @@
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="user-already-here-error" datatype="html">
+        <source>User is already here</source>
+        <target>Пользователь уже здесь</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user-not-found-error" datatype="html">
+        <source>User not found</source>
+        <target>Пользователь не найден</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="invite" datatype="html">
         <source>Invite</source>
         <target>Пригласить</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="viewer" datatype="html">

@@ -18,7 +18,7 @@ export class UserCategoryCreationFormComponent implements OnInit, OnDestroy {
 
     wasSubmitted = false;
     isLoading = false;
-    success = '';
+    isSuccess = false;
 
     constructor(private readonly formBuilder: FormBuilder, private readonly userCategoriesService: UserCategoriesService) {
     }
@@ -35,7 +35,7 @@ export class UserCategoryCreationFormComponent implements OnInit, OnDestroy {
         });
 
         this.form.valueChanges.subscribe(() => {
-            this.success = '';
+            this.isSuccess = false;
         });
     }
 
@@ -45,7 +45,6 @@ export class UserCategoryCreationFormComponent implements OnInit, OnDestroy {
 
     onCreateClick() {
         this.wasSubmitted = true;
-        this.success = '';
 
         if (this.form.invalid) {
             return;
@@ -54,7 +53,7 @@ export class UserCategoryCreationFormComponent implements OnInit, OnDestroy {
         this.userCategoriesService.createByCategoryName(this.form.controls.categoryName.value, this.form.value).subscribe(() => {
             this.wasSubmitted = false;
             this.form.controls.categoryName.patchValue('');
-            this.success = 'Created';
+            this.isSuccess = true;
         });
     }
 
