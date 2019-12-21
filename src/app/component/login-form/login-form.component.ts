@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BasicAuthenticationService} from '../../service/basic-authentication.service';
 import {HttpErrorResponse} from '@angular/common/http';
+import {throwError} from 'rxjs';
 
 @Component({
     selector: 'app-login-form',
@@ -14,7 +15,7 @@ export class LoginFormComponent implements OnInit {
     form: FormGroup;
     isLoading = false;
     wasSubmitted = false;
-    error = '';
+    isInvalidCredentialsError = false;
 
     constructor(private readonly formBuilder: FormBuilder, private readonly authenticationService: BasicAuthenticationService) {
     }
@@ -24,11 +25,14 @@ export class LoginFormComponent implements OnInit {
             login: ['', Validators.required],
             password: ['', Validators.required]
         });
+
+        this.form.valueChanges.subscribe(() => {
+            this.isInvalidCredentialsError = false;
+        });
     }
 
     onSubmit(): void {
         this.wasSubmitted = true;
-        this.error = '';
 
         if (this.form.invalid) {
             return;
@@ -40,9 +44,11 @@ export class LoginFormComponent implements OnInit {
             this.successReturning.emit();
         }, error => {
             if (error instanceof HttpErrorResponse && error.status === 401) {
-                this.error = 'Invalid login or password';
+                this.isInvalidCredentialsError = true;
+                this.isLoading = false;
+            } else {
+                throwError(error);
             }
-            this.isLoading = false;
         });
     }
 }

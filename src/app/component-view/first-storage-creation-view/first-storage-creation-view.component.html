@@ -1,5 +1,5 @@
 <div class="container">
-    <h3 class="mb-3">Create your first storage</h3>
+    <h3 class="mb-3" i18n>Create your first storage</h3>
     <ng-container *ngIf="userDetailsService.userDetails$ | async as userDetails; else loadingCard">
         <div *ngIf="isReady; else loadingCard" class="card mb-3">
             <div class="card-body">
@@ -13,7 +13,7 @@
     <div class="card mb-3">
         <div class="card-body">
             <span class="spinner-border spinner-border-sm mr-1"></span>
-            Loading
+            <ng-template i18n="@@loading">Loading</ng-template>
         </div>
     </div>
 </ng-template>

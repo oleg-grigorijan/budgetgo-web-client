@@ -1,24 +1,28 @@
 <form [formGroup]="form" (ngSubmit)="onCreateClick()">
     <div class="form-group">
-        <label for="storage-creation-name">Name</label>
+        <label for="storage-creation-name" i18n="@@storage-name">Name</label>
         <input formControlName="name" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.name.errors" id="storage-creation-name"
                type="text"/>
         <div *ngIf="wasSubmitted && form.controls.name.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.name.errors.required">Required</div>
-            <div *ngIf="form.controls.name.errors.maxlength">Max length is {{form.controls.name.errors.maxlength.requiredLength}}</div>
+            <div *ngIf="form.controls.name.errors.required" i18n="Input error@@required">Required</div>
+            <div *ngIf="form.controls.name.errors.maxlength">
+                <ng-container i18n="Input error@@max-length">Max length is</ng-container> {{form.controls.name.errors.maxlength.requiredLength}}
+            </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="storage-creation-description">Description</label>
+        <label for="storage-creation-description" i18n="@@description">Description</label>
         <textarea formControlName="description" class="form-control" [class.is-invalid]="wasSubmitted && form.controls.description.errors"
                   id="storage-creation-description" rows="2">
         </textarea>
         <div *ngIf="wasSubmitted && form.controls.description.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.description.errors.maxlength">Max length is {{form.controls.description.errors.maxlength.requiredLength}}</div>
+            <div *ngIf="form.controls.description.errors.maxlength">
+                <ng-container i18n="Input error@@max-length">Max length is</ng-container> {{form.controls.description.errors.maxlength.requiredLength}}
+            </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="storage-creation-currency">Currency</label>
+        <label for="storage-creation-currency" i18n="@@currency">Currency</label>
         <select formControlName="currencyId" class="custom-select" id="storage-creation-currency"
                 aria-describedby="storage-creation-currency-help-block">
             <ng-container *ngIf="currencies; else loadingCurrencies">
@@ -28,15 +32,13 @@
                 <option [value]="mainCurrency.id">{{mainCurrency.name}}</option>
             </ng-template>
         </select>
-        <div id="storage-creation-currency-help-block" class="form-text text-muted small">
-            Сan not be changed in the future
-        </div>
+        <div id="storage-creation-currency-help-block" class="form-text text-muted small" i18n>Сan not be changed in the future</div>
         <div *ngIf="form.controls.currencyId.errors" class="invalid-feedback">
-            <div *ngIf="form.controls.currencyId.errors.required">Required</div>
+            <div *ngIf="form.controls.currencyId.errors.required" i18n="Input error@@required">Required</div>
         </div>
     </div>
     <div class="form-group">
-        <label for="storage-creation-initial-balance">Initial balance</label>
+        <label for="storage-creation-initial-balance" i18n="@@initial-balance">Initial balance</label>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="storage-creation-currency-iso-code">{{selectedCurrency.isoCode}}</span>
@@ -48,7 +50,9 @@
     </div>
     <button [disabled]="isLoading" class="btn btn-outline-primary" type="submit">
         <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
-        Create
+        <ng-container i18n="@@create">Create</ng-container>
     </button>
-    <button (click)="onCancelClick()" [disabled]="isLoading" class="btn btn-link mr-2">Cancel</button>
+    <button (click)="onCancelClick()" [disabled]="isLoading" class="btn btn-link mr-2">
+        <ng-container i18n="@@cancel">Cancel</ng-container>
+    </button>
 </form>

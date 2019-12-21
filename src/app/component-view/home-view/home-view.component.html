@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 d-block mb-3">
-            <h4 class="mb-3">New operation</h4>
+            <h4 class="mb-3" i18n="@@new-operation">New operation</h4>
             <div *ngIf="storages && userCategories; else loadingCard" class="card">
                 <div class="card-body">
                     <app-operation-creation-form [singleStorageMode]="false" [storages]="storages"
@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="col-md-6 d-block mb-3">
-            <h4 class="mb-3">Balance</h4>
+            <h4 class="mb-3" i18n="@@balance">Balance</h4>
             <ng-container *ngIf="userDetailsService.userDetails$ | async as userDetails; else loadingCard">
                 <app-balance-card *ngIf="balanceService.balance$ | async as balances; else loadingCard" [balances]="balances"
                                   [mainCurrency]="userDetails.mainCurrency">
@@ -23,16 +23,17 @@
         <ng-container *ngIf="storages | isInvitationFilter:true as invitations">
             <ng-container *ngIf="invitations.length > 0">
                 <div class="row">
-                    <h4 class="col-12 mb-3">Invitations</h4>
+                    <h4 class="col-12 mb-3" i18n="Storages invitations@@invitations">Invitations</h4>
                     <ng-container *ngFor="let invitation of invitations">
-                        <app-storage-card [storage]="invitation" class="col-sm-6 col-lg-4 mb-3"></app-storage-card>
+                        <app-storage-card [storage]="invitation"
+                                          class="col-sm-6 col-lg-4 mb-3"></app-storage-card>
                     </ng-container>
                 </div>
             </ng-container>
         </ng-container>
     </ng-container>
     <div class="row">
-        <h4 class="col-12 mb-3">Storages</h4>
+        <h4 class="col-12 mb-3" i18n="@@storages">Storages</h4>
         <ng-container *ngIf="storages; else loadingCard">
             <app-storage-card *ngFor="let storage of (storages | isInvitationFilter:false | isIncludedInUserStatisticsSort)"
                               [storage]="storage" class="col-sm-6 col-lg-4 mb-3">
@@ -46,7 +47,7 @@
     <div class="card mb-3">
         <div class="card-body">
             <span class="spinner-border spinner-border-sm mr-1"></span>
-            Loading
+            <ng-container i18n="@@loading">Loading</ng-container>
         </div>
     </div>
 </ng-template>

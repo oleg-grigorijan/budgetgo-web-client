@@ -24,7 +24,7 @@ export class OperationCreationFormComponent implements OnInit {
 
     wasSubmitted = false;
     isLoading = false;
-    success = '';
+    isSuccess = true;
 
     constructor(private readonly formBuilder: FormBuilder, private readonly operationsService: OperationsService) {
     }
@@ -40,7 +40,7 @@ export class OperationCreationFormComponent implements OnInit {
         });
 
         this.form.valueChanges.subscribe(() => {
-            this.success = '';
+            this.isSuccess = false;
         });
 
         if (this.singleStorageMode) {
@@ -67,14 +67,14 @@ export class OperationCreationFormComponent implements OnInit {
     }
 
     onCreateClick() {
-        this.success = '';
         this.wasSubmitted = true;
+        this.isLoading = true;
 
         if (this.form.invalid) {
+            this.isLoading = false;
             return;
-        }
 
-        this.isLoading = true;
+        }
 
         let sign = 1;
         if (this.form.controls.type.value === OperationType.OUTCOME) {
@@ -83,7 +83,7 @@ export class OperationCreationFormComponent implements OnInit {
         this.form.controls.moneyDelta.patchValue(sign * this.form.controls.moneyAmountFloat.value * 100);
 
         this.operationsService.create(this.storage.id, this.form.value).subscribe(() => {
-            this.success = 'Created';
+            this.isSuccess = true;
             this.isLoading = false;
         });
     }

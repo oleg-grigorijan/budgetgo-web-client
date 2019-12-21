@@ -10,7 +10,7 @@ export const environment = {
         large: 992,
         extraLarge: 1200
     },
-    apiBaseUrl: 'http://192.168.100.16:8080/api'
+    apiBaseUrl: 'http://localhost:8080/api'
 };
 
 /*

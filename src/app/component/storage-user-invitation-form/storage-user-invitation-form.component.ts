@@ -6,6 +6,7 @@ import {StorageUser} from '../../entity/storage-user';
 import {UsersService} from '../../service/users.service';
 import {StorageUsersService} from '../../service/storage-users.service';
 import {Storage} from '../../entity/storage';
+import {throwError} from 'rxjs';
 
 @Component({
     selector: 'app-storage-user-invitation-form',
@@ -13,6 +14,8 @@ import {Storage} from '../../entity/storage';
     styleUrls: []
 })
 export class StorageUserInvitationFormComponent implements OnInit {
+
+    userStorageRole = UserStorageRole;
 
     @Input() storage: Storage;
     @Input() storageUsers: StorageUser[];
@@ -23,7 +26,8 @@ export class StorageUserInvitationFormComponent implements OnInit {
 
     isSearching = false;
     isInviteLoading = false;
-    searchError = '';
+    isUserAlreadyHereError = false;
+    isUserNotFoundError = false;
 
     constructor(private readonly usersService: UsersService, private readonly storageUsersService: StorageUsersService) {
     }
@@ -32,22 +36,27 @@ export class StorageUserInvitationFormComponent implements OnInit {
     }
 
     onInvitationUserSearchClick() {
-        this.searchError = '';
+        this.isUserNotFoundError = false;
+        this.isUserAlreadyHereError = false;
         this.isSearching = true;
+
         if (this.storageUsers.find(su => su.user.login === this.userLogin)) {
             this.invitationUser = null;
-            this.searchError = 'User is already here';
+            this.isUserAlreadyHereError = true;
             this.isSearching = false;
+
         } else {
             this.usersService.getByLogin(this.userLogin).subscribe(invitationUser => {
                 this.invitationUser = invitationUser;
                 this.isSearching = false;
             }, error => {
                 if (error instanceof HttpErrorResponse && error.status === 404) {
-                    this.searchError = 'User not found';
+                    this.isUserNotFoundError = true;
+                    this.invitationUser = null;
+                    this.isSearching = false;
+                } else {
+                    throwError(error);
                 }
-                this.invitationUser = null;
-                this.isSearching = false;
             });
         }
     }

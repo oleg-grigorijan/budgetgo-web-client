@@ -21,7 +21,8 @@ export class RegistrationFormComponent implements OnInit {
 
     wasSubmitted = false;
     isLoading = false;
-    error = '';
+    isLoginExistsError = false;
+    isEmailExistsError = false;
 
     constructor(
         private readonly formBuilder: FormBuilder,
@@ -42,12 +43,12 @@ export class RegistrationFormComponent implements OnInit {
         });
 
         this.form.valueChanges.subscribe(() => {
-            this.error = '';
+            this.isEmailExistsError = false;
+            this.isLoginExistsError = false;
         });
     }
 
     onSingUpClick() {
-        this.error = '';
         this.wasSubmitted = true;
         this.isLoading = true;
 
@@ -61,7 +62,7 @@ export class RegistrationFormComponent implements OnInit {
         const password = this.form.controls.password.value;
 
         this.usersService.getByLogin(login).subscribe(() => {
-            this.error = 'User with such a login already exists';
+            this.isLoginExistsError = true;
             this.isLoading = false;
 
         }, loginError => {
@@ -69,7 +70,7 @@ export class RegistrationFormComponent implements OnInit {
                 throwError(loginError);
             } else {
                 this.usersService.getByEmail(email).subscribe(() => {
-                    this.error = 'User with such an email already exists';
+                    this.isEmailExistsError = true;
                     this.isLoading = false;
 
                 }, emailError => {
