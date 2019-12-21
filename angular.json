@@ -58,6 +58,14 @@
                                 }
                             ]
                         },
+                        "en": {
+                            "aot": true,
+                            "outputPath": "dist/budgetgo-web-client-en/",
+                            "i18nFile": "src/locale/messages.en.xlf",
+                            "i18nFormat": "xlf",
+                            "i18nLocale": "en",
+                            "i18nMissingTranslation": "error"
+                        },
                         "ru": {
                             "aot": true,
                             "outputPath": "dist/budgetgo-web-client-ru/",
@@ -76,6 +84,9 @@
                     "configurations": {
                         "production": {
                             "browserTarget": "budgetgo-web-client:build:production"
+                        },
+                        "en": {
+                            "browserTarget": "budgetgo-web-client:build:en"
                         },
                         "ru": {
                             "browserTarget": "budgetgo-web-client:build:ru"
