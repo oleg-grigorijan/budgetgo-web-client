@@ -15,6 +15,8 @@ import {throwError} from 'rxjs';
 })
 export class StorageUserInvitationFormComponent implements OnInit {
 
+    userStorageRole = UserStorageRole;
+
     @Input() storage: Storage;
     @Input() storageUsers: StorageUser[];
 

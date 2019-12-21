@@ -24,7 +24,11 @@
     </div>
     <div class="dropdown d-inline mr-2">
         <button [disabled]="isInviteLoading" class="btn btn-outline-dark dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true">
-            {{invitationUserRole | titlecase}}
+            <ng-container [ngSwitch]="invitationUserRole">
+                <ng-container *ngSwitchCase="userStorageRole.VIEWER" i18n="@@viewer">Viewer</ng-container>
+                <ng-container *ngSwitchCase="userStorageRole.ADMIN" i18n="@@admin">Admin</ng-container>
+                <ng-container *ngSwitchCase="userStorageRole.EDITOR" i18n="@@editor">Editor</ng-container>
+            </ng-container>
         </button>
         <div class="dropdown-menu">
             <h6 class="dropdown-header" i18n="@@change-user-role">Change role</h6>

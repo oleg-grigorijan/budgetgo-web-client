@@ -123,40 +123,6 @@
           <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8081a203986cd7d2df6690c76d0168abad20c761" datatype="html">
-        <source>Create your first storage</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/component-view/first-storage-creation-view/first-storage-creation-view.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="loading" datatype="html">
-        <source>Loading</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/component-view/first-storage-creation-view/first-storage-creation-view.component.html</context>
-          <context context-type="linenumber">16</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/component-view/home-view/home-view.component.html</context>
-          <context context-type="linenumber">50</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/component-view/welcome-view/welcome-view.component.html</context>
-          <context context-type="linenumber">36</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/component-view/user-settings-view/user-settings-view.component.html</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/component-view/storage-view/storage-view.component.html</context>
-          <context context-type="linenumber">48</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
-          <context context-type="linenumber">49</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="new-operation" datatype="html">
         <source>New operation</source>
         <context-group purpose="location">
@@ -188,6 +154,33 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component-view/home-view/home-view.component.html</context>
           <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loading" datatype="html">
+        <source>Loading</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/home-view/home-view.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/welcome-view/welcome-view.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/user-settings-view/user-settings-view.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/storage-view/storage-view.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/first-storage-creation-view/first-storage-creation-view.component.html</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="welcome" datatype="html">
@@ -644,22 +637,79 @@
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="change-user-role" datatype="html">
-        <source>Change role</source>
+      <trans-unit id="viewer" datatype="html">
+        <source>Viewer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin" datatype="html">
+        <source>Admin</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editor" datatype="html">
+        <source>Editor</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
           <context context-type="linenumber">32</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
           <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="change-user-role" datatype="html">
+        <source>Change role</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="remove" datatype="html">
         <source>Remove</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">41</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
@@ -668,6 +718,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/operations-list/operations-list.component.html</context>
           <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="creator" datatype="html">
+        <source>Creator</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="settings" datatype="html">
@@ -904,6 +961,13 @@
           <context context-type="linenumber">78</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="8081a203986cd7d2df6690c76d0168abad20c761" datatype="html">
+        <source>Create your first storage</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component-view/first-storage-creation-view/first-storage-creation-view.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="search" datatype="html">
         <source>Search</source>
         <context-group purpose="location">
@@ -929,14 +993,7 @@
         <source>Invite</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
-          <context context-type="linenumber">36</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="viewer" datatype="html">
-        <source>Viewer</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
-          <context context-type="linenumber">2</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="10c3ad7e2103bed0166a920a519b48673d07e079" datatype="html">
@@ -944,13 +1001,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
           <context context-type="linenumber">4</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="editor" datatype="html">
-        <source>Editor</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
-          <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="36bee3bca04aebdf5aa616dfe779bfdf587f0783" datatype="html">
@@ -972,13 +1022,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
           <context context-type="linenumber">12</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="admin" datatype="html">
-        <source>Admin</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component.html</context>
-          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5b0e5511320752d91e8dd37bc3b8d504280a58de" datatype="html">

@@ -26,7 +26,11 @@
                              && authoritiesService.canBeModifiedBy(storageUser.userRole, storage.settings.userRole); else cantModify" class="d-flex">
                             <div class="dropdown mr-3">
                                 <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true">
-                                    {{storageUser.userRole | titlecase}}
+                                    <ng-container [ngSwitch]="storageUser.userRole">
+                                        <ng-container *ngSwitchCase="userStorageRole.VIEWER" i18n="@@viewer">Viewer</ng-container>
+                                        <ng-container *ngSwitchCase="userStorageRole.ADMIN" i18n="@@admin">Admin</ng-container>
+                                        <ng-container *ngSwitchCase="userStorageRole.EDITOR" i18n="@@editor">Editor</ng-container>
+                                    </ng-container>
                                 </a>
                                 <div class="dropdown-menu">
                                     <h6 class="dropdown-header" i18n="@@change-user-role">Change role</h6>
@@ -37,7 +41,12 @@
                             <a (click)="onRemoveUserClick(storageUser)" class="text-danger" i18n="@@remove">Remove</a>
                         </div>
                         <ng-template #cantModify>
-                            {{storageUser.userRole | titlecase}}
+                            <ng-container [ngSwitch]="storageUser.userRole">
+                                <ng-container *ngSwitchCase="userStorageRole.VIEWER" i18n="@@viewer">Viewer</ng-container>
+                                <ng-container *ngSwitchCase="userStorageRole.ADMIN" i18n="@@admin">Admin</ng-container>
+                                <ng-container *ngSwitchCase="userStorageRole.EDITOR" i18n="@@editor">Editor</ng-container>
+                                <ng-container *ngSwitchCase="userStorageRole.CREATOR" i18n="@@creator">Creator</ng-container>
+                            </ng-container>
                         </ng-template>
                     </div>
                 </ng-container>

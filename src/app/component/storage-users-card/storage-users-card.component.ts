@@ -14,6 +14,8 @@ import {UserStorageRole} from '../../entity/user-storage-role';
 })
 export class StorageUsersCardComponent implements OnInit {
 
+    userStorageRole = UserStorageRole;
+
     @Input() storage: Storage;
 
     storageUsers: StorageUser[];
