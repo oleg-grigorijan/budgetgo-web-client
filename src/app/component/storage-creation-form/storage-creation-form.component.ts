@@ -12,7 +12,8 @@ import {Currency} from '../../entity/currency';
 export class StorageCreationFormComponent implements OnInit {
 
     @Input() mainCurrency: Currency;
-    @Output() returning = new EventEmitter<boolean>();
+    @Output() cancelReturning = new EventEmitter<void>();
+    @Output() createReturning = new EventEmitter<void>();
 
     form: FormGroup;
     isLoading = false;
@@ -56,17 +57,20 @@ export class StorageCreationFormComponent implements OnInit {
 
     onCreateClick() {
         this.wasSubmitted = true;
+        this.isLoading = true;
+
         if (this.form.invalid) {
+            this.isLoading = false;
             return;
         }
-        this.isLoading = true;
+
         this.storagesService.create(this.form.value).subscribe(() => {
-            this.returning.emit(true);
             this.isLoading = false;
+            this.createReturning.emit();
         });
     }
 
     onCancelClick() {
-        this.returning.emit(false);
+        this.cancelReturning.emit();
     }
 }

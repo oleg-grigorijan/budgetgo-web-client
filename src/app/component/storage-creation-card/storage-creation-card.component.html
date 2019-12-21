@@ -8,7 +8,7 @@
             </button>
         </ng-container>
         <ng-template #storageCreation>
-            <app-storage-creation-form (returning)="onStorageCreationReturn()"
+            <app-storage-creation-form (cancelReturning)="onStorageCreationReturn()" (createReturning)="onStorageCreationReturn()"
                                        [mainCurrency]="userDetails.mainCurrency"></app-storage-creation-form>
         </ng-template>
     </div>

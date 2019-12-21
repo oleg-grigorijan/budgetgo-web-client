@@ -52,7 +52,7 @@
         <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
         <ng-container i18n="@@create">Create</ng-container>
     </button>
-    <button (click)="onCancelClick()" [disabled]="isLoading" class="btn btn-link mr-2">
+    <button *ngIf="cancelReturning.observers.length > 0" (click)="onCancelClick()" [disabled]="isLoading" class="btn btn-link mr-2">
         <ng-container i18n="@@cancel">Cancel</ng-container>
     </button>
 </form>
