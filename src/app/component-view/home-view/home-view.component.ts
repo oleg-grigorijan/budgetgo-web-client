@@ -6,6 +6,8 @@ import {Subscription} from 'rxjs';
 import {Storage} from '../../entity/storage';
 import {BalanceService} from '../../service/balance.service';
 import {UserDetailsService} from '../../service/user-details.service';
+import {Router} from '@angular/router';
+import {FirstStorageCreationViewComponent} from '../first-storage-creation-view/first-storage-creation-view.component';
 
 @Component({
     selector: 'app-home-view',
@@ -22,6 +24,7 @@ export class HomeViewComponent implements OnInit, OnDestroy {
     userCategories: UserCategory[];
 
     constructor(
+        private readonly router: Router,
         private readonly storagesService: StoragesService,
         private readonly userCategoriesService: UserCategoriesService,
         readonly balanceService: BalanceService,
@@ -32,6 +35,9 @@ export class HomeViewComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.subscriptions.push(this.storagesService.storages$.subscribe(storages => {
             this.storages = storages;
+            if (storages && storages.length === 0) {
+                this.router.navigate([FirstStorageCreationViewComponent.PATH]);
+            }
         }));
         this.subscriptions.push(this.userCategoriesService.userCategories$.subscribe(userCategories => {
             this.userCategories = userCategories;
