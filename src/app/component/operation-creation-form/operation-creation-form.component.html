@@ -23,8 +23,14 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="operation-creation-currency-iso-code">{{storage.currency.isoCode}}</span>
             </div>
-            <input formControlName="moneyAmountFloat" currencyMask class="form-control" id="operation-creation-money-amount" type="text" placeholder="0.00"
-                   autocomplete="off" aria-describedby="operation-creation-currency-iso-code">
+            <input formControlName="moneyAmountFloat" currencyMask class="form-control"
+                   [class.is-invalid]="wasSubmitted && form.controls.moneyAmountFloat.errors" id="operation-creation-money-amount" type="text"
+                   placeholder="0.00" autocomplete="off" aria-describedby="operation-creation-currency-iso-code">
+        </div>
+        <div *ngIf="wasSubmitted && form.controls.moneyAmountFloat.errors" class="text-danger small">
+            <div *ngIf="form.controls.moneyAmountFloat.errors.max">
+                <ng-container i18n="Input error@@max-value">Max value is</ng-container> {{form.controls.moneyAmountFloat.errors.max.max}}
+            </div>
         </div>
     </div>
     <div class="form-group">

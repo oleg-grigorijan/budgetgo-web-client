@@ -33,10 +33,10 @@ export class OperationCreationFormComponent implements OnInit {
         this.form = this.formBuilder.group({
             storageId: [],
             type: [],
-            moneyAmountFloat: [null],
+            moneyAmountFloat: [null, [Validators.max(9e16)]],
             moneyDelta: [0],
             categoryId: [],
-            description: ['', Validators.maxLength(255)]
+            description: ['', [Validators.maxLength(255)]]
         });
 
         this.form.valueChanges.subscribe(() => {
