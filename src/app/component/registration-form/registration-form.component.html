@@ -65,7 +65,7 @@
     <div class="form-group">
         <label for="registration-main-currency" i18n="@@main-currency">Main Currency</label>
         <select formControlName="mainCurrencyId" class="custom-select" id="registration-main-currency">
-            <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.name}}</option>
+            <option *ngFor="let currency of (currencies | currenciesIsoCodeSort)" [value]="currency.id">{{currency.isoCode}}</option>
         </select>
         <div *ngIf="form.controls.mainCurrencyId.errors" class="invalid-feedback">
             <div *ngIf="form.controls.mainCurrencyId.errors.required" i18n="Input error@@required">Required</div>

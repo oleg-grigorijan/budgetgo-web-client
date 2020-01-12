@@ -61,10 +61,10 @@
         <label for="user-edit-main-currency" i18n="@@main-currency">Main Currency</label>
         <select formControlName="mainCurrencyId" class="custom-select" id="user-edit-main-currency">
             <ng-container *ngIf="(currenciesService.currencies$ | async) as currencies; else loadingCurrencies">
-                <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.name}}</option>
+                <option *ngFor="let currency of (currencies | currenciesIsoCodeSort)" [value]="currency.id">{{currency.isoCode}}</option>
             </ng-container>
             <ng-template #loadingCurrencies>
-                <option [value]="userDetails.mainCurrency.id">{{userDetails.mainCurrency.name}}</option>
+                <option [value]="userDetails.mainCurrency.id">{{userDetails.mainCurrency.isoCode}}</option>
             </ng-template>
         </select>
     </div>

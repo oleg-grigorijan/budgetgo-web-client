@@ -26,10 +26,10 @@
         <select formControlName="currencyId" class="custom-select" id="storage-creation-currency"
                 aria-describedby="storage-creation-currency-help-block">
             <ng-container *ngIf="currencies; else loadingCurrencies">
-                <option *ngFor="let currency of currencies" [value]="currency.id">{{currency.name}}</option>
+                <option *ngFor="let currency of (currencies | currenciesIsoCodeSort)" [value]="currency.id">{{currency.isoCode}}</option>
             </ng-container>
             <ng-template #loadingCurrencies>
-                <option [value]="mainCurrency.id">{{mainCurrency.name}}</option>
+                <option [value]="mainCurrency.id">{{mainCurrency.isoCode}}</option>
             </ng-template>
         </select>
         <div id="storage-creation-currency-help-block" class="form-text text-muted small" i18n>Сan not be changed in the future</div>

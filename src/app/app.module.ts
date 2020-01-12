@@ -18,26 +18,27 @@ import {StorageCreationFormComponent} from './component/storage-creation-form/st
 import {StorageCardComponent} from './component/storage-card/storage-card.component';
 import {StorageCreationCardComponent} from './component/storage-creation-card/storage-creation-card.component';
 import {NgxCurrencyModule} from 'ngx-currency';
-import { StorageViewComponent } from './component-view/storage-view/storage-view.component';
-import { StorageUsersCardComponent } from './component/storage-users-card/storage-users-card.component';
-import { IsInvitationFilterPipe } from './pipe/is-invitation-filter.pipe';
-import { IsIncludedInUserStatisticsSortPipe } from './pipe/is-included-in-user-statistics-sort.pipe';
-import { StorageEditFormComponent } from './component/storage-edit-form/storage-edit-form.component';
-import { StorageSettingsCardComponent } from './component/storage-settings-card/storage-settings-card.component';
-import { UserCategoryCreationFormComponent } from './component/user-category-creation-form/user-category-creation-form.component';
-import { UserCategoriesCardComponent } from './component/user-categories-card/user-categories-card.component';
-import { UserCategoriesSettingsViewComponent } from './component-view/user-categories-settings-view/user-categories-settings-view.component';
-import { OperationCreationFormComponent } from './component/operation-creation-form/operation-creation-form.component';
-import { OperationsListComponent } from './component/operations-list/operations-list.component';
-import { OperationsDateSortPipe } from './pipe/operations-date-sort.pipe';
-import { OperationEditFormComponent } from './component/operation-edit-form/operation-edit-form.component';
-import { UserCategoriesNameSortPipe } from './pipe/user-categories-name-sort.pipe';
-import { BalanceCardComponent } from './component/balance-card/balance-card.component';
-import { RegistrationFormComponent } from './component/registration-form/registration-form.component';
-import { FirstStorageCreationViewComponent } from './component-view/first-storage-creation-view/first-storage-creation-view.component';
-import { StorageUserInvitationFormComponent } from './component/storage-user-invitation-form/storage-user-invitation-form.component';
-import { UserStorageRolesDropdownItemsComponent } from './component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component';
-import { NotFoundViewComponent } from './component-view/not-found-view/not-found-view.component';
+import {StorageViewComponent} from './component-view/storage-view/storage-view.component';
+import {StorageUsersCardComponent} from './component/storage-users-card/storage-users-card.component';
+import {IsInvitationFilterPipe} from './pipe/is-invitation-filter.pipe';
+import {IsIncludedInUserStatisticsSortPipe} from './pipe/is-included-in-user-statistics-sort.pipe';
+import {StorageEditFormComponent} from './component/storage-edit-form/storage-edit-form.component';
+import {StorageSettingsCardComponent} from './component/storage-settings-card/storage-settings-card.component';
+import {UserCategoryCreationFormComponent} from './component/user-category-creation-form/user-category-creation-form.component';
+import {UserCategoriesCardComponent} from './component/user-categories-card/user-categories-card.component';
+import {UserCategoriesSettingsViewComponent} from './component-view/user-categories-settings-view/user-categories-settings-view.component';
+import {OperationCreationFormComponent} from './component/operation-creation-form/operation-creation-form.component';
+import {OperationsListComponent} from './component/operations-list/operations-list.component';
+import {OperationsDateSortPipe} from './pipe/operations-date-sort.pipe';
+import {OperationEditFormComponent} from './component/operation-edit-form/operation-edit-form.component';
+import {UserCategoriesNameSortPipe} from './pipe/user-categories-name-sort.pipe';
+import {BalanceCardComponent} from './component/balance-card/balance-card.component';
+import {RegistrationFormComponent} from './component/registration-form/registration-form.component';
+import {FirstStorageCreationViewComponent} from './component-view/first-storage-creation-view/first-storage-creation-view.component';
+import {StorageUserInvitationFormComponent} from './component/storage-user-invitation-form/storage-user-invitation-form.component';
+import {UserStorageRolesDropdownItemsComponent} from './component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component';
+import {NotFoundViewComponent} from './component-view/not-found-view/not-found-view.component';
+import {CurrenciesIsoCodeSortPipe} from './pipe/currencies-iso-code-sort.pipe';
 
 @NgModule({
     declarations: [
@@ -73,6 +74,7 @@ import { NotFoundViewComponent } from './component-view/not-found-view/not-found
         StorageUserInvitationFormComponent,
         UserStorageRolesDropdownItemsComponent,
         NotFoundViewComponent,
+        CurrenciesIsoCodeSortPipe,
     ],
     imports: [
         BrowserModule,
