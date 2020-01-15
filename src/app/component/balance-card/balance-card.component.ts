@@ -12,12 +12,9 @@ export class BalanceCardComponent implements OnInit {
     @Input() balances: Balance[];
     @Input() mainCurrency: Currency;
 
-    mainBalance: Balance;
-
     constructor() {
     }
 
     ngOnInit() {
-        this.mainBalance = this.balances.find(b => b.currency.id === this.mainCurrency.id);
     }
 }

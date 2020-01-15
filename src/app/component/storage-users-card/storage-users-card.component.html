@@ -9,6 +9,7 @@
         <div class="collapse" id="storage-users-content">
             <ng-container *ngIf="storageUsers">
                 <div *ngIf="authoritiesService.canSendInvitations(storage.settings.userRole)" class="list-group-item">
+                    <h6 class="card-title mb-2" i18n="@@invite-user">Invite user</h6>
                     <app-storage-user-invitation-form [storage]="storage" [storageUsers]="storageUsers"></app-storage-user-invitation-form>
                 </div>
                 <ng-container *ngIf="userDetailsService.userDetails$ | async as userDetails">

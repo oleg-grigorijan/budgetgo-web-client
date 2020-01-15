@@ -36,6 +36,7 @@ export class OperationCreationFormComponent implements OnInit {
             moneyAmountFloat: [null, [Validators.max(9e16)]],
             moneyDelta: [0],
             categoryId: [],
+            date: new Date().toISOString().split('T')[0],
             description: ['', [Validators.maxLength(255)]]
         });
 
@@ -73,7 +74,6 @@ export class OperationCreationFormComponent implements OnInit {
         if (this.form.invalid) {
             this.isLoading = false;
             return;
-
         }
 
         let sign = 1;

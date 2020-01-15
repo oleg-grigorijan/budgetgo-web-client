@@ -39,6 +39,7 @@ import {StorageUserInvitationFormComponent} from './component/storage-user-invit
 import {UserStorageRolesDropdownItemsComponent} from './component/user-storage-roles-dropdown-items/user-storage-roles-dropdown-items.component';
 import {NotFoundViewComponent} from './component-view/not-found-view/not-found-view.component';
 import {CurrenciesIsoCodeSortPipe} from './pipe/currencies-iso-code-sort.pipe';
+import {BalancesCurrencyIsoCodeSortPipe} from './pipe/balances-currency-iso-code-sort.pipe';
 
 @NgModule({
     declarations: [
@@ -75,6 +76,7 @@ import {CurrenciesIsoCodeSortPipe} from './pipe/currencies-iso-code-sort.pipe';
         UserStorageRolesDropdownItemsComponent,
         NotFoundViewComponent,
         CurrenciesIsoCodeSortPipe,
+        BalancesCurrencyIsoCodeSortPipe,
     ],
     imports: [
         BrowserModule,

@@ -644,15 +644,22 @@
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="invite-user" datatype="html">
+        <source>Invite user</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="viewer" datatype="html">
         <source>Viewer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">31</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">46</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
@@ -667,11 +674,11 @@
         <source>Admin</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">32</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">47</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
@@ -686,11 +693,11 @@
         <source>Editor</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">33</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">48</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
@@ -705,7 +712,7 @@
         <source>Change role</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">37</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-user-invitation-form/storage-user-invitation-form.component.html</context>
@@ -716,7 +723,7 @@
         <source>Remove</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">42</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
@@ -731,7 +738,7 @@
         <source>Creator</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/storage-users-card/storage-users-card.component.html</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="settings" datatype="html">
@@ -808,7 +815,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="new-operations-category" datatype="html">
-        <source>Тew category</source>
+        <source>New category</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/user-categories-card/user-categories-card.component.html</context>
           <context context-type="linenumber">5</context>
@@ -938,7 +945,7 @@
         <source>You have no storages with activated statistics</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/balance-card/balance-card.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="email" datatype="html">
