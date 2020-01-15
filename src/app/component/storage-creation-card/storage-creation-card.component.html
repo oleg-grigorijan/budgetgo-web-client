@@ -1,0 +1,15 @@
+<div *ngIf="(userDetailsService.userDetails$ | async) as userDetails" class="card" [ngClass]="{'text-secondary card-action': !creatingStorage}">
+    <div class="card-body">
+        <h5 class="card-title mb-1" i18n="@@new-storage">New storage</h5>
+        <ng-container *ngIf="!creatingStorage; else storageCreation">
+            <p class="card-text" i18n>Storage is a place for all your incomes and outcomes</p>
+            <button (click)="onCreateStorageClick()" class="btn btn-outline-secondary stretched-link">
+                <ng-container i18n="@@create">Create</ng-container>
+            </button>
+        </ng-container>
+        <ng-template #storageCreation>
+            <app-storage-creation-form (cancelReturning)="onStorageCreationReturn()" (createReturning)="onStorageCreationReturn()"
+                                       [mainCurrency]="userDetails.mainCurrency"></app-storage-creation-form>
+        </ng-template>
+    </div>
+</div>

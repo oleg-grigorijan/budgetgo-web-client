@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+a, .btn, .list-group-item-action {
+    cursor: pointer;
+}
+
+.list-group-item-action {
+    z-index: 1;
+}
+
+.card-action {
+    cursor: pointer;
+}
+
+.card-action:hover {
+    z-index: 1;
+    text-decoration: none;
+    background-color: #f8f9fa;
+}

@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-4">
+            <h4 class="mb-3" i18n="@@storage">Storage</h4>
+            <ng-container *ngIf="storage; else loadingCard">
+                <div class="mb-3">
+                    <app-storage-card (declineInvitationClick)="onUnsubscription()" [storage]="storage"></app-storage-card>
+                </div>
+
+                <div *ngIf="authoritiesService.canModifyStorage(storage.settings.userRole)" class="card mb-3">
+                    <div class="list-group list-group-flush">
+                        <a class="list-group-item list-group-item-action dropdown-toggle" data-toggle="collapse" href="#new-operation-content"
+                           role="button" aria-expanded="false" aria-controls="new-operation-content">
+                            <ng-container i18n="@@new-operation">New operation</ng-container>
+                            <span *ngIf="!userCategories || !operations" class="spinner-border spinner-border-sm mx-1"></span>
+                        </a>
+                        <div class="collapse" [class.show]="expandNewOperationByDefault" id="new-operation-content">
+                            <app-operation-creation-form *ngIf="userCategories && operations" [singleStorageMode]="true" [storage]="storage"
+                                                         [userCategories]="userCategories"
+                                                         class="list-group-item py-3">
+                            </app-operation-creation-form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <app-storage-users-card [storage]="storage"></app-storage-users-card>
+                </div>
+
+                <div class="mb-3">
+                    <app-storage-settings-card (unsubscribeClick)="onUnsubscription()" [storage]="storage"></app-storage-settings-card>
+                </div>
+            </ng-container>
+        </div>
+        <div class="col-md-6 col-lg-8">
+            <h4 class="mb-3" i18n="@@operations">Operations</h4>
+            <div *ngIf="storage && operations; else loadingCard" class="mb-3">
+                <app-operations-list [operations]="operations"></app-operations-list>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #loadingCard>
+    <div class="card mb-3">
+        <div class="card-body">
+            <span class="spinner-border spinner-border-sm mr-1"></span>
+            <ng-container i18n="@@loading">Loading</ng-container>
+        </div>
+    </div>
+</ng-template>

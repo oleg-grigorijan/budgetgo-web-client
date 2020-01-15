@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+    production: false,
+    mediaBreakpoints: {
+        small: 576,
+        medium: 768,
+        large: 992,
+        extraLarge: 1200
+    },
+    apiBaseUrl: 'http://localhost:8080/api'
 };
 
 /*

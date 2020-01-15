@@ -1,0 +1,19 @@
+<div class="container">
+    <h3 class="mb-3" i18n>Create your first storage</h3>
+    <ng-container *ngIf="userDetailsService.userDetails$ | async as userDetails; else loadingCard">
+        <div *ngIf="isReady; else loadingCard" class="card mb-3">
+            <div class="card-body">
+                <app-storage-creation-form [mainCurrency]="userDetails.mainCurrency"></app-storage-creation-form>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+<ng-template #loadingCard>
+    <div class="card mb-3">
+        <div class="card-body">
+            <span class="spinner-border spinner-border-sm mr-1"></span>
+            <ng-template i18n="@@loading">Loading</ng-template>
+        </div>
+    </div>
+</ng-template>

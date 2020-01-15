@@ -1,0 +1,93 @@
+<form [formGroup]="form" (ngSubmit)="onSaveClick()">
+    <div class="form-group">
+        <label for="user-edit-login" i18n="@@login">Login</label>
+        <input formControlName="login" class="form-control" [class.is-invalid]="form.controls.login.errors" id="user-edit-login" type="text"
+               autocomplete="username"/>
+        <div *ngIf="form.controls.login.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.login.errors.required" i18n="Input error@@required">Required</div>
+            <div *ngIf="form.controls.login.errors.pattern" i18n="Input error@@login-rule">
+                Can contain only Latin letters, numbers, underscores, hyphens and periods
+            </div>
+            <div *ngIf="form.controls.login.errors.maxlength">
+                <ng-container i18n="Input error@@max-length">Max length is</ng-container> {{form.controls.login.errors.maxlength.requiredLength}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="user-edit-email">Email</label>
+        <input formControlName="email" class="form-control" [class.is-invalid]="form.controls.email.errors" id="user-edit-email" type="text"/>
+        <div *ngIf="form.controls.email.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.email.errors.required" i18n="Input error@@required">Required</div>
+            <div *ngIf="form.controls.email.errors.email" i18n="@@invalid-email">Invalid email</div>
+            <div *ngIf="form.controls.email.errors.maxlength">
+                <ng-container i18n="Input error@@max-length">Max length is</ng-container> {{form.controls.email.errors.maxlength.requiredLength}}
+            </div>
+        </div>
+        <div class="custom-control custom-checkbox mt-1">
+            <input formControlName="isEmailPublic" class="custom-control-input" id="user-edit-is-email-public" type="checkbox">
+            <label class="custom-control-label" for="user-edit-is-email-public" i18n="@@email-visible-for-everyone">
+                Make email visible for everyone
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="user-edit-btn-password" i18n="@@password">Password</label>
+        <button class="btn btn-light d-block" id="user-edit-btn-password" type="button" data-toggle="modal" data-target="#password-change-modal"
+                i18n="@@change">
+            Change
+        </button>
+    </div>
+    <div class="form-group">
+        <label for="user-edit-name" i18n="@@user-name">Name</label>
+        <input formControlName="name" class="form-control" [class.is-invalid]="form.controls.name.errors" id="user-edit-name" type="text"/>
+        <div *ngIf="form.controls.name.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.name.errors.required" i18n="Input error@@required">Required</div>
+            <div *ngIf="form.controls.name.errors.maxlength">
+                <ng-container i18n="Input error@@max-length">Max length is</ng-container> {{form.controls.name.errors.maxlength.requiredLength}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="user-edit-surname" i18n="@@surname">Surname</label>
+        <input formControlName="surname" class="form-control" [class.is-invalid]="form.controls.surname.errors" id="user-edit-surname" type="text"/>
+        <div *ngIf="form.controls.surname.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.surname.errors.required" i18n="Input error@@required">Required</div>
+            <div *ngIf="form.controls.surname.errors.maxlength">
+                <ng-container i18n="Input error@@max-length">Max length is</ng-container> {{form.controls.surname.errors.maxlength.requiredLength}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="user-edit-main-currency" i18n="@@main-currency">Main Currency</label>
+        <select formControlName="mainCurrencyId" class="custom-select" id="user-edit-main-currency">
+            <ng-container *ngIf="(currenciesService.currencies$ | async) as currencies; else loadingCurrencies">
+                <option *ngFor="let currency of (currencies | currenciesIsoCodeSort)" [value]="currency.id">{{currency.isoCode}}</option>
+            </ng-container>
+            <ng-template #loadingCurrencies>
+                <option [value]="userDetails.mainCurrency.id">{{userDetails.mainCurrency.isoCode}}</option>
+            </ng-template>
+        </select>
+    </div>
+    <div *ngIf="isSuccess" class="alert alert-success" i18n="@@alert-changes-saved">Changes saved</div>
+    <button [disabled]="isLoading || this.form.invalid" class="btn btn-outline-primary" type="submit">
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
+        <ng-container i18n="@@save">Save</ng-container>
+    </button>
+</form>
+
+
+<div class="modal fade" id="password-change-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" i18n="Password change modal window title">Password change</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <app-user-password-edit-form></app-user-password-edit-form>
+            </div>
+        </div>
+    </div>
+</div>

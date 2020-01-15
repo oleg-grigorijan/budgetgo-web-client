@@ -1,0 +1,33 @@
+<div class="card" [class.border-danger]="storage.settings.isIncludedInUserStatistics && storage.balance < 0">
+    <div class="card-body card-action" [class.text-secondary]="!storage.settings.isIncludedInUserStatistics">
+        <h5 class="card-title mb-1 ">{{storage.name}}</h5>
+        <p class="card-text text-muted mb-3">{{storage.description}}<br *ngIf="!storage.description"></p>
+        <h4 class="card-title mb-0" [class.text-danger]="storage.settings.isIncludedInUserStatistics && storage.balance < 0">
+            <span class="badge mr-1" [ngClass]="{
+                'badge-secondary': !storage.settings.isIncludedInUserStatistics,
+                'badge-danger': storage.settings.isIncludedInUserStatistics && storage.balance < 0,
+                'badge-dark': storage.settings.isIncludedInUserStatistics && storage.balance >= 0
+            }">
+                {{storage.currency.isoCode}}
+            </span>
+            {{storage.balance | money}}
+        </h4>
+        <a [routerLink]="['/storages', storage.id]" class="card-link stretched-link"></a>
+    </div>
+    <div *ngIf="storage.settings.isInvitation" class="card-footer bg-transparent pb-3">
+        <p class="card-text mb-2">
+            <ng-container i18n="@@user">User</ng-container> @{{storage.settings.inviter.login}} <ng-container
+            i18n="User @login invites you to this storage">invites you to this storage</ng-container>
+        </p>
+        <button (click)="onAcceptInvitationClick()"
+                [disabled]="this.isAcceptInvitationLoading || this.isDeclineInvitationLoading" class="btn btn-outline-success mr-2">
+            <span *ngIf="isAcceptInvitationLoading" class="spinner-border spinner-border-sm mr-1"></span>
+            <ng-container i18n="@@accept-invitation">Accept</ng-container>
+        </button>
+        <button (click)="onDeclineInvitationClick()"
+                [disabled]="this.isAcceptInvitationLoading || this.isDeclineInvitationLoading" class="btn btn-outline-danger">
+            <span *ngIf="isDeclineInvitationLoading" class="spinner-border spinner-border-sm mr-1"></span>
+            <ng-container i18n="@@decline-invitation">Decline</ng-container>
+        </button>
+    </div>
+</div>

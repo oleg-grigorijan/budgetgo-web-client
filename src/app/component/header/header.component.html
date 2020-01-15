@@ -1,0 +1,20 @@
+<header class="mb-2">
+    <nav class="navbar navbar-expand navbar-light">
+        <a routerLink="/" class="navbar-brand">Budget<span class="text-primary">GO</span></a>
+        <ul class="navbar-nav ml-auto">
+            <li *ngIf="this.authenticationService.isAuthenticated" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true">
+                    <span *ngIf="userDetailsService.userDetails$ | async as userDetails">
+                        {{userDetails.name}} {{userDetails.surname}}
+                    </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a routerLink="/settings" class="dropdown-item" i18n="@@account-settings">Account settings</a>
+                    <a routerLink="/categories/settings" class="dropdown-item" i18n="@@operations-categories-settings">Categories settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a (click)="onSignOutClick()" class="dropdown-item text-danger" role="button" i18n="@@sign-out">Sign out</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
